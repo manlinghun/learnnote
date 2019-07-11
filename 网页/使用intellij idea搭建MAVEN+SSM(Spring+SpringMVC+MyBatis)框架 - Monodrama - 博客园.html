@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)https://www.cnblogs.com/jingpeipei/p/6291071.html -->
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园</title>
+<link type="text/css" rel="stylesheet" href="./使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园_files/blog-common.css">
+<link id="MainCss" type="text/css" rel="stylesheet" href="./使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园_files/bundle-iMetro.css">
+<link type="text/css" rel="stylesheet" href="./使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园_files/270751.css">
+<link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="./使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园_files/bundle-iMetro-mobile.css">
+<link title="RSS" type="application/rss+xml" rel="alternate" href="http://www.cnblogs.com/jingpeipei/rss">
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="http://www.cnblogs.com/jingpeipei/rsd.xml">
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="http://www.cnblogs.com/jingpeipei/wlwmanifest.xml">
+<script async="" src="./使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园_files/analytics.js.下载"></script><script type="text/javascript" src="./使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园_files/encoder.js.下载"></script><script src="./使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园_files/jquery-2.2.0.min.js.下载"></script>
+<script type="text/javascript">var currentBlogApp = 'jingpeipei', cb_enable_mathjax=false;var isLogined=false;</script>
+<script src="./使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园_files/blog-common.js.下载" type="text/javascript"></script>
+</head>
+<body>
+<a name="top"></a>
+
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+	<a id="lnkBlogLogo" href="http://www.cnblogs.com/jingpeipei/"><img id="blogLogo" src="./使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园_files/logo.gif" alt="返回主页"></a>			
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle" href="http://www.cnblogs.com/jingpeipei/">나 는 당신</a></h1>
+<h2></h2>
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="http://www.cnblogs.com/">博客园</a></li>
+<li><a id="blog_nav_myhome" class="menu" href="http://www.cnblogs.com/jingpeipei/">首页</a></li>
+<li><a id="blog_nav_newpost" class="menu" rel="nofollow" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a></li>
+<li><a id="blog_nav_contact" class="menu" rel="nofollow" href="https://msg.cnblogs.com/send/Monodrama">联系</a></li>
+<li><a id="blog_nav_rss" class="menu" href="http://www.cnblogs.com/jingpeipei/rss">订阅</a>
+<!--<a id="blog_nav_rss_image" class="aHeaderXML" href="http://www.cnblogs.com/jingpeipei/rss"><img src="//www.cnblogs.com/images/xml.gif" alt="订阅" /></a>--></li>
+<li><a id="blog_nav_admin" class="menu" rel="nofollow" href="https://i.cnblogs.com/">管理</a></li>
+</ul>
+		<div class="blogStats">
+			
+			<div id="blog_stats">
+<span id="stats_post_count">随笔 - 119&nbsp; </span>
+<span id="stats_article_count">文章 - 0&nbsp; </span>
+<span id="stats-comment_count">评论 - 34</span>
+</div>
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		
+<div id="post_detail">
+<!--done-->
+<div id="topics">
+	<div class="post">
+		<h1 class="postTitle">
+			<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/jingpeipei/p/6291071.html">使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架</a>
+		</h1>
+		<div class="clear"></div>
+		<div class="postBody">
+			<div id="cnblogs_post_body" class="blogpost-body"><p>&nbsp;<span style="font-family: 楷体; font-size: 14pt;">基本概念</span></p>
+<p><span style="font-family: 楷体; font-size: 14pt;">&nbsp;　　　　使用SSM（Spring,SpringMVC和Mybatis）</span></p>
+<h3><span style="font-family: 楷体; font-size: 14pt;">1.1、Spring</span></h3>
+<p><span style="font-family: 楷体; font-size: 14pt;">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;Spring是一个开源框架，Spring是于2003&nbsp;年兴起的一个轻量级的<a class="replace_word" title="Java EE知识库" href="http://lib.csdn.net/base/javaee" target="_blank">Java</a>&nbsp;开发框架，由Rod&nbsp;Johnson&nbsp;在其著作Expert&nbsp;One-On-One&nbsp;J2EE&nbsp;Development&nbsp;and&nbsp;Design中阐述的部分理念和原型衍生而来。它是为了解决企业应用开发的复杂性而创建的。Spring使用基本的JavaBean来完成以前只可能由EJB完成的事情。然而，Spring的用途不仅限于服务器端的开发。从简单性、可<a class="replace_word" title="软件测试知识库" href="http://lib.csdn.net/base/softwaretest" target="_blank">测试</a>性和松耦合的角度而言，任何Java应用都可以从Spring中受益。&nbsp;简单来说，Spring是一个轻量级的控制反转（IoC）和面向切面（AOP）的容器框架。</span></p>
+<h3><span style="font-family: 楷体; font-size: 14pt;">1.2、SpringMVC</span></h3>
+<p><span style="font-family: 楷体; font-size: 14pt;">&nbsp;　　&nbsp;Spring&nbsp;MVC属于SpringFrameWork的后续产品，已经融合在Spring&nbsp;Web&nbsp;Flow里面。Spring&nbsp;MVC&nbsp;分离了<a href="http://baike.baidu.com/view/122229.htm" target="_blank">控制器</a>、模型<a href="http://baike.baidu.com/view/2387.htm" target="_blank">对象</a>、分派器以及处理程序对象的角色，这种分离让它们更容易进行定制。</span></p>
+<h3 class="p0"><span style="font-family: 楷体; font-size: 14pt;">&nbsp;1.3、MyBatis</span></h3>
+<p><span style="font-family: 楷体; font-size: 14pt;">　　　MyBatis&nbsp;本是<a href="http://baike.baidu.com/view/28283.htm" target="_blank">apache</a>的一个开源项目<a href="http://baike.baidu.com/view/628102.htm" target="_blank">iBatis</a>,&nbsp;2010年这个项目由apache&nbsp;software&nbsp;foundation&nbsp;迁移到了google&nbsp;code，并且改名为MyBatis&nbsp;。MyBatis是一个基于Java的<a href="http://baike.baidu.com/view/198047.htm" target="_blank">持久层</a>框架。iBATIS提供的<a href="http://baike.baidu.com/view/198047.htm" target="_blank">持久层</a>框架包括SQL&nbsp;Maps和Data&nbsp;Access&nbsp;Objects（DAO）MyBatis&nbsp;消除了几乎所有的JDBC代码和参数的手工设置以及结果集的检索。MyBatis&nbsp;使用简单的&nbsp;XML或注解用于配置和原始映射，将接口和&nbsp;Java&nbsp;的POJOs（Plain&nbsp;Old&nbsp;Java&nbsp;Objects，普通的&nbsp;Java对象）映射成<a class="replace_word" title="MySQL知识库" href="http://lib.csdn.net/base/mysql" target="_blank">数据库</a>中的记录。</span></p>
+<p>二、根据图来理解使用SSM添加数据</p>
+<p><span style="font-family: 楷体; font-size: 14pt;">1、首先使用idea创建一个maven项目</span></p>
+<p><span style="font-family: 楷体; font-size: 14pt;"><img src="./使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园_files/905498-20170117084245474-580223346.png" alt="" width="458" height="287"></span></p>
+<p><span style="font-family: 楷体; font-size: 14pt;">2.在弹出的窗体中选择maven，然后勾选要建的maven模板--这里选webApp</span></p>
+<p><img src="./使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园_files/905498-20170117084627864-1654405949.png" alt="" width="526" height="410"></p>
+<p><span style="font-family: 楷体; font-size: 14pt;">3.然后填入相应的maven项目组信息（这个是比较随意的）</span></p>
+<p><span style="font-family: 楷体; font-size: 14pt;"><img src="./使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园_files/905498-20170117084847911-1919300794.png" alt="" width="545" height="427"></span></p>
+<p><span style="font-family: 楷体; font-size: 14pt;">这里填写自己的maven本地仓库路径</span></p>
+<p><span style="font-family: 楷体; font-size: 14pt;"><img src="./使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园_files/905498-20170117085150427-1628467925.png" alt="" width="535" height="419"></span></p>
+<p>&nbsp;</p>
+<p><img src="./使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园_files/905498-20170117085237942-1469767361.png" alt="" width="428" height="335"></p>
+<p><span style="font-family: 楷体; font-size: 14pt;">maven会自动创建需要的一些配置信息以及目录结构，在这段时间里我们可以查找需要的jar包并在maven配置文件pom.xml里面进行配置，见下面步骤：</span></p>
+<p><span style="font-family: 楷体; font-size: 14pt;">这里如果不知道要用到什么jar包就去百度SpringMVC需要的jar包，然后在maven的官方链接单独查找jar包来配置pom.xml，实例如下（这里我示范去maven官网查找xml配置的部分，具体需要的jar包去我后面展示的pom.xml里面查找）：</span></p>
+<p><span style="font-family: 楷体; font-size: 14pt;">登录<a href="http://mvnrepository.com/">http://mvnrepository.com/</a>&nbsp;示例查找spring-beans</span></p>
+<p><span style="font-family: 楷体; font-size: 14pt;"><img src="./使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园_files/905498-20170117085817583-173379175.png" alt="" width="485" height="262"></span></p>
+<p>&nbsp;</p>
+<p><span style="font-family: 楷体; font-size: 14pt;">点击查找结果</span></p>
+<p><span style="font-family: 楷体; font-size: 14pt;"><img src="./使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园_files/905498-20170117085917489-1387984960.png" alt="" width="379" height="155"></span></p>
+<p><span style="font-family: 楷体; font-size: 14pt;">这里可以看到最新版以及使用人数最多的版本，自己选择--配置文件里面的jar包版本最好选择同一个版本避免版本冲突；</span></p>
+<p><span style="font-family: 楷体; font-size: 14pt;"><img src="./使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园_files/905498-20170117090202896-2140335711.png" alt="" width="429" height="536"></span></p>
+<p>&nbsp;</p>
+<p><span style="font-family: 楷体; font-size: 14pt;">我们选择第一个进入网页，里面可以看到maven的配置pom.xml文件写法，点击代码直接复制（自动复制）；</span></p>
+<p><span style="font-family: 楷体; font-size: 14pt;"><img src="./使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园_files/905498-20170117090320021-284341942.png" alt="" width="367" height="504"></span></p>
+<p>&nbsp;</p>
+<p><span style="font-family: 楷体; font-size: 14pt;">然后将复制的代码拷贝到pom.xml文件中去即可，maven会自动下载所需要的jar包，我们不需要理会</span></p>
+<p><span style="font-family: 楷体; font-size: 14pt;">maven pom.xml，maven会自动到库里面下载需要的jar包到maven仓库</span></p>
+<p>&nbsp;</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">project </span><span style="color: #ff0000;">xmlns</span><span style="color: #0000ff;">="http://maven.apache.org/POM/4.0.0"</span><span style="color: #ff0000;"> xmlns:xsi</span><span style="color: #0000ff;">="http://www.w3.org/2001/XMLSchema-instance"</span><span style="color: #ff0000;">
+  xsi:schemaLocation</span><span style="color: #0000ff;">="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"</span><span style="color: #0000ff;">&gt;</span>
+  <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">modelVersion</span><span style="color: #0000ff;">&gt;</span>4.0.0<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">modelVersion</span><span style="color: #0000ff;">&gt;</span>
+  <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">groupId</span><span style="color: #0000ff;">&gt;</span>cn.jpp<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">groupId</span><span style="color: #0000ff;">&gt;</span>
+  <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">artifactId</span><span style="color: #0000ff;">&gt;</span>SpringMVC_SSM<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">artifactId</span><span style="color: #0000ff;">&gt;</span>
+  <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">packaging</span><span style="color: #0000ff;">&gt;</span>war<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">packaging</span><span style="color: #0000ff;">&gt;</span>
+  <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">version</span><span style="color: #0000ff;">&gt;</span>1.0-SNAPSHOT<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">version</span><span style="color: #0000ff;">&gt;</span>
+  <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">name</span><span style="color: #0000ff;">&gt;</span>SpringMVC_SSM Maven Webapp<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">name</span><span style="color: #0000ff;">&gt;</span>
+  <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">url</span><span style="color: #0000ff;">&gt;</span>http://maven.apache.org<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">url</span><span style="color: #0000ff;">&gt;</span>
+  <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">dependencies</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">dependency</span><span style="color: #0000ff;">&gt;</span>
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">groupId</span><span style="color: #0000ff;">&gt;</span>junit<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">groupId</span><span style="color: #0000ff;">&gt;</span>
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">artifactId</span><span style="color: #0000ff;">&gt;</span>junit<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">artifactId</span><span style="color: #0000ff;">&gt;</span>
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">version</span><span style="color: #0000ff;">&gt;</span>3.8.1<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">version</span><span style="color: #0000ff;">&gt;</span>
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">scope</span><span style="color: #0000ff;">&gt;</span>test<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">scope</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">dependency</span><span style="color: #0000ff;">&gt;</span>
+
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">dependency</span><span style="color: #0000ff;">&gt;</span>
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">groupId</span><span style="color: #0000ff;">&gt;</span>javaee<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">groupId</span><span style="color: #0000ff;">&gt;</span>
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">artifactId</span><span style="color: #0000ff;">&gt;</span>javaee-api<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">artifactId</span><span style="color: #0000ff;">&gt;</span>
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">version</span><span style="color: #0000ff;">&gt;</span>5<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">version</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">dependency</span><span style="color: #0000ff;">&gt;</span>
+
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">dependency</span><span style="color: #0000ff;">&gt;</span>
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">groupId</span><span style="color: #0000ff;">&gt;</span>org.springframework<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">groupId</span><span style="color: #0000ff;">&gt;</span>
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">artifactId</span><span style="color: #0000ff;">&gt;</span>spring-core<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">artifactId</span><span style="color: #0000ff;">&gt;</span>
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">version</span><span style="color: #0000ff;">&gt;</span>4.2.2.RELEASE<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">version</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">dependency</span><span style="color: #0000ff;">&gt;</span>
+
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">dependency</span><span style="color: #0000ff;">&gt;</span>
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">groupId</span><span style="color: #0000ff;">&gt;</span>org.springframework<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">groupId</span><span style="color: #0000ff;">&gt;</span>
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">artifactId</span><span style="color: #0000ff;">&gt;</span>spring-beans<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">artifactId</span><span style="color: #0000ff;">&gt;</span>
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">version</span><span style="color: #0000ff;">&gt;</span>4.2.2.RELEASE<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">version</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">dependency</span><span style="color: #0000ff;">&gt;</span>
+
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">dependency</span><span style="color: #0000ff;">&gt;</span>
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">groupId</span><span style="color: #0000ff;">&gt;</span>org.springframework<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">groupId</span><span style="color: #0000ff;">&gt;</span>
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">artifactId</span><span style="color: #0000ff;">&gt;</span>spring-context<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">artifactId</span><span style="color: #0000ff;">&gt;</span>
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">version</span><span style="color: #0000ff;">&gt;</span>4.2.2.RELEASE<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">version</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">dependency</span><span style="color: #0000ff;">&gt;</span>
+
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">dependency</span><span style="color: #0000ff;">&gt;</span>
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">groupId</span><span style="color: #0000ff;">&gt;</span>org.springframework<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">groupId</span><span style="color: #0000ff;">&gt;</span>
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">artifactId</span><span style="color: #0000ff;">&gt;</span>spring-tx<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">artifactId</span><span style="color: #0000ff;">&gt;</span>
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">version</span><span style="color: #0000ff;">&gt;</span>4.1.9.RELEASE<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">version</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">dependency</span><span style="color: #0000ff;">&gt;</span>
+
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">dependency</span><span style="color: #0000ff;">&gt;</span>
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">groupId</span><span style="color: #0000ff;">&gt;</span>org.springframework<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">groupId</span><span style="color: #0000ff;">&gt;</span>
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">artifactId</span><span style="color: #0000ff;">&gt;</span>spring-aspects<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">artifactId</span><span style="color: #0000ff;">&gt;</span>
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">version</span><span style="color: #0000ff;">&gt;</span>4.2.1.RELEASE<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">version</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">dependency</span><span style="color: #0000ff;">&gt;</span>
+
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">dependency</span><span style="color: #0000ff;">&gt;</span>
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">groupId</span><span style="color: #0000ff;">&gt;</span>org.springframework<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">groupId</span><span style="color: #0000ff;">&gt;</span>
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">artifactId</span><span style="color: #0000ff;">&gt;</span>spring-context-support<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">artifactId</span><span style="color: #0000ff;">&gt;</span>
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">version</span><span style="color: #0000ff;">&gt;</span>4.1.9.RELEASE<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">version</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">dependency</span><span style="color: #0000ff;">&gt;</span>
+
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">dependency</span><span style="color: #0000ff;">&gt;</span>
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">groupId</span><span style="color: #0000ff;">&gt;</span>org.springframework<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">groupId</span><span style="color: #0000ff;">&gt;</span>
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">artifactId</span><span style="color: #0000ff;">&gt;</span>spring-jdbc<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">artifactId</span><span style="color: #0000ff;">&gt;</span>
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">version</span><span style="color: #0000ff;">&gt;</span>4.2.3.release<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">version</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">dependency</span><span style="color: #0000ff;">&gt;</span>
+
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">dependency</span><span style="color: #0000ff;">&gt;</span>
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">groupId</span><span style="color: #0000ff;">&gt;</span>org.springframework<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">groupId</span><span style="color: #0000ff;">&gt;</span>
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">artifactId</span><span style="color: #0000ff;">&gt;</span>spring-test<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">artifactId</span><span style="color: #0000ff;">&gt;</span>
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">version</span><span style="color: #0000ff;">&gt;</span>4.1.9.RELEASE<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">version</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">dependency</span><span style="color: #0000ff;">&gt;</span>
+
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">dependency</span><span style="color: #0000ff;">&gt;</span>
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">groupId</span><span style="color: #0000ff;">&gt;</span>org.springframework<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">groupId</span><span style="color: #0000ff;">&gt;</span>
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">artifactId</span><span style="color: #0000ff;">&gt;</span>spring-web<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">artifactId</span><span style="color: #0000ff;">&gt;</span>
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">version</span><span style="color: #0000ff;">&gt;</span>4.2.3.RELEASE<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">version</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">dependency</span><span style="color: #0000ff;">&gt;</span>
+
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">dependency</span><span style="color: #0000ff;">&gt;</span>
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">groupId</span><span style="color: #0000ff;">&gt;</span>org.springframework<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">groupId</span><span style="color: #0000ff;">&gt;</span>
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">artifactId</span><span style="color: #0000ff;">&gt;</span>spring-webmvc<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">artifactId</span><span style="color: #0000ff;">&gt;</span>
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">version</span><span style="color: #0000ff;">&gt;</span>4.1.9.RELEASE<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">version</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">dependency</span><span style="color: #0000ff;">&gt;</span>
+
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">dependency</span><span style="color: #0000ff;">&gt;</span>
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">groupId</span><span style="color: #0000ff;">&gt;</span>org.mybatis<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">groupId</span><span style="color: #0000ff;">&gt;</span>
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">artifactId</span><span style="color: #0000ff;">&gt;</span>mybatis<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">artifactId</span><span style="color: #0000ff;">&gt;</span>
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">version</span><span style="color: #0000ff;">&gt;</span>3.2.2<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">version</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">dependency</span><span style="color: #0000ff;">&gt;</span>
+
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">dependency</span><span style="color: #0000ff;">&gt;</span>
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">groupId</span><span style="color: #0000ff;">&gt;</span>org.mybatis<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">groupId</span><span style="color: #0000ff;">&gt;</span>
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">artifactId</span><span style="color: #0000ff;">&gt;</span>mybatis-spring<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">artifactId</span><span style="color: #0000ff;">&gt;</span>
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">version</span><span style="color: #0000ff;">&gt;</span>1.3.0<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">version</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">dependency</span><span style="color: #0000ff;">&gt;</span>
+
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">dependency</span><span style="color: #0000ff;">&gt;</span>
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">groupId</span><span style="color: #0000ff;">&gt;</span>org.javassist<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">groupId</span><span style="color: #0000ff;">&gt;</span>
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">artifactId</span><span style="color: #0000ff;">&gt;</span>javassist<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">artifactId</span><span style="color: #0000ff;">&gt;</span>
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">version</span><span style="color: #0000ff;">&gt;</span>3.17.1-GA<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">version</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">dependency</span><span style="color: #0000ff;">&gt;</span>
+
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">dependency</span><span style="color: #0000ff;">&gt;</span>
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">groupId</span><span style="color: #0000ff;">&gt;</span>cglib<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">groupId</span><span style="color: #0000ff;">&gt;</span>
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">artifactId</span><span style="color: #0000ff;">&gt;</span>cglib<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">artifactId</span><span style="color: #0000ff;">&gt;</span>
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">version</span><span style="color: #0000ff;">&gt;</span>2.2.2<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">version</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">dependency</span><span style="color: #0000ff;">&gt;</span>
+
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">dependency</span><span style="color: #0000ff;">&gt;</span>
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">groupId</span><span style="color: #0000ff;">&gt;</span>c3p0<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">groupId</span><span style="color: #0000ff;">&gt;</span>
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">artifactId</span><span style="color: #0000ff;">&gt;</span>c3p0<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">artifactId</span><span style="color: #0000ff;">&gt;</span>
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">version</span><span style="color: #0000ff;">&gt;</span>0.9.1.2<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">version</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">dependency</span><span style="color: #0000ff;">&gt;</span>
+
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">dependency</span><span style="color: #0000ff;">&gt;</span>
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">groupId</span><span style="color: #0000ff;">&gt;</span>com.oracle<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">groupId</span><span style="color: #0000ff;">&gt;</span>
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">artifactId</span><span style="color: #0000ff;">&gt;</span>ojdbc6<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">artifactId</span><span style="color: #0000ff;">&gt;</span>
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">version</span><span style="color: #0000ff;">&gt;</span>11.2.0.1.0<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">version</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">dependency</span><span style="color: #0000ff;">&gt;</span>
+
+  <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">dependencies</span><span style="color: #0000ff;">&gt;</span>
+  <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">build</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">finalName</span><span style="color: #0000ff;">&gt;</span>SpringMVC_SSM<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">finalName</span><span style="color: #0000ff;">&gt;</span>
+  <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">build</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">project</span><span style="color: #0000ff;">&gt;</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;<img src="./使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园_files/905498-20170117091756661-448234340.png" alt="" width="469" height="495"></p>
+<p>&nbsp;</p>
+<p><span style="font-family: 楷体; font-size: 14pt;">等系统构建完成以后，我们就可以看到目录结构</span></p>
+<p><span style="font-family: 楷体; font-size: 14pt;"><strong><img src="./使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园_files/905498-20170117090734646-1435981287.png" alt="" width="218" height="252"></strong></span></p>
+<p>&nbsp;</p>
+<p><span style="font-family: 楷体; font-size: 14pt;">不全的可以按照需求来补全文件结构，maven项目中的文件结构分为Sources，Tests，Resources，Test Resources，Excluded几种，我们需要详细区分各个文件夹的类型：</span></p>
+<p><span style="font-family: 楷体; font-size: 14pt;"><img src="./使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园_files/998608-20160829173514636-237517065.png" alt=""></span></p>
+<p><span style="font-family: 楷体; font-size: 14pt;">配置SpringMVC</span></p>
+<p>一切就绪后接下来我们继续配置SpringMVC的具体信息：</p>
+<p>&nbsp;</p>
+<p>首先需要配置Web.xml这个不必多说，网站项目运行第一个加载的就是web.xml，进入</p>
+<p>&nbsp;</p>
+<p>src-&gt;main-&gt;webapp-&gt;WEB-INF-&gt;web.xml</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">web-app </span><span style="color: #ff0000;">xmlns</span><span style="color: #0000ff;">="http://xmlns.jcp.org/xml/ns/javaee"</span><span style="color: #ff0000;">
+         xmlns:xsi</span><span style="color: #0000ff;">="http://www.w3.org/2001/XMLSchema-instance"</span><span style="color: #ff0000;">
+         xsi:schemaLocation</span><span style="color: #0000ff;">="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"</span><span style="color: #ff0000;">
+         version</span><span style="color: #0000ff;">="3.1"</span><span style="color: #0000ff;">&gt;</span>
+  <span style="color: #008000;">&lt;!--</span><span style="color: #008000;"> 1.针对Spring配置：读取配置文件 </span><span style="color: #008000;">--&gt;</span>
+  <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">context-param</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">param-name</span><span style="color: #0000ff;">&gt;</span>contextConfigLocation<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">param-name</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">param-value</span><span style="color: #0000ff;">&gt;</span>classpath:applicationContext.xml<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">param-value</span><span style="color: #0000ff;">&gt;</span>
+  <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">context-param</span><span style="color: #0000ff;">&gt;</span>
+
+  <span style="color: #008000;">&lt;!--</span><span style="color: #008000;"> 注册ServletContext监听器，创建容器对象，并且将ApplicationContext对象放到Application域中 </span><span style="color: #008000;">--&gt;</span>
+  <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">listener</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">listener-class</span><span style="color: #0000ff;">&gt;</span>org.springframework.web.context.ContextLoaderListener<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">listener-class</span><span style="color: #0000ff;">&gt;</span>
+  <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">listener</span><span style="color: #0000ff;">&gt;</span>
+
+  <span style="color: #008000;">&lt;!--</span><span style="color: #008000;"> 针对SpringMVC的配置：：：：：：中央调度器：本质上一个serlvet            配置的关于SpringmVC组件 </span><span style="color: #008000;">--&gt;</span>
+  <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">servlet</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">servlet-name</span><span style="color: #0000ff;">&gt;</span>springmvc<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">servlet-name</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">servlet-class</span><span style="color: #0000ff;">&gt;</span>org.springframework.web.servlet.DispatcherServlet<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">servlet-class</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">init-param</span><span style="color: #0000ff;">&gt;</span>
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">param-name</span><span style="color: #0000ff;">&gt;</span>contextConfigLocation<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">param-name</span><span style="color: #0000ff;">&gt;</span>
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">param-value</span><span style="color: #0000ff;">&gt;</span>classpath:applicationContext.xml<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">param-value</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">init-param</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">load-on-startup</span><span style="color: #0000ff;">&gt;</span>1<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">load-on-startup</span><span style="color: #0000ff;">&gt;</span>
+  <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">servlet</span><span style="color: #0000ff;">&gt;</span>
+
+  <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">servlet-mapping</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">servlet-name</span><span style="color: #0000ff;">&gt;</span>springmvc<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">servlet-name</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">url-pattern</span><span style="color: #0000ff;">&gt;</span>*.do<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">url-pattern</span><span style="color: #0000ff;">&gt;</span>
+  <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">servlet-mapping</span><span style="color: #0000ff;">&gt;</span>
+
+  <span style="color: #008000;">&lt;!--</span><span style="color: #008000;"> 解决乱码的过滤器 </span><span style="color: #008000;">--&gt;</span>
+  <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">filter</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">filter-name</span><span style="color: #0000ff;">&gt;</span>CharacterEncodingFilter<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">filter-name</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">filter-class</span><span style="color: #0000ff;">&gt;</span>org.springframework.web.filter.CharacterEncodingFilter<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">filter-class</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">init-param</span><span style="color: #0000ff;">&gt;</span>
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">param-name</span><span style="color: #0000ff;">&gt;</span>encoding<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">param-name</span><span style="color: #0000ff;">&gt;</span>
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">param-value</span><span style="color: #0000ff;">&gt;</span>utf-8<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">param-value</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">init-param</span><span style="color: #0000ff;">&gt;</span>
+
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">init-param</span><span style="color: #0000ff;">&gt;</span>
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">param-name</span><span style="color: #0000ff;">&gt;</span>forceEncoding<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">param-name</span><span style="color: #0000ff;">&gt;</span>
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">param-value</span><span style="color: #0000ff;">&gt;</span>true<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">param-value</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">init-param</span><span style="color: #0000ff;">&gt;</span>
+  <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">filter</span><span style="color: #0000ff;">&gt;</span>
+
+  <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">filter-mapping</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">filter-name</span><span style="color: #0000ff;">&gt;</span>CharacterEncodingFilter<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">filter-name</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">url-pattern</span><span style="color: #0000ff;">&gt;</span>/*<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">url-pattern</span><span style="color: #0000ff;">&gt;</span>
+  <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">filter-mapping</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">web-app</span><span style="color: #0000ff;">&gt;</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><span style="font-family: 楷体; font-size: 14pt;">然后在Resources资源文件夹下新建applicationContext.xml</span></p>
+<p>&nbsp;</p>
+<p>&nbsp;<img src="./使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园_files/905498-20170117091602536-1474258039.png" alt=""></p>
+<p>&nbsp;</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">&lt;?</span><span style="color: #ff00ff;">xml version="1.0" encoding="UTF-8"</span><span style="color: #0000ff;">?&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">beans </span><span style="color: #ff0000;">xmlns</span><span style="color: #0000ff;">="http://www.springframework.org/schema/beans"</span><span style="color: #ff0000;">
+    xmlns:xsi</span><span style="color: #0000ff;">="http://www.w3.org/2001/XMLSchema-instance"</span><span style="color: #ff0000;">
+    xmlns:aop</span><span style="color: #0000ff;">="http://www.springframework.org/schema/aop"</span><span style="color: #ff0000;">
+    xmlns:context</span><span style="color: #0000ff;">="http://www.springframework.org/schema/context"</span><span style="color: #ff0000;">
+    xmlns:p</span><span style="color: #0000ff;">="http://www.springframework.org/schema/p"</span><span style="color: #ff0000;">
+    xmlns:tx</span><span style="color: #0000ff;">="http://www.springframework.org/schema/tx"</span><span style="color: #ff0000;">
+    xsi:schemaLocation</span><span style="color: #0000ff;">="
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+         http://www.springframework.org/schema/aop
+         http://www.springframework.org/schema/aop/spring-aop-4.1.xsd
+         http://www.springframework.org/schema/tx
+         http://www.springframework.org/schema/tx/spring-tx-4.1.xsd
+           http://www.springframework.org/schema/context
+         http://www.springframework.org/schema/context/spring-context-4.1.xsd  "</span> <span style="color: #0000ff;">&gt;</span>
+        
+   <span style="color: #008000;">&lt;!--</span><span style="color: #008000;"> 01.配置数据源 </span><span style="color: #008000;">--&gt;</span>
+   <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">bean </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="dataSource"</span><span style="color: #ff0000;"> class</span><span style="color: #0000ff;">="com.mchange.v2.c3p0.ComboPooledDataSource"</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">property </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="driverClass"</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">="${jdbc.driverClass}"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">property</span><span style="color: #0000ff;">&gt;</span>
+         <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">property </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="jdbcUrl"</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">="${jdbc.jdbcUrl}"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">property</span><span style="color: #0000ff;">&gt;</span>
+         <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">property </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="user"</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">="${jdbc.user}"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">property</span><span style="color: #0000ff;">&gt;</span>
+         <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">property </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="password"</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">="${jdbc.password}"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">property</span><span style="color: #0000ff;">&gt;</span>
+   <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">bean</span><span style="color: #0000ff;">&gt;</span>
+   
+   <span style="color: #008000;">&lt;!--</span><span style="color: #008000;"> 1.1 关联jdbc.properties </span><span style="color: #008000;">--&gt;</span>
+  <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">context:property-placeholder </span><span style="color: #ff0000;">location</span><span style="color: #0000ff;">="classpath:jdbc.properties"</span><span style="color: #0000ff;">/&gt;</span>
+ 
+   <span style="color: #008000;">&lt;!--</span><span style="color: #008000;"> 02.配置SessionFactory </span><span style="color: #008000;">--&gt;</span>
+ <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">bean </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="sessionFactory"</span><span style="color: #ff0000;"> class</span><span style="color: #0000ff;">="org.mybatis.spring.SqlSessionFactoryBean"</span><span style="color: #0000ff;">&gt;</span>
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">property </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="configLocation"</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">="classpath:mybatis-config.xml"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">property</span><span style="color: #0000ff;">&gt;</span>
+       <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">property </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="dataSource"</span><span style="color: #ff0000;"> ref</span><span style="color: #0000ff;">="dataSource"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">property</span><span style="color: #0000ff;">&gt;</span>
+   <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">bean</span><span style="color: #0000ff;">&gt;</span>
+   
+
+   <span style="color: #008000;">&lt;!--</span><span style="color: #008000;"> 03.生成dao代理對象 </span><span style="color: #008000;">--&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">bean </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">="org.mybatis.spring.mapper.MapperScannerConfigurer"</span><span style="color: #0000ff;">&gt;</span>
+       <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">property </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="sqlSessionFactoryBeanName"</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">="sessionFactory"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">property</span><span style="color: #0000ff;">&gt;</span>
+       <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">property </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="basePackage"</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">="cn.jpp.dao"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">property</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">bean</span><span style="color: #0000ff;">&gt;</span>
+    
+    <span style="color: #008000;">&lt;!--</span><span style="color: #008000;">04.配置service</span><span style="color: #008000;">--&gt;</span>
+     <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">bean </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="userService"</span><span style="color: #ff0000;"> class</span><span style="color: #0000ff;">="cn.jpp.service.UserInfoServiceImpl"</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">property </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="dao"</span><span style="color: #ff0000;"> ref</span><span style="color: #0000ff;">="IUserInfoDAO"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">property</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">bean</span><span style="color: #0000ff;">&gt;</span>
+ 
+    <span style="color: #008000;">&lt;!--</span><span style="color: #008000;"> 05.配置action </span><span style="color: #008000;">--&gt;</span>
+     <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">bean </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="/userAction.do"</span><span style="color: #ff0000;"> class</span><span style="color: #0000ff;">="cn.jpp.controller.UserInfoController"</span><span style="color: #0000ff;">&gt;</span>
+       <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">property </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="service"</span><span style="color: #ff0000;"> ref</span><span style="color: #0000ff;">="userService"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">property</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">bean</span><span style="color: #0000ff;">&gt;</span>
+    
+    <span style="color: #008000;">&lt;!--</span><span style="color: #008000;"> 06.配置事务管理器 </span><span style="color: #008000;">--&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">bean </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="transactionManager"</span><span style="color: #ff0000;"> class</span><span style="color: #0000ff;">="org.springframework.jdbc.datasource.DataSourceTransactionManager"</span><span style="color: #0000ff;">&gt;</span>
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">property </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="dataSource"</span><span style="color: #ff0000;"> ref</span><span style="color: #0000ff;">="dataSource"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">property</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">bean</span><span style="color: #0000ff;">&gt;</span>
+     
+    <span style="color: #008000;">&lt;!--</span><span style="color: #008000;"> 07.配置开启事务操作 </span><span style="color: #008000;">--&gt;</span>
+   <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">tx:advice </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="txAdvice"</span><span style="color: #ff0000;"> transaction-manager</span><span style="color: #0000ff;">="transactionManager"</span><span style="color: #0000ff;">&gt;</span>
+     <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">tx:attributes</span><span style="color: #0000ff;">&gt;</span>
+     <span style="color: #008000;">&lt;!--</span><span style="color: #008000;">指定在连接方法上应用的事务属性 </span><span style="color: #008000;">--&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">tx:method </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="add*"</span><span style="color: #ff0000;"> isolation</span><span style="color: #0000ff;">="DEFAULT"</span><span style="color: #ff0000;"> propagation</span><span style="color: #0000ff;">="REQUIRED"</span><span style="color: #0000ff;">/&gt;</span>
+     <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">tx:attributes</span><span style="color: #0000ff;">&gt;</span>
+   <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">tx:advice</span><span style="color: #0000ff;">&gt;</span>
+   <span style="color: #008000;">&lt;!--</span><span style="color: #008000;"> aop配置 </span><span style="color: #008000;">--&gt;</span>
+  <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">aop:config</span><span style="color: #0000ff;">&gt;</span>
+     <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">aop:pointcut </span><span style="color: #ff0000;">expression</span><span style="color: #0000ff;">="execution(* *..service.*.*(..))"</span><span style="color: #ff0000;"> id</span><span style="color: #0000ff;">="stockPointcut"</span><span style="color: #0000ff;">/&gt;</span>
+     <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">aop:advisor </span><span style="color: #ff0000;">advice-ref</span><span style="color: #0000ff;">="txAdvice"</span><span style="color: #ff0000;"> pointcut-ref</span><span style="color: #0000ff;">="stockPointcut"</span><span style="color: #0000ff;">/&gt;</span>
+  <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">aop:config</span><span style="color: #0000ff;">&gt;</span>
+
+ <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">beans</span><span style="color: #0000ff;">&gt;</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>jdbc.properties</p>
+<div class="cnblogs_code">
+<pre><span style="color: #000000;">jdbc.driverClass=oracle.jdbc.driver.OracleDriver
+jdbc.jdbcUrl=jdbc\:oracle\:thin\:@localhost\:1521\:orcl
+jdbc.user=system
+jdbc.password=1</span></pre>
+</div>
+<p><span style="font-family: 楷体; font-size: 14pt;">mybatis-config.xml</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">&lt;?</span><span style="color: #ff00ff;">xml version="1.0" encoding="UTF-8" </span><span style="color: #0000ff;">?&gt;</span>
+<span style="color: #0000ff;">&lt;!</span><span style="color: #ff00ff;">DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd"</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">configuration</span><span style="color: #0000ff;">&gt;</span>
+  <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">typeAliases</span><span style="color: #0000ff;">&gt;</span>
+     <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">package </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="cn.jpp.entity"</span><span style="color: #0000ff;">/&gt;</span>
+  <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">typeAliases</span><span style="color: #0000ff;">&gt;</span>
+     <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">mappers</span><span style="color: #0000ff;">&gt;</span>
+         <span style="color: #008000;">&lt;!--</span><span style="color: #008000;">&lt;mapper resource="cn/happy/entity/IUserInfoDAO.xml" /&gt; </span><span style="color: #008000;">--&gt;</span>
+         <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">package </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="cn.jpp.dao"</span><span style="color: #0000ff;">/&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">mappers</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">configuration</span><span style="color: #0000ff;">&gt;</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p>
+<p><span style="font-family: 楷体; font-size: 14pt;">&nbsp;配置实体</span></p>
+<p>&nbsp;</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">package</span><span style="color: #000000;"> cn.jpp.entity;
+
+</span><span style="color: #008000;">/**</span><span style="color: #008000;">
+ * Created by 景佩佩 on 2017/1/16.
+ </span><span style="color: #008000;">*/</span>
+<span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> UserInfo {
+    </span><span style="color: #0000ff;">private</span><span style="color: #000000;"> Integer id;
+    </span><span style="color: #0000ff;">private</span><span style="color: #000000;"> String name;
+    </span><span style="color: #0000ff;">private</span><span style="color: #000000;"> Integer age;
+
+    </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> Integer getId() {
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> id;
+    }
+
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> setId(Integer id) {
+        </span><span style="color: #0000ff;">this</span>.id =<span style="color: #000000;"> id;
+    }
+
+    </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> String getName() {
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> name;
+    }
+
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> setName(String name) {
+        </span><span style="color: #0000ff;">this</span>.name =<span style="color: #000000;"> name;
+    }
+
+    </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> Integer getAge() {
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> age;
+    }
+
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> setAge(Integer age) {
+        </span><span style="color: #0000ff;">this</span>.age =<span style="color: #000000;"> age;
+    }
+}</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p>
+<p><span style="font-family: 楷体; font-size: 14pt;">配置实体的小配置（Mybatis的配置）</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">&lt;?</span><span style="color: #ff00ff;">xml version="1.0" encoding="UTF-8" </span><span style="color: #0000ff;">?&gt;</span>
+<span style="color: #0000ff;">&lt;!</span><span style="color: #ff00ff;">DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd"</span><span style="color: #0000ff;">&gt;</span>
+
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">mapper </span><span style="color: #ff0000;">namespace</span><span style="color: #0000ff;">="cn.jpp.dao.IUserInfoDAO"</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">select </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="add"</span><span style="color: #ff0000;"> parameterType</span><span style="color: #0000ff;">="UserInfo"</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;">
+        insert into userinfo values(SEQ_NUM.nextval,#{name},#{age})
+    </span><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">select</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">mapper</span><span style="color: #0000ff;">&gt;</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><span style="font-family: 楷体; font-size: 14pt;">创建dao接口</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">package</span><span style="color: #000000;"> cn.jpp.dao;
+
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> cn.jpp.entity.UserInfo;
+
+</span><span style="color: #008000;">/**</span><span style="color: #008000;">
+ * Created by 景佩佩 on 2017/1/16.
+ </span><span style="color: #008000;">*/</span>
+<span style="color: #0000ff;">public</span> <span style="color: #0000ff;">interface</span><span style="color: #000000;"> IUserInfoDAO {
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> add(UserInfo info);
+}</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><span style="color: #33cccc; font-family: 楷体; font-size: 14pt;"><strong>提醒：不需要dao的实现类，通过代理生成</strong></span></p>
+<p><span style="color: #000000; font-family: 楷体; font-size: 14pt;"><strong>创建service</strong></span></p>
+<p><span style="font-family: 楷体; font-size: 14pt;">　　ServiceDao接口</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">package</span><span style="color: #000000;"> cn.jpp.service;
+
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> cn.jpp.entity.UserInfo;
+
+</span><span style="color: #008000;">/**</span><span style="color: #008000;">
+ * Created by 景佩佩 on 2017/1/16.
+ </span><span style="color: #008000;">*/</span>
+<span style="color: #0000ff;">public</span> <span style="color: #0000ff;">interface</span><span style="color: #000000;"> IUserInfoService {
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> add(UserInfo info);
+}</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><span style="font-family: 楷体; font-size: 14pt;">ServiceDaoImpl实现</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">package</span><span style="color: #000000;"> cn.jpp.service;
+
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> cn.jpp.dao.IUserInfoDAO;
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> cn.jpp.entity.UserInfo;
+
+</span><span style="color: #008000;">/**</span><span style="color: #008000;">
+ * Created by 景佩佩 on 2017/1/16.
+ </span><span style="color: #008000;">*/</span>
+<span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span> UserInfoServiceImpl <span style="color: #0000ff;">implements</span><span style="color: #000000;"> IUserInfoService{
+    </span><span style="color: #0000ff;">private</span><span style="color: #000000;"> IUserInfoDAO dao;
+
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> add(UserInfo info) {
+        dao.add(info);
+    }
+    </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> IUserInfoDAO getDao() {
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> dao;
+    }
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> setDao(IUserInfoDAO dao) {
+        </span><span style="color: #0000ff;">this</span>.dao =<span style="color: #000000;"> dao;
+    }
+}</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><span style="font-family: 楷体; font-size: 14pt;">配置Controller</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">package</span><span style="color: #000000;"> cn.jpp.controller;
+
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> cn.jpp.entity.UserInfo;
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> cn.jpp.service.IUserInfoService;
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> org.springframework.web.servlet.ModelAndView;
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> org.springframework.web.servlet.mvc.Controller;
+
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> javax.servlet.http.HttpServletRequest;
+</span><span style="color: #0000ff;">import</span><span style="color: #000000;"> javax.servlet.http.HttpServletResponse;
+
+</span><span style="color: #008000;">/**</span><span style="color: #008000;">
+ * Created by 景佩佩 on 2017/1/16.
+ </span><span style="color: #008000;">*/</span>
+<span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span> UserInfoController <span style="color: #0000ff;">implements</span><span style="color: #000000;"> Controller {
+    </span><span style="color: #0000ff;">private</span><span style="color: #000000;"> IUserInfoService service;
+
+
+    </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> ModelAndView handleRequest(HttpServletRequest request,
+                                      HttpServletResponse response) </span><span style="color: #0000ff;">throws</span><span style="color: #000000;"> Exception {
+
+        String uname</span>=request.getParameter("name"<span style="color: #000000;">);
+        Integer uage</span>=Integer.valueOf(request.getParameter("age"<span style="color: #000000;">));
+
+        UserInfo info</span>=<span style="color: #0000ff;">new</span><span style="color: #000000;"> UserInfo();
+        info.setAge(uage);
+        info.setName(uname);
+
+        service.add(info);
+        </span><span style="color: #0000ff;">return</span> <span style="color: #0000ff;">new</span> ModelAndView("/welcome.jsp"<span style="color: #000000;">);
+    }
+    </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> IUserInfoService getService() {
+        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> service;
+    }
+    </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> setService(IUserInfoService service) {
+        </span><span style="color: #0000ff;">this</span>.service =<span style="color: #000000;"> service;
+    }
+
+}</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><span style="font-family: 楷体; font-size: 14pt;">配置页面</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="background-color: #ffff00; color: #000000;">&lt;%</span><span style="background-color: #f5f5f5; color: #000000;">@ page language</span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #800000;">"</span><span style="background-color: #f5f5f5; color: #800000;">java</span><span style="background-color: #f5f5f5; color: #800000;">"</span><span style="background-color: #f5f5f5; color: #000000;"> import</span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #800000;">"</span><span style="background-color: #f5f5f5; color: #800000;">java.util.*</span><span style="background-color: #f5f5f5; color: #800000;">"</span><span style="background-color: #f5f5f5; color: #000000;"> pageEncoding</span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #800000;">"</span><span style="background-color: #f5f5f5; color: #800000;">utf-8</span><span style="background-color: #f5f5f5; color: #800000;">"</span><span style="background-color: #ffff00; color: #000000;">%&gt;</span>
+<span style="background-color: #ffff00; color: #000000;">&lt;%</span>
+    <span style="background-color: #f5f5f5; color: #0000ff;">String</span><span style="background-color: #f5f5f5; color: #000000;"> path </span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;"> request.getContextPath();
+    </span><span style="background-color: #f5f5f5; color: #0000ff;">String</span><span style="background-color: #f5f5f5; color: #000000;"> basePath </span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;"> request.getScheme()</span><span style="background-color: #f5f5f5; color: #000000;">+</span><span style="background-color: #f5f5f5; color: #800000;">"</span><span style="background-color: #f5f5f5; color: #800000;">://</span><span style="background-color: #f5f5f5; color: #800000;">"</span><span style="background-color: #f5f5f5; color: #000000;">+</span><span style="background-color: #f5f5f5; color: #000000;">request.getServerName()</span><span style="background-color: #f5f5f5; color: #000000;">+</span><span style="background-color: #f5f5f5; color: #800000;">"</span><span style="background-color: #f5f5f5; color: #800000;">:</span><span style="background-color: #f5f5f5; color: #800000;">"</span><span style="background-color: #f5f5f5; color: #000000;">+</span><span style="background-color: #f5f5f5; color: #000000;">request.getServerPort()</span><span style="background-color: #f5f5f5; color: #000000;">+</span><span style="background-color: #f5f5f5; color: #000000;">path</span><span style="background-color: #f5f5f5; color: #000000;">+</span><span style="background-color: #f5f5f5; color: #800000;">"</span><span style="background-color: #f5f5f5; color: #800000;">/</span><span style="background-color: #f5f5f5; color: #800000;">"</span><span style="background-color: #f5f5f5; color: #000000;">;
+</span><span style="background-color: #ffff00; color: #000000;">%&gt;</span>
+
+<span style="color: #0000ff;">&lt;!</span><span style="color: #ff00ff;">DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">html</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">head</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">base </span><span style="color: #ff0000;">href</span><span style="color: #0000ff;">="&lt;%=basePath%&gt;"</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">style </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">="text/css"</span><span style="color: #0000ff;">&gt;</span><span style="background-color: #f5f5f5; color: #800000;">
+        form</span><span style="background-color: #f5f5f5; color: #000000;">{</span><span style="background-color: #f5f5f5; color: #ff0000;">
+            margin</span><span style="background-color: #f5f5f5; color: #000000;">:</span><span style="background-color: #f5f5f5; color: #0000ff;">0px auto</span><span style="background-color: #f5f5f5; color: #000000;">;</span><span style="background-color: #f5f5f5; color: #ff0000;">
+
+            width</span><span style="background-color: #f5f5f5; color: #000000;">:</span><span style="background-color: #f5f5f5; color: #0000ff;">500px</span><span style="background-color: #f5f5f5; color: #000000;">;</span><span style="background-color: #f5f5f5; color: #ff0000;">
+            padding</span><span style="background-color: #f5f5f5; color: #000000;">:</span><span style="background-color: #f5f5f5; color: #0000ff;">20px</span><span style="background-color: #f5f5f5; color: #000000;">;</span>
+        <span style="background-color: #f5f5f5; color: #000000;">}</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">style</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">title</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">title</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">head</span><span style="color: #0000ff;">&gt;</span>
+
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">body</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">h1</span><span style="color: #0000ff;">&gt;</span>SSM整合<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">h1</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">form </span><span style="color: #ff0000;">action</span><span style="color: #0000ff;">="${pageContext.request.contextPath }/userAction.do"</span><span style="color: #ff0000;"> method</span><span style="color: #0000ff;">="post"</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;">
+    用户名：</span><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="name"</span><span style="color: #0000ff;">/&gt;</span> <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">br</span><span style="color: #0000ff;">/&gt;</span><span style="color: #000000;">
+    用户年龄</span><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="age"</span><span style="color: #0000ff;">/&gt;&lt;</span><span style="color: #800000;">br</span><span style="color: #0000ff;">/&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">="submit"</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">="save"</span><span style="color: #0000ff;">/&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">form</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">body</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">html</span><span style="color: #0000ff;">&gt;</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h2><span style="font-family: 楷体;">1.配置Maven的环境变量</span></h2>
+<p><span style="font-family: 楷体;"><img src="./使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园_files/905498-20170117092859364-1648240319.png" alt="" width="535" height="49"></span></p>
+<p>&nbsp;</p>
+<p><span style="font-family: 楷体; font-size: 14pt;">将该变量添加到Path中</span></p>
+<p>&nbsp;<img src="./使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园_files/905498-20170117093156896-2121443764.png" alt="" width="473" height="464"></p>
+<p>&nbsp;</p>
+<p><span style="font-family: 楷体; font-size: 14pt;">如果想要修改Maven的本地仓库位置，则可以直接在Maven的安装目录下找到conf文件下的setting配置文件中，设置localRepository为本地仓库位置</span></p>
+<p><span style="font-family: 楷体; font-size: 14pt;">重新打开命令提示符cmd(管理员)，输入mvn&nbsp;--version ，如图所示，则说明安装成功</span></p>
+<p><span style="font-family: 楷体; font-size: 14pt;"><img src="./使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园_files/905498-20170117093433817-300527533.png" alt="" width="579" height="107"></span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span style="font-family: 楷体; font-size: 14pt;">&nbsp;首先我们也要有Oracle数据库，将Oracle装载到本地仓库</span></p>
+<p><span style="font-family: 楷体; font-size: 14pt;">我们先找到F:\app\happy\product\11.2.0\dbhome_1\jdbc\lib</span></p>
+<p><span style="font-family: 楷体; font-size: 14pt;"><img src="./使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园_files/905498-20170117094810817-588686846.png" alt="" width="863" height="451"></span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span style="font-family: 楷体; font-size: 14pt;">&nbsp;并在pox.xml在配置Oracle</span></p>
+<p><span style="font-family: 楷体; font-size: 14pt;"><img src="./使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园_files/905498-20170117095215958-2037489067.png" alt=""></span></p>
+<p><span style="font-family: 楷体; font-size: 14pt;">并且创建Oracle表</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008080;">--</span><span style="color: #008080;"> Create table</span>
+<span style="color: #0000ff;">create</span> <span style="color: #0000ff;">table</span><span style="color: #000000;"> USERINFO
+(
+  ID   </span><span style="color: #0000ff;">NUMBER</span> <span style="color: #808080;">not</span> <span style="color: #0000ff;">null</span><span style="color: #000000;">,
+  NAME NVARCHAR2(</span><span style="color: #800000; font-weight: bold;">32</span>) <span style="color: #808080;">not</span> <span style="color: #0000ff;">null</span><span style="color: #000000;">,
+  AGE  </span><span style="color: #0000ff;">NUMBER</span> <span style="color: #808080;">not</span> <span style="color: #0000ff;">null</span><span style="color: #000000;">
+)</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><span style="font-family: 楷体; font-size: 14pt;">可能还会报一个序列不存在的错，创建序列</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008080;">--</span><span style="color: #008080;"> Create sequence </span>
+<span style="color: #0000ff;">create</span><span style="color: #000000;"> sequence SEQ_Num
+minvalue </span><span style="color: #800000; font-weight: bold;">1</span><span style="color: #000000;">
+maxvalue </span><span style="color: #800000; font-weight: bold;">9999999999999999999999999999</span><span style="color: #000000;">
+start </span><span style="color: #0000ff;">with</span> <span style="color: #800000; font-weight: bold;">81</span><span style="color: #000000;">
+increment </span><span style="color: #0000ff;">by</span> <span style="color: #800000; font-weight: bold;">1</span><span style="color: #000000;">
+cache </span><span style="color: #800000; font-weight: bold;">20</span>;</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><span style="font-family: 楷体; font-size: 14pt;">得跟实体的配置的系列一致</span></p>
+<p><span style="font-family: 楷体; font-size: 14pt;"><img src="./使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园_files/905498-20170117095930083-281363218.png" alt="" width="398" height="87"></span></p>
+<p>&nbsp;</p>
+<p><span style="font-family: 楷体; font-size: 14pt;">全部之后呢，加入到Tomact中</span></p>
+<p>&nbsp;<strong>&nbsp;</strong><span style="font-family: 楷体; font-size: 14pt;">运行后，在浏览器地址栏输入：</span><span style="font-family: 楷体; font-size: 14pt;">http://localhost:8080/SSM</span></p>
+<p><span style="font-family: 楷体; font-size: 14pt;"><img src="./使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园_files/905498-20170117100248411-419706835.png" alt="" width="362" height="173"></span></p>
+<p><img src="./使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园_files/905498-20170117100318208-635826461.png" alt="" width="320" height="90"></p>
+<p><span style="font-family: 楷体; font-size: 14pt;">数据库数据</span></p>
+<p><span style="font-family: 楷体; font-size: 14pt;"><img src="./使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园_files/905498-20170117100554583-347702250.png" alt=""></span></p>
+<p>&nbsp;</p></div><div id="MySignature" style="display: block;"><div>作者：<a href="http://www.cnblogs.com/jingpeipei/" target="_blank">Monodrama</a></div>
+<div>出处：<a href="http://www.cnblogs.com/jingpeipei/" target="_blank">http://www.cnblogs.com/jingpeipei/</a></div>
+<div>本文版权归作者和博客园共有，欢迎转载，但未经作者同意必须在文章页面给出原文链接，否则保留追究法律责任的权利。 </div></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory"></div>
+<div id="EntryTag">标签: <a href="http://www.cnblogs.com/jingpeipei/tag/%E4%BD%BF%E7%94%A8intellij%20idea%E6%90%AD%E5%BB%BAMAVEN%2BSSM%28Spring%2BSpringMVC%2BMyBati/">使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBati</a></div>
+<div id="blog_post_info"><div id="green_channel">
+        <a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(6291071,cb_blogId,1);green_channel_success(this,&#39;谢谢推荐！&#39;);">好文要顶</a>
+            <a id="green_channel_follow" onclick="follow(&#39;41aabc5f-33e3-e511-9fc1-ac853d9f53cc&#39;);" href="javascript:void(0);">关注我</a>
+    <a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a>
+    <a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="./使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园_files/icon_weibo_24.png" alt=""></a>
+    <a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" onclick="shareOnWechat()"><img src="./使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园_files/wechat.png" alt=""></a>
+</div>
+<div id="author_profile">
+    <div id="author_profile_info" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/jingpeipei/" target="_blank"><img src="./使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园_files/20160314165223.png" class="author_avatar" alt=""></a>
+        <div id="author_profile_detail" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/jingpeipei/">Monodrama</a><br>
+            <a href="http://home.cnblogs.com/u/jingpeipei/followees">关注 - 40</a><br>
+            <a href="http://home.cnblogs.com/u/jingpeipei/followers">粉丝 - 26</a>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div id="author_profile_honor"></div>
+    <div id="author_profile_follow">
+                <a href="javascript:void(0);" onclick="follow(&#39;41aabc5f-33e3-e511-9fc1-ac853d9f53cc&#39;);return false;">+加关注</a>
+    </div>
+</div>
+<div id="div_digg">
+    <div class="diggit" onclick="votePost(6291071,&#39;Digg&#39;)">
+        <span class="diggnum" id="digg_count">3</span>
+    </div>
+    <div class="buryit" onclick="votePost(6291071,&#39;Bury&#39;)">
+        <span class="burynum" id="bury_count">0</span>
+    </div>
+    <div class="clear"></div>
+    <div class="diggword" id="digg_tips">
+    </div>
+</div>
+<script type="text/javascript">
+    currentDiggType = 0;
+</script></div>
+<div class="clear"></div>
+<div id="post_next_prev"><a href="http://www.cnblogs.com/jingpeipei/p/6286134.html" class="p_n_p_prefix">« </a> 上一篇：<a href="http://www.cnblogs.com/jingpeipei/p/6286134.html" title="发布于2017-01-14 21:22">Spring MVC拦截器</a><br><a href="http://www.cnblogs.com/jingpeipei/p/6339804.html" class="p_n_p_prefix">» </a> 下一篇：<a href="http://www.cnblogs.com/jingpeipei/p/6339804.html" title="发布于2017-01-22 11:25">MyBatis入门案例、增删改查</a><br></div>
+</div>
+
+
+		</div>
+		<div class="postDesc">posted @ <span id="post-date">2017-01-17 10:04</span> <a href="http://www.cnblogs.com/jingpeipei/">Monodrama</a> 阅读(<span id="post_view_count">28244</span>) 评论(<span id="post_comment_count">19</span>)  <a href="https://i.cnblogs.com/EditPosts.aspx?postid=6291071" rel="nofollow">编辑</a> <a href="https://www.cnblogs.com/jingpeipei/p/6291071.html#" onclick="AddToWz(6291071);return false;">收藏</a></div>
+	</div>
+	<script type="text/javascript">var allowComments=true,cb_blogId=270751,cb_entryId=6291071,cb_blogApp=currentBlogApp,cb_blogUserGuid='41aabc5f-33e3-e511-9fc1-ac853d9f53cc',cb_entryCreatedDate='2017/1/17 10:04:00';loadViewCount(cb_entryId);var cb_postType=1;</script>
+	
+</div><!--end: topics 文章、评论容器-->
+</div><a name="!comments"></a><div id="blog-comments-placeholder"><div id="comments_pager_top"></div>
+<br>
+<div class="feedback_area_title">评论列表</div>
+<div class="feedbackNoItems"></div>	
+
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/jingpeipei/p/6291071.html#3646166" class="layer">#1楼</a><a name="3646166" id="comment_anchor_3646166"></a>  <span class="comment_date">2017-03-20 15:35</span> <a id="a_comment_author_3646166" href="http://www.cnblogs.com/tibos/" target="_blank">提伯斯</a> <a href="http://msg.cnblogs.com/send/%E6%8F%90%E4%BC%AF%E6%96%AF" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3646166" class="blog_comment_body">楼主,在吗,包下载的好慢,已经过去半个小时了,有什么好的办法吗</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3646166,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3646166,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3646166_avatar" style="display:none;">http://pic.cnblogs.com/face/772322/20160401100158.png</span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/jingpeipei/p/6291071.html#3646185" class="layer">#2楼</a><a name="3646185" id="comment_anchor_3646185"></a>  <span class="comment_date">2017-03-20 15:43</span> <a id="a_comment_author_3646185" href="http://www.cnblogs.com/tibos/" target="_blank">提伯斯</a> <a href="http://msg.cnblogs.com/send/%E6%8F%90%E4%BC%AF%E6%96%AF" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3646185" class="blog_comment_body">还有一个问题,那些包哪去了,我复制了你的pom.xml,刚开始那些内容是红色的,下载了半个小时,那些内容不见了,多了一个SpingMVC.iml的文件<img src="./使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园_files/772322-20170320154242033-491019317.png" alt="" border="0" "=""><br>还在下载,请问这个是怎么回事,我是一枚.net程序员,好苦逼啊</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3646185,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3646185,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3646185_avatar" style="display:none;">http://pic.cnblogs.com/face/772322/20160401100158.png</span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/jingpeipei/p/6291071.html#3647717" class="layer">#3楼</a><a name="3647717" id="comment_anchor_3647717"></a>  <span class="comment_date">2017-03-21 18:59</span> <a id="a_comment_author_3647717" href="http://home.cnblogs.com/u/1131163/" target="_blank">yy_ffemail</a> <a href="http://msg.cnblogs.com/send/yy_ffemail" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3647717" class="blog_comment_body">取消下载了？</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3647717,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3647717,&#39;Bury&#39;,this)">反对(0)</a></div>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/jingpeipei/p/6291071.html#3679997" class="layer">#4楼</a><a name="3679997" id="comment_anchor_3679997"></a>  <span class="comment_date">2017-04-29 15:34</span> <a id="a_comment_author_3679997" href="http://www.cnblogs.com/NikolaTesla/" target="_blank">Nikola.Tesla</a> <a href="http://msg.cnblogs.com/send/Nikola.Tesla" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3679997" class="blog_comment_body"><a href="https://www.cnblogs.com/jingpeipei/p/6291071.html#3646166" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,3646166);">@</a>
+提伯斯<br>用国内镜像阿里云或者oschina</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3679997,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3679997,&#39;Bury&#39;,this)">反对(0)</a></div>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/jingpeipei/p/6291071.html#3826308" class="layer">#5楼</a><a name="3826308" id="comment_anchor_3826308"></a>  <span class="comment_date">2017-10-30 22:06</span> <a id="a_comment_author_3826308" href="http://home.cnblogs.com/u/1253539/" target="_blank">鹏鹏1981</a> <a href="http://msg.cnblogs.com/send/%E9%B9%8F%E9%B9%8F1981" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3826308" class="blog_comment_body">照着你的方法配置成功，但我是用的Mysql的数据库，在将tomcat停止时会报内存泄露的警告和异常提示，通过把mysql的驱动拷贝到安装的tomcat的lib目录下，且把mysql驱动的Maven的scope设置为&lt;scope&gt;provided&lt;/scope&gt;。另外c3p0的链接池在关闭时也要在配置的地方加上destroy-method="close"<br>配置修改为：<br><div class="cnblogs_Highlighter sh-gutter"><div><div id="highlighter_567985" class="syntaxhighlighter  html"><div class="toolbar"><span><a href="https://www.cnblogs.com/jingpeipei/p/6291071.html#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div><div class="line number10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="html plain">&lt;</code><code class="html keyword">bean</code> <code class="html plain">id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close"&gt;</code></div><div class="line number2 index1 alt1"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">&lt;</code><code class="html keyword">property</code> <code class="html plain">name="driverClass" value="${jdbc.driverClass}"/&gt;</code></div><div class="line number3 index2 alt2"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">&lt;</code><code class="html keyword">property</code> <code class="html plain">name="jdbcUrl" value="${jdbc.jdbcUrl}"/&gt;</code></div><div class="line number4 index3 alt1"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">&lt;</code><code class="html keyword">property</code> <code class="html plain">name="user" value="${jdbc.user}"/&gt;</code></div><div class="line number5 index4 alt2"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">&lt;</code><code class="html keyword">property</code> <code class="html plain">name="password" value="${jdbc.password}"/&gt;</code></div><div class="line number6 index5 alt1"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">&lt;</code><code class="html keyword">property</code> <code class="html plain">name="initialPoolSize" value="5"/&gt;</code></div><div class="line number7 index6 alt2"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">&lt;</code><code class="html keyword">property</code> <code class="html plain">name="minPoolSize" value="2"/&gt;</code></div><div class="line number8 index7 alt1"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">&lt;</code><code class="html keyword">property</code> <code class="html plain">name="acquireIncrement" value="3"/&gt;</code></div><div class="line number9 index8 alt2"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">&lt;</code><code class="html keyword">property</code> <code class="html plain">name="maxPoolSize" value="10"/&gt;</code></div><div class="line number10 index9 alt1"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">&lt;</code><code class="html keyword">property</code> <code class="html plain">name="maxIdleTime" value="60"/&gt;</code></div><div class="line number11 index10 alt2"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">&lt;/</code><code class="html keyword">bean</code><code class="html plain">&gt;</code></div></div></td></tr></tbody></table></div></div></div><br>还有配置实体的小配置（Mybatis的配置）这个配置文件我是放到工程的resources下面新建的mapper目录里的。相关配置部分按照网上方法修改为<br><div class="cnblogs_Highlighter sh-gutter"><div><div id="highlighter_604107" class="syntaxhighlighter  html"><div class="toolbar"><span><a href="https://www.cnblogs.com/jingpeipei/p/6291071.html#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div><div class="line number10 index9 alt1">10</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="html plain">&lt;</code><code class="html keyword">bean</code> <code class="html plain">id="sessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean"&gt;</code></div><div class="line number2 index1 alt1"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">&lt;</code><code class="html keyword">property</code> <code class="html plain">name="configLocation" value="classpath:mybatis-config.xml"/&gt;</code></div><div class="line number3 index2 alt2"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">&lt;</code><code class="html keyword">property</code> <code class="html plain">name="dataSource" ref="dataSource"/&gt;</code></div><div class="line number4 index3 alt1"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html comments">&lt;!-- 显式指定Mapper文件位置 --&gt;</code></div><div class="line number5 index4 alt2"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">&lt;</code><code class="html keyword">property</code> <code class="html plain">name="mapperLocations"&gt;</code></div><div class="line number6 index5 alt1"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">&lt;</code><code class="html keyword">list</code><code class="html plain">&gt;</code></div><div class="line number7 index6 alt2"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">&lt;</code><code class="html keyword">value</code><code class="html plain">&gt;classpath*:/mapper/IUserInfoDAO.xml&lt;/</code><code class="html keyword">value</code><code class="html plain">&gt;</code></div><div class="line number8 index7 alt1"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">&lt;/</code><code class="html keyword">list</code><code class="html plain">&gt;</code></div><div class="line number9 index8 alt2"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">&lt;/</code><code class="html keyword">property</code><code class="html plain">&gt;</code></div><div class="line number10 index9 alt1"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">&lt;/</code><code class="html keyword">bean</code><code class="html plain">&gt;</code></div></div></td></tr></tbody></table></div></div></div></div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3826308,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3826308,&#39;Bury&#39;,this)">反对(0)</a></div>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/jingpeipei/p/6291071.html#3890584" class="layer">#6楼</a><a name="3890584" id="comment_anchor_3890584"></a>  <span class="comment_date">2018-01-16 14:46</span> <a id="a_comment_author_3890584" href="http://home.cnblogs.com/u/1222008/" target="_blank">或许吧或许</a> <a href="http://msg.cnblogs.com/send/%E6%88%96%E8%AE%B8%E5%90%A7%E6%88%96%E8%AE%B8" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3890584" class="blog_comment_body">楼主您好   有源代码供参考么    有几步没明白    比如：配置实体的小配置（Mybatis的配置）这是在哪个文件下写的</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3890584,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3890584,&#39;Bury&#39;,this)">反对(0)</a></div>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/jingpeipei/p/6291071.html#3891090" class="layer">#7楼</a><a name="3891090" id="comment_anchor_3891090"></a>[<span class="louzhu">楼主</span>]  <span class="comment_date">2018-01-16 18:38</span> <a id="a_comment_author_3891090" href="http://www.cnblogs.com/jingpeipei/" target="_blank">Monodrama</a> <a href="http://msg.cnblogs.com/send/Monodrama" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3891090" class="blog_comment_body"><a href="https://www.cnblogs.com/jingpeipei/p/6291071.html#3890584" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,3890584);">@</a>
+或许吧或许<br>你好，还需要么，需要的话我现在发给你</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3891090,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3891090,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3891090_avatar" style="display:none;">http://pic.cnblogs.com/face/905498/20160314165223.png</span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/jingpeipei/p/6291071.html#3891386" class="layer">#8楼</a><a name="3891386" id="comment_anchor_3891386"></a>  <span class="comment_date">2018-01-17 09:10</span> <a id="a_comment_author_3891386" href="http://home.cnblogs.com/u/1222008/" target="_blank">或许吧或许</a> <a href="http://msg.cnblogs.com/send/%E6%88%96%E8%AE%B8%E5%90%A7%E6%88%96%E8%AE%B8" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3891386" class="blog_comment_body"><a href="https://www.cnblogs.com/jingpeipei/p/6291071.html#3891090" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,3891090);">@</a>
+Monodrama<br>嗯嗯      需要的         昨天弄了一天没整明白               万分感谢</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3891386,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3891386,&#39;Bury&#39;,this)">反对(0)</a></div>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/jingpeipei/p/6291071.html#3891426" class="layer">#9楼</a><a name="3891426" id="comment_anchor_3891426"></a>[<span class="louzhu">楼主</span>]  <span class="comment_date">2018-01-17 09:23</span> <a id="a_comment_author_3891426" href="http://www.cnblogs.com/jingpeipei/" target="_blank">Monodrama</a> <a href="http://msg.cnblogs.com/send/Monodrama" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3891426" class="blog_comment_body"><a href="https://www.cnblogs.com/jingpeipei/p/6291071.html#3891386" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,3891386);">@</a>
+或许吧或许<br>发一下你邮箱吧，邮箱发给你</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3891426,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3891426,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3891426_avatar" style="display:none;">http://pic.cnblogs.com/face/905498/20160314165223.png</span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/jingpeipei/p/6291071.html#3891441" class="layer">#10楼</a><a name="3891441" id="comment_anchor_3891441"></a>  <span class="comment_date">2018-01-17 09:25</span> <a id="a_comment_author_3891441" href="http://home.cnblogs.com/u/1222008/" target="_blank">或许吧或许</a> <a href="http://msg.cnblogs.com/send/%E6%88%96%E8%AE%B8%E5%90%A7%E6%88%96%E8%AE%B8" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3891441" class="blog_comment_body"><a href="https://www.cnblogs.com/jingpeipei/p/6291071.html#3891426" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,3891426);">@</a>
+Monodrama<br>928553293@qq.com<br>万分感谢</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3891441,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3891441,&#39;Bury&#39;,this)">反对(0)</a></div>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/jingpeipei/p/6291071.html#3891530" class="layer">#11楼</a><a name="3891530" id="comment_anchor_3891530"></a>  <span class="comment_date">2018-01-17 09:49</span> <a id="a_comment_author_3891530" href="http://home.cnblogs.com/u/1222008/" target="_blank">或许吧或许</a> <a href="http://msg.cnblogs.com/send/%E6%88%96%E8%AE%B8%E5%90%A7%E6%88%96%E8%AE%B8" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3891530" class="blog_comment_body"><a href="https://www.cnblogs.com/jingpeipei/p/6291071.html#3891426" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,3891426);">@</a>
+Monodrama<br>收到了   谢谢楼主</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3891530,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3891530,&#39;Bury&#39;,this)">反对(0)</a></div>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/jingpeipei/p/6291071.html#3891765" class="layer">#12楼</a><a name="3891765" id="comment_anchor_3891765"></a>  <span class="comment_date">2018-01-17 11:46</span> <a id="a_comment_author_3891765" href="http://home.cnblogs.com/u/1222008/" target="_blank">或许吧或许</a> <a href="http://msg.cnblogs.com/send/%E6%88%96%E8%AE%B8%E5%90%A7%E6%88%96%E8%AE%B8" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3891765" class="blog_comment_body"><a href="https://www.cnblogs.com/jingpeipei/p/6291071.html#3891426" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,3891426);">@</a>
+Monodrama<br>楼主   有一个问题    我把oracle换成mysql数据库     有哪些地方需要改动</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3891765,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3891765,&#39;Bury&#39;,this)">反对(0)</a></div>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/jingpeipei/p/6291071.html#3891796" class="layer">#13楼</a><a name="3891796" id="comment_anchor_3891796"></a>[<span class="louzhu">楼主</span>]  <span class="comment_date">2018-01-17 12:45</span> <a id="a_comment_author_3891796" href="http://www.cnblogs.com/jingpeipei/" target="_blank">Monodrama</a> <a href="http://msg.cnblogs.com/send/Monodrama" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3891796" class="blog_comment_body"><a href="https://www.cnblogs.com/jingpeipei/p/6291071.html#3891765" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,3891765);">@</a>
+或许吧或许<br>把关于Oracle的jar包，配置换成mysql的</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3891796,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3891796,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3891796_avatar" style="display:none;">http://pic.cnblogs.com/face/905498/20160314165223.png</span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/jingpeipei/p/6291071.html#3895142" class="layer">#14楼</a><a name="3895142" id="comment_anchor_3895142"></a>  <span class="comment_date">2018-01-22 16:46</span> <a id="a_comment_author_3895142" href="http://www.cnblogs.com/ktao/" target="_blank">涛声依旧~</a> <a href="http://msg.cnblogs.com/send/%E6%B6%9B%E5%A3%B0%E4%BE%9D%E6%97%A7~" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3895142" class="blog_comment_body">862651004@qq.com <br>求楼主分享源码</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3895142,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3895142,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3895142_avatar" style="display:none;">http://pic.cnblogs.com/face/876623/20170814093809.png</span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/jingpeipei/p/6291071.html#3895209" class="layer">#15楼</a><a name="3895209" id="comment_anchor_3895209"></a>  <span class="comment_date">2018-01-22 17:57</span> <a id="a_comment_author_3895209" href="http://www.cnblogs.com/ktao/" target="_blank">涛声依旧~</a> <a href="http://msg.cnblogs.com/send/%E6%B6%9B%E5%A3%B0%E4%BE%9D%E6%97%A7~" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3895209" class="blog_comment_body"><img src="./使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园_files/876623-20180122175711444-1090121971.png" alt="" border="0" "=""></div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3895209,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3895209,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3895209_avatar" style="display:none;">http://pic.cnblogs.com/face/876623/20170814093809.png</span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/jingpeipei/p/6291071.html#3902297" class="layer">#16楼</a><a name="3902297" id="comment_anchor_3902297"></a>  <span class="comment_date">2018-02-02 09:25</span> <a id="a_comment_author_3902297" href="http://home.cnblogs.com/u/1329115/" target="_blank">如何退场</a> <a href="http://msg.cnblogs.com/send/%E5%A6%82%E4%BD%95%E9%80%80%E5%9C%BA" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3902297" class="blog_comment_body">楼主好！可不可以发一份源码给我，1159986701@qq.com</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3902297,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3902297,&#39;Bury&#39;,this)">反对(0)</a></div>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/jingpeipei/p/6291071.html#3916006" class="layer">#17楼</a><a name="3916006" id="comment_anchor_3916006"></a>  <span class="comment_date">2018-03-06 14:04</span> <a id="a_comment_author_3916006" href="http://home.cnblogs.com/u/1255447/" target="_blank">一粒尘埃丶流年</a> <a href="http://msg.cnblogs.com/send/%E4%B8%80%E7%B2%92%E5%B0%98%E5%9F%83%E4%B8%B6%E6%B5%81%E5%B9%B4" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3916006" class="blog_comment_body">求一份源码 谢谢，3887537@qq.com</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3916006,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3916006,&#39;Bury&#39;,this)">反对(0)</a></div>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/jingpeipei/p/6291071.html#3924573" class="layer">#18楼</a><a name="3924573" id="comment_anchor_3924573"></a>  <span class="comment_date">2018-03-16 09:31</span> <a id="a_comment_author_3924573" href="http://home.cnblogs.com/u/1352492/" target="_blank">OnIonFFF</a> <a href="http://msg.cnblogs.com/send/OnIonFFF" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3924573" class="blog_comment_body">楼主，我按照你的配置了，但是在pom.xml中的依赖也是按照网上找的版本，不过一直显示依赖找不到，你的源代码可以发一份我吗？liuzhifei@mjbattle.com</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3924573,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3924573,&#39;Bury&#39;,this)">反对(0)</a></div>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/jingpeipei/p/6291071.html#3931859" class="layer">#19楼</a><a name="3931859" id="comment_anchor_3931859"></a><span id="comment-maxId" style="display:none;">3931859</span><span id="comment-maxDate" style="display:none;">2018/3/24 12:34:59</span>  <span class="comment_date">2018-03-24 12:34</span> <a id="a_comment_author_3931859" href="http://home.cnblogs.com/u/1317928/" target="_blank">12234</a> <a href="http://msg.cnblogs.com/send/12234" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3931859" class="blog_comment_body">楼主好！可不可以发一份源码给我，820093582@qq.com</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3931859,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3931859,&#39;Bury&#39;,this)">反对(0)</a></div>
+			</div>
+		</div>
+	<div id="comments_pager_bottom"></div></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id="comment_form" class="commentform">
+<a name="commentform"></a>
+<div id="divCommentShow"></div>
+<div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="https://www.cnblogs.com/jingpeipei/p/6291071.html#" onclick="return RefreshPage();">刷新页面</a><a href="https://www.cnblogs.com/jingpeipei/p/6291071.html#top">返回顶部</a></div>
+<div id="comment_form_container"><div class="login_tips">注册用户登录后才能发表评论，请 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return login(&#39;commentform&#39;);">登录</a> 或 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return register();">注册</a>，<a href="http://www.cnblogs.com/">访问</a>网站首页。</div></div>
+<div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+<div id="ad_t2"><a href="http://www.ucancode.com/index.htm" target="_blank">【推荐】超50万VC++源码: 大型组态工控、电力仿真CAD与GIS源码库！</a><br><a href="http://clickc.admaster.com.cn/c/a105960,b2436453,c1705,i0,m101,8a1,8b2,h" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-DevCloud&#39;)">【推荐】华为云7大明星产品0元免费使用</a><br><a href="http://challenge.xfyun.cn/?ch=bk" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-xfyun&#39;)">【大赛】2018首届“顶天立地”AI开发者大赛</a><br></div>
+<div id="opt_under_post"></div>
+<div id="cnblogs_c1" class="c_ad_block"><a onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;C1&#39;);" href="https://cloud.tencent.com/product/tac?fromSource=gwzcw.945615.945615.945615" target="_blank"><img width="300" height="250" src="./使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园_files/24442-20180530101048589-14642248.jpg" alt="腾讯云0530"></a></div>
+<div id="under_post_news"><div class="itnews c_ad_block"><b>最新IT新闻</b>:<br> ·  <a href="https://news.cnblogs.com/n/598266/" target="_blank">腾讯今日头条互相起诉：已从抖音微视之争到全面对抗</a><br> ·  <a href="https://news.cnblogs.com/n/598265/" target="_blank">恭祝米粉们喜提 iPhone X！</a><br> ·  <a href="https://news.cnblogs.com/n/598264/" target="_blank">50年前开始的编程教育，如今在国内发展怎样了？</a><br> ·  <a href="https://news.cnblogs.com/n/598263/" target="_blank">腾讯头条大战全始末梳理，到底谁戏精？</a><br> ·  <a href="https://news.cnblogs.com/n/598262/" target="_blank">腾讯与今日头条，正陷入“斗鸡博弈”</a><br>» <a href="http://news.cnblogs.com/" title="IT新闻" target="_blank">更多新闻...</a></div></div>
+<div id="cnblogs_c2" class="c_ad_block"><a href="http://click.aliyun.com/m/34770/" target="_blank"><img src="./使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架 - Monodrama - 博客园_files/TB1gBPhgZLJ8KJjy0FnXXcFDpXa-468-60.jpg" alt="" style="width: 468px; height: 60px;"></a></div>
+<div id="under_post_kb"><div class="itnews c_ad_block" id="kb_block"><b>最新知识库文章</b>:<br><div id="kb_recent"> ·  <a href="http://kb.cnblogs.com/page/597631/" target="_blank">云、雾和霭计算如何一起工作</a><br> ·  <a href="http://kb.cnblogs.com/page/576411/" target="_blank">你可以把编程当做一项托付终身的职业</a><br> ·  <a href="http://kb.cnblogs.com/page/596164/" target="_blank">评审的艺术——谈谈现实中的代码评审</a><br> ·  <a href="http://kb.cnblogs.com/page/577233/" target="_blank">如何高效学习</a><br> ·  <a href="http://kb.cnblogs.com/page/578689/" target="_blank">如何成为优秀的程序员？</a><br></div>» <a href="http://kb.cnblogs.com/" target="_blank">更多知识库文章...</a></div></div>
+<div id="HistoryToday" class="c_ad_block"></div>
+<script type="text/javascript">
+    fixPostBody();
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);   
+</script>
+</div>
+
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<!--done-->
+<div class="newsItem">
+<h3 class="catListTitle">公告</h3>
+	<div id="blog-news"><div id="profile_block">昵称：<a href="https://home.cnblogs.com/u/jingpeipei/">Monodrama</a><br>园龄：<a href="https://home.cnblogs.com/u/jingpeipei/" title="入园时间：2016-03-06">2年2个月</a><br>粉丝：<a href="https://home.cnblogs.com/u/jingpeipei/followers/">26</a><br>关注：<a href="https://home.cnblogs.com/u/jingpeipei/followees/">40</a><div id="p_b_follow"><a href="javascript:void(0);" onclick="follow(&#39;41aabc5f-33e3-e511-9fc1-ac853d9f53cc&#39;)">+加关注</a></div><script>getFollowStatus('41aabc5f-33e3-e511-9fc1-ac853d9f53cc')</script></div></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style=""><table id="blogCalendar" class="Cal" cellspacing="0" cellpadding="0" title="Calendar">
+	<tbody><tr><td colspan="7"><table class="CalTitle" cellspacing="0">
+		<tbody><tr><td class="CalNextPrev"><a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2018/05/01&#39;);return false;">&lt;</a></td><td align="center">2018年6月</td><td class="CalNextPrev" align="right"><a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2018/07/01&#39;);return false;">&gt;</a></td></tr>
+	</tbody></table></td></tr><tr><th class="CalDayHeader" align="center" abbr="日" scope="col">日</th><th class="CalDayHeader" align="center" abbr="一" scope="col">一</th><th class="CalDayHeader" align="center" abbr="二" scope="col">二</th><th class="CalDayHeader" align="center" abbr="三" scope="col">三</th><th class="CalDayHeader" align="center" abbr="四" scope="col">四</th><th class="CalDayHeader" align="center" abbr="五" scope="col">五</th><th class="CalDayHeader" align="center" abbr="六" scope="col">六</th></tr><tr><td class="CalOtherMonthDay" align="center">27</td><td class="CalOtherMonthDay" align="center">28</td><td class="CalOtherMonthDay" align="center">29</td><td class="CalOtherMonthDay" align="center">30</td><td class="CalOtherMonthDay" align="center">31</td><td align="center">1</td><td class="CalWeekendDay" align="center">2</td></tr><tr><td class="CalTodayDay" align="center">3</td><td align="center">4</td><td align="center">5</td><td align="center">6</td><td align="center">7</td><td align="center">8</td><td class="CalWeekendDay" align="center">9</td></tr><tr><td class="CalWeekendDay" align="center">10</td><td align="center">11</td><td align="center">12</td><td align="center">13</td><td align="center">14</td><td align="center">15</td><td class="CalWeekendDay" align="center">16</td></tr><tr><td class="CalWeekendDay" align="center">17</td><td align="center">18</td><td align="center">19</td><td align="center">20</td><td align="center">21</td><td align="center">22</td><td class="CalWeekendDay" align="center">23</td></tr><tr><td class="CalWeekendDay" align="center">24</td><td align="center">25</td><td align="center">26</td><td align="center">27</td><td align="center">28</td><td align="center">29</td><td class="CalWeekendDay" align="center">30</td></tr><tr><td class="CalOtherMonthDay" align="center">1</td><td class="CalOtherMonthDay" align="center">2</td><td class="CalOtherMonthDay" align="center">3</td><td class="CalOtherMonthDay" align="center">4</td><td class="CalOtherMonthDay" align="center">5</td><td class="CalOtherMonthDay" align="center">6</td><td class="CalOtherMonthDay" align="center">7</td></tr>
+</tbody></table></div><script type="text/javascript">loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"><div id="sidebar_search" class="sidebar-block">
+<div id="sidebar_search" class="mySearch">
+<h3 class="catListTitle">搜索</h3>
+<div id="sidebar_search_box">
+<div id="widget_my_zzk" class="div_my_zzk"><input type="text" id="q" onkeydown="return zzk_go_enter(event);" class="input_my_zzk">&nbsp;<input onclick="zzk_go()" type="button" value="找找看" id="btnZzk" class="btn_my_zzk"></div>
+<div id="widget_my_google" class="div_my_zzk"><input type="text" name="google_q" id="google_q" onkeydown="return google_go_enter(event)" class="input_my_zzk">&nbsp;<input onclick="google_go()" type="button" value="谷歌搜索" class="btn_my_zzk"></div>
+</div>
+</div>
+
+</div><div id="sidebar_shortcut" class="sidebar-block">
+<div class="catListLink">
+<h3 class="catListTitle">常用链接</h3>
+<ul>
+<li><a href="http://www.cnblogs.com/jingpeipei/p/" title="我的博客的随笔列表">我的随笔</a></li><li><a href="http://www.cnblogs.com/jingpeipei/MyComments.html" title="我发表过的评论列表">我的评论</a></li><li><a href="http://www.cnblogs.com/jingpeipei/OtherPosts.html" title="我评论过的随笔列表">我的参与</a></li><li><a href="http://www.cnblogs.com/jingpeipei/RecentComments.html" title="我的博客的评论列表">最新评论</a></li><li><a href="http://www.cnblogs.com/jingpeipei/tag/" title="我的博客的标签列表">我的标签</a></li>
+</ul>
+<div id="itemListLin_con" style="display:none;">
+<ul>
+
+</ul>
+</div>
+</div></div><div id="sidebar_toptags" class="sidebar-block">
+<div class="catListTag">
+<h3 class="catListTitle">我的标签</h3>
+<ul>
+<li><a href="http://www.cnblogs.com/jingpeipei/tag/JAVA/">JAVA</a>(5)</li><li><a href="http://www.cnblogs.com/jingpeipei/tag/SQL/">SQL</a>(5)</li><li><a href="http://www.cnblogs.com/jingpeipei/tag/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">Java面向对象</a>(3)</li><li><a href="http://www.cnblogs.com/jingpeipei/tag/MyBatis%E5%85%A5%E9%97%A8%E6%A1%88%E4%BE%8B%E3%80%81%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5/">MyBatis入门案例、增删改查</a>(2)</li><li><a href="http://www.cnblogs.com/jingpeipei/tag/2016-08-01%E9%94%99%E9%A2%98%E8%A7%A3%E6%9E%90/">2016-08-01错题解析</a>(2)</li><li><a href="http://www.cnblogs.com/jingpeipei/tag/Html5%E9%AB%98%E7%BA%A7/">Html5高级</a>(2)</li><li><a href="http://www.cnblogs.com/jingpeipei/tag/Struts2%20%20Ajax%E6%A0%A1%E9%AA%8C/">Struts2  Ajax校验</a>(1)</li><li><a href="http://www.cnblogs.com/jingpeipei/tag/Struts2%20%20OGNL/">Struts2  OGNL</a>(1)</li><li><a href="http://www.cnblogs.com/jingpeipei/tag/Struts2%20%20OGNL%E6%A1%88%E4%BE%8B/">Struts2  OGNL案例</a>(1)</li><li><a href="http://www.cnblogs.com/jingpeipei/tag/Struts2%20easy%20UI%E6%8F%92%E4%BB%B6/">Struts2 easy UI插件</a>(1)</li><li><a href="http://www.cnblogs.com/jingpeipei/tag/">更多</a></li>
+</ul>
+</div></div><div id="sidebar_categories">
+<div id="sidebar_postarchive" class="catListPostArchive sidebar-block">
+<h3 class="catListTitle">随笔档案</h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_0_Link_0" href="https://www.cnblogs.com/jingpeipei/archive/2017/09.html">2017年9月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_1" href="https://www.cnblogs.com/jingpeipei/archive/2017/05.html">2017年5月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_2" href="https://www.cnblogs.com/jingpeipei/archive/2017/01.html">2017年1月 (12)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_3" href="https://www.cnblogs.com/jingpeipei/archive/2016/12.html">2016年12月 (7)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_4" href="https://www.cnblogs.com/jingpeipei/archive/2016/11.html">2016年11月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_5" href="https://www.cnblogs.com/jingpeipei/archive/2016/10.html">2016年10月 (20)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_6" href="https://www.cnblogs.com/jingpeipei/archive/2016/09.html">2016年9月 (13)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_7" href="https://www.cnblogs.com/jingpeipei/archive/2016/08.html">2016年8月 (15)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_8" href="https://www.cnblogs.com/jingpeipei/archive/2016/07.html">2016年7月 (7)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_9" href="https://www.cnblogs.com/jingpeipei/archive/2016/06.html">2016年6月 (12)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_10" href="https://www.cnblogs.com/jingpeipei/archive/2016/05.html">2016年5月 (14)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_11" href="https://www.cnblogs.com/jingpeipei/archive/2016/04.html">2016年4月 (4)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_12" href="https://www.cnblogs.com/jingpeipei/archive/2016/03.html">2016年3月 (11)</a> </li>
+
+</ul>
+
+</div>
+
+</div><div id="sidebar_recentcomments" class="sidebar-block"><div id="recent_comments_wrap">
+<div class="catListComment">
+<h3 class="catListTitle">最新评论</h3>
+
+	<div id="RecentCommentsBlock"><ul>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/jingpeipei/p/6291071.html#3931859">1. Re:使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架</a></li>
+        <li class="recent_comment_body">楼主好！可不可以发一份源码给我，820093582@qq.com</li>
+        <li class="recent_comment_author">--12234</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/jingpeipei/p/6291071.html#3924573">2. Re:使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架</a></li>
+        <li class="recent_comment_body">楼主，我按照你的配置了，但是在pom.xml中的依赖也是按照网上找的版本，不过一直显示依赖找不到，你的源代码可以发一份我吗？liuzhifei@mjbattle.com</li>
+        <li class="recent_comment_author">--OnIonFFF</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/jingpeipei/p/6291071.html#3916006">3. Re:使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架</a></li>
+        <li class="recent_comment_body">求一份源码 谢谢，3887537@qq.com</li>
+        <li class="recent_comment_author">--一粒尘埃丶流年</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/jingpeipei/p/6339804.html#3902322">4. Re:MyBatis入门案例、增删改查</a></li>
+        <li class="recent_comment_body">可不可以给几张图片呀？</li>
+        <li class="recent_comment_author">--如何退场</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/jingpeipei/p/6291071.html#3902297">5. Re:使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架</a></li>
+        <li class="recent_comment_body">楼主好！可不可以发一份源码给我，1159986701@qq.com</li>
+        <li class="recent_comment_author">--如何退场</li>
+</ul>
+</div>
+</div>
+</div></div><div id="sidebar_topviewedposts" class="sidebar-block"><div id="topview_posts_wrap">
+<div class="catListView">
+<h3 class="catListTitle">阅读排行榜</h3>
+	<div id="TopViewPostsBlock"><ul><li><a href="https://www.cnblogs.com/jingpeipei/p/6291071.html">1. 使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架(28245)</a></li><li><a href="https://www.cnblogs.com/jingpeipei/p/5842869.html">2. Hibernate中的一对一关联(7126)</a></li><li><a href="https://www.cnblogs.com/jingpeipei/p/5771716.html">3. 多线程下单例模式：懒加载（延迟加载）和即时加载(5844)</a></li><li><a href="https://www.cnblogs.com/jingpeipei/p/6150409.html">4. JBPM工作流(5020)</a></li><li><a href="https://www.cnblogs.com/jingpeipei/p/5910026.html">5. 第三章Struts2 Action中动态方法调用、通配符的使用(3116)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topcommentedposts" class="sidebar-block"><div id="topfeedback_posts_wrap">
+<div class="catListFeedback">
+<h3 class="catListTitle">评论排行榜</h3>
+	<div id="TopFeedbackPostsBlock"><ul><li><a href="https://www.cnblogs.com/jingpeipei/p/6291071.html">1. 使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架(19)</a></li><li><a href="https://www.cnblogs.com/jingpeipei/p/5945724.html">2. Struts2日期类型转换(4)</a></li><li><a href="https://www.cnblogs.com/jingpeipei/p/5818323.html">3. Hibernate延迟加载、三种状态、脏检查 缓存(3)</a></li><li><a href="https://www.cnblogs.com/jingpeipei/p/6339804.html">4. MyBatis入门案例、增删改查(2)</a></li><li><a href="https://www.cnblogs.com/jingpeipei/p/5953666.html">5. Struts2数据校验(1)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topdiggedposts" class="sidebar-block"><div id="topdigg_posts_wrap">
+<div class="catListView">
+<h3 class="catListTitle">推荐排行榜</h3>
+<div id="TopDiggPostsBlock"><ul><li><a href="https://www.cnblogs.com/jingpeipei/p/6291071.html">1. 使用intellij idea搭建MAVEN+SSM(Spring+SpringMVC+MyBatis)框架(3)</a></li><li><a href="https://www.cnblogs.com/jingpeipei/p/6260156.html">2. Java 线程(1)</a></li><li><a href="https://www.cnblogs.com/jingpeipei/p/6260125.html">3. Spring MVC数据校验(1)</a></li><li><a href="https://www.cnblogs.com/jingpeipei/p/6222829.html">4. Spring MVC注解开发入门(1)</a></li><li><a href="https://www.cnblogs.com/jingpeipei/p/6150409.html">5. JBPM工作流(1)</a></li></ul></div>
+</div></div></div></div><script type="text/javascript">loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		
+<!--done-->
+Copyright ©2018 Monodrama
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+</body></html>

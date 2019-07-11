@@ -1,0 +1,56 @@
+mysql
+username:root
+password:129826hy
+
+
+Ubuntu
+username:root
+password:123456
+
+centos
+username:root
+password:root
+
+fenbi
+175
+129826hy
+
+
+gitlab 
+root/tthu
+129826hy
+
+
+AWS
+10297
+129826Hy
+
+Navicat¼¤»î:
+D:\BaiduNetdiskDownload\Navicat Premium>Keygen.exe RegPrivateKey.pem
+Your name: manlinghun
+Your organization: manlinghun
+
+SnKey:
+NAVH-OXKG-LQUL-DJRT
+
+Input request code (in Base64), empty line to return:
+r+cQwK2jkptmjQ/p2KxNcmVfGQ+/C5uyuJLBITla0xSIC0MKxaC/bmBCmUPhtvu6zG6DjTB+h2wn
+yacRpTxDV4GVkYxNuzEV7LXn/fb3tzvB8itRQ9ad6zVhiiCVEDtnOyqXrmBTFlNGaR6wBOsHtJT2
+3rwGF7YOc8wMknnXT1KYnxkQKwPgu2KeT5YKY7/DJaFjZKeoaa+AjBH74N12gN6iWfNNapn0GURX
+LVvNuGAxN9wE7583J+XiiivH6k2TBrBXSnjZyk85HnlSoeEHMxnewubnBolmnBv0CGkwCRsnAdU9
+Am2YF71mDB6kZDKERRhvUz28sBCVnRCUKC41BQ==
+
+License:
+C1a82r4aYK3o0zykmLvLTPP55z+jnvNq5kZx8DHv3blv3gZWp/q7GjUeD9EfRXKU
+InAQKgp8iKEb1/vIf+JLYV9mRrJnxCYeMM+gyXB8kTfqGi7K/+rfOdhX5wzwSuHv
+V+g2PUWV22ROf+/fqzuZi5w0sFPO/A5lrErVUfWxJXKjs0STNYKxRD1Qut1vZLLJ
+BccDHI8X8R6aI74HA63DsIXImlA5jQBnjG/DjL1SPhIZ1dZ8wf05E8DVwXr6rXy5
+CnLAfsIaKfLNt1yD3vpTw/lj18SqVuUkZeWjKE7Zj44BXpzIGknd3DKBRcZ3/7zH
+v5ZIakfk2cm0U90fzF9o1Q==
+
+
+
+
+godaddy:
+manlinghun
+!QAZ2wsx#EDC
