@@ -1,0 +1,63 @@
+<!DOCTYPE=html>  
+<html>  
+<head>  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>html转为pdf</title>
+    <style>
+        textarea{height: 300px;width: 1000px;}
+    </style>
+</head>  
+<body>  
+    <textarea id="srcText"></textarea>
+    </br>
+    <button id="changeBtn">转换</button>
+    </br>
+    <textarea id="dstText"></textarea>
+</body>
+<script src="js/jquery.js" type="text/javascript"></script>  
+  
+<script type="text/javascript">  
+
+    var testData = "Salient Statistics—United States: 2015 2016 2017 2018 2019e";
+    var srcText = "";
+    var dstText = "";
+    $(function(){
+        // $("#srcText").val(testData);
+        $("#changeBtn").on("click",function(){
+            srcText = $("#srcText").val();
+            dstText = changeData(srcText.trim());
+            $("#dstText").val(dstText);
+        });
+    })
+
+    function changeData(text){
+        var dstArray = []
+        var srcArray = text.split("\n");
+        $.each(srcArray,function(index,item){
+            dstArray.push(changeItem(item));
+        })
+        return dstArray.join("\n");
+    }
+
+    function changeItem(text){
+        var result = text;
+        var re = /\s\d/g
+        var reArray = text.match(re);
+        if(reArray == null || reArray.length < 1){
+            return result; 
+        }
+        var index = text.indexOf(reArray[0]);
+        var head = text.substr(0,index);
+        var tail = text.substr(index+1);
+        tail = dealNumStr(tail)
+        result = head + "\t"+tail;
+        return result;
+    }
+
+    function dealNumStr(numStr){
+        numStr = numStr.replace(/\s+/g,"\t");
+        return numStr;
+    }
+
+</script>  
+</html> 

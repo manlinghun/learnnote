@@ -35,6 +35,7 @@
 3. 主要有四个子容器：Engine,Host,Context,Wrapper
 ### Container原理
 <img src="img/container_1.png" style="height:300px;weith:300px;">
+
 1. 上图体现了个容器间的父子关系
 2. Engine：用于管理多个站点，但一个service只能有一个Engine
 3. Host：代表一个站点，也可以将虚拟主机通过配置Host就可以添加站点  
