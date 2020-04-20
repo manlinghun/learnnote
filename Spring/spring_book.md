@@ -1,10 +1,89 @@
+# Spring的设计理念和整体架构
+## Spring的各个子项目
+打开spring的官方网站：https://spring.io/projects
+1. Spring Boot
+    Takes an opinionated view of building Spring applications and gets you up and running as quickly as possible.
+    对构建Spring应用程序持坚定态度，并尽快使您启动和运行。
+2. Spring Framework
+    Provides core support for dependency injection, transaction management, web apps, data access, messaging and more.
+    为依赖注入、事务管理、web应用程序、数据访问、消息传递等提供核心支持。
+3. Spring Data
+    Provides a consistent approach to data access – relational, non-relational, map-reduce, and beyond.
+    为数据访问提供一致的方法——关系型、非关系型、map-reduce等等。
+4. Spring Cloud
+    Provides a set of tools for common patterns in distributed systems. Useful for building and deploying microservices.
+    提供一组用于分布式系统中常见模式的工具。对于构建和部署微服务很有用。
+5. Spring Cloud Data Flow
+    An orchestration service for composable data microservice applications on modern runtimes.
+    用于现代运行时可组合数据微服务应用程序的编排服务。
+6. Spring Security
+    Protects your application with comprehensive and extensible authentication and authorization support.
+    通过全面且可扩展的身份验证和授权支持保护您的应用程序。
+7. Spring Session
+    Spring Session provides an API and implementations for managing a user’s session information.
+    Spring Session提供了用于管理用户会话信息的API和实现。
+8. Spring Integration
+    Supports the well-known Enterprise Integration Patterns via lightweight messaging and declarative adapters.
+    通过轻量级消息传递和声明性适配器支持著名的企业集成模式。
+9. Spring HATEOAS
+    Simplifies creating REST representations that follow the HATEOAS principle.
+    简化了遵循HATEOAS原理的REST表示的创建。
+10. Spring REST Docs
+    Document RESTful services by combining hand-written documentation with auto-generated snippets produced with Spring MVC Test or REST Assured.
+    通过将手写文档与Spring MVC Test或REST Assured生成的自动生成的片段结合起来，记录RESTful服务。
+11. Spring Batch
+    Simplifies and optimizes the work of processing high-volume batch operations.
+    简化和优化处理批量生产的工作。
+12. Spring AMQP
+    Applies core Spring concepts to the development of AMQP-based messaging solutions.
+    将Spring核心概念应用于基于AMQP的消息传递解决方案的开发。
+13. pring for Android
+    Provides key Spring components for use in developing Android applications.
+    提供用于开发Android应用程序的关键Spring组件。
+14. Spring CredHub
+    Provides client-side support for storing, retrieving, and deleting credentials from a CredHub server running in a Cloud Foundry platform.
+    提供客户端支持，以从Cloud Foundry平台中运行的CredHub服务器存储，检索和删除凭据。
+15. Spring Flo
+    A JavaScript library that offers a basic embeddable HTML5 visual builder for pipelines and simple graphs.
+    一个JavaScript库，为管道和简单图形提供了基本的可嵌入HTML5可视生成器。
+16. Spring for Apache Kafka
+    Provides Familiar Spring Abstractions for Apache Kafka.
+    为Apache Kafka提供熟悉的Spring抽象。
+17. Spring LDAP
+    Simplifies the development of applications using LDAP using Spring's familiar template-based approach.
+    使用Spring熟悉的基于模板的方法简化使用LDAP的应用程序开发。
+18. Spring Mobile
+    Simplifies the development of mobile web apps through device detection and progressive rendering options.
+    通过设备检测和渐进式渲染选项简化了移动Web应用程序的开发。
+19. Spring Roo
+    Makes it fast and easy to build full Java applications in minutes.
+    使您可以在几分钟内快速轻松地构建完整的Java应用程序。
+20. Spring Shell
+    Makes writing and testing RESTful applications easier with CLI-based resource discovery and interaction.
+    通过基于CLI的资源发现和交互，使编写和测试RESTful应用程序更加容易。
+21. Spring Statemachine
+    A framework for application developers to use state machine concepts with Spring applications.
+    应用程序开发人员可以在Spring应用程序中使用状态机概念的框架。
+22. Spring Vault
+    Provides familiar Spring abstractions for HashiCorp Vault.
+    为HashiCorp Vault提供熟悉的Spring抽象
+23. Spring Web Flow
+    Supports building web applications with controlled navigation such as checking in for a flight or applying for a loan.
+    支持构建具有受控导航功能的Web应用程序，例如办理登机手续或申请贷款。
+24. Spring Web Services
+    Facilitates the development of contract-first SOAP web services.
+    促进合同优先的SOAP Web服务的开发。
+
+## Spring的设计目标
+
+
+
 # XmlBeanFactory
 
 # IoC容器的启动
 BeanDefinition的Resource定位、载入和注册三个过程
 ## Resource定位
 1. 指的是BeanDefinition的资源定位
-2. 
 ## BeanDefinition的载入
 1. 这个载入过程就是把用户定义好的的Bean表示成IoC容器内部的数据结构，而这个容器内部的数据结构就时BeanDefinition
 ## 注册
