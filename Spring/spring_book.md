@@ -75,6 +75,43 @@
     促进合同优先的SOAP Web服务的开发。
 
 ## Spring的设计目标
+1. Spring为开发者提供的是一个一站式的轻量级应用开发框架
+
+## Spring的整体架构
+<table style="text-align:center;">
+	<tr>
+	    <td rowspan="3">Spring AOP</td>
+	    <td colspan="3">Spring事物处理</td>
+	    <td colspan="3">spring应用</td>
+	</tr>
+	<tr>
+	    <td colspan="2">Spring JDBC/ORM</td>
+	    <td colspan="2">Spring MVC</td>
+        <td colspan="2">Spring远端调用及其他支持</td>
+	</tr>
+	<tr>
+	    <td colspan="6">spring IoC模块</br>(BeanFactory、应用上下文、各种支持实现)</td>
+	</tr>
+</table>
+
+### Spring IoC
+1. 包含了最为基本的IoC容器和BeanFactory的接口的实现，不仅第一了IoC容器的基本接口（BeanFactory），也提供了一系列这个接口的实现，如XmlBeanFactory，为了让应用更方便的使用IOC容器，还需要在IOC容器的外围提供其他支持，包括Resource访问资源的抽象和定位等，所有这些都是Spring IoC模块的基本内容。
+2. Spring 还这几了IoC容器的高级形态ApplicationContext应用上下文供用户使用。
+### Spring AOP 
+1. Spring核心模块，围绕AOP的增强功能，Spring集成了AspectJ作为AOP的一个特定实现，同时还在JVM动态代理/CGLIB的基础上实现了一个AOP框架，作为Spring集成其他模块的工具。
+2. 在这个模块中，Spring AOP实现了一个完成的建立AOP对象，实现AOP拦截器，直至实现各种Advice通知的过程。
+### Spring MVC
+1. 这个模块以DispatcherServlet为中心，实现了MVC模式，包括怎样与web容器环境的集成，web请求的拦截、分发、处理和ModelAndView数据的返回，以及如何集成各种UI视图展现和数据展现，如PDF，Excel等，通过这个模块，可以完成Web的前段设计。
+### Spring JDBC/ORM
+1. 对java JDBC封装，使数据库操作更加简洁，
+2. 提供了JdbcTemplate作为模板
+3. 提供了RDBMS的操作对象，使应用以更加面向对象的方式访问数据库
+4. 还提供了对其他ORM工具的封装，如Hibernate，iBatis
+### Spring事务处理
+1. 是一个通过Spring AOP实现自身功能增强的典型模块
+### Spring远端调用
+1. 
+
 
 
 
