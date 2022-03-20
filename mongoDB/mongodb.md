@@ -7,6 +7,12 @@
 ~~~
     mongo
 ~~~
+3. 添加用户
+~~~
+db.createUser({user: "myuser",pwd: "mypwd",roles: [ { role: "root", db: "admin" } ]})
+db.auth("myuser","mypwd")
+db.dropUser("myuser")
+~~~
 
 # 常用命令
 1. 创建数据库
