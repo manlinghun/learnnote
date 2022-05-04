@@ -56,3 +56,11 @@ manlinghun
 !QAZ2wsx#EDC
 
 oracle 129826Hy
+
+
+windows11菜单键设置
+
+恢复windows11新版右键菜单：
+reg delete "HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}" /f
+开启旧版右键菜单：
+reg add "HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32" /f /ve

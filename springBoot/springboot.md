@@ -1,3 +1,6 @@
+# 问题
+1. springboot中自动装配功能是如何实现的
+
 # REST
 
 ## rest返回的json需要转成xml

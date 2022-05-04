@@ -76,6 +76,7 @@
 
 ## Spring的设计目标
 1. Spring为开发者提供的是一个一站式的轻量级应用开发框架
+2. Spring的设计理念，面向接口开发而不依赖于具体的产品实现
 
 ## Spring的整体架构
 <table style="text-align:center;">
@@ -110,10 +111,12 @@
 ### Spring事务处理
 1. 是一个通过Spring AOP实现自身功能增强的典型模块
 ### Spring远端调用
-1. 
 
 
 
+# IoC容器的实现
+
+# 容器和对象的创建流程
 
 # XmlBeanFactory
 
