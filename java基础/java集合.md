@@ -34,6 +34,39 @@
 
 ### 添加元素
 
+* add()
+  
+~~~java
+    public boolean add(E e) {
+        // 确保内部容量
+        ensureCapacityInternal(size + 1);  // Increments modCount!!
+        elementData[size++] = e;
+        return true;
+    }
+    // 确保内部容量
+    private void ensureCapacityInternal(int minCapacity) {
+        ensureExplicitCapacity(calculateCapacity(elementData, minCapacity));
+    }
+    //计算容量
+    private static int calculateCapacity(Object[] elementData, int minCapacity) {
+        //空数组时候，去默认容量和最小所需容量的最大值
+        if (elementData == DEFAULTCAPACITY_EMPTY_ELEMENTDATA) {
+            return Math.max(DEFAULT_CAPACITY, minCapacity);
+        }
+        // 否则直接返回最小所需容量
+        return minCapacity;
+    }
+    // 确保显式容量
+    private void ensureExplicitCapacity(int minCapacity) {
+        modCount++;
+
+        // 最小所需容量大于当前数据容量时候，就要扩容
+        if (minCapacity - elementData.length > 0)
+            grow(minCapacity);
+    }
+    
+~~~
+
 * 确保空间可用
 
     * 数组每次扩容， 新的数据长度 = oldCapacity + (oldCapacity >> 1)，即加上元数组长度的一半向下取整
@@ -44,9 +77,9 @@
           int oldCapacity = elementData.length;
           int newCapacity = oldCapacity + (oldCapacity >> 1);
           if (newCapacity - minCapacity < 0)
-          newCapacity = minCapacity;
+            newCapacity = minCapacity;
           if (newCapacity - MAX_ARRAY_SIZE > 0)
-          newCapacity = hugeCapacity(minCapacity);
+            newCapacity = hugeCapacity(minCapacity);
           // minCapacity is usually close to size, so this is a win:
           elementData = Arrays.copyOf(elementData, newCapacity);
       }
