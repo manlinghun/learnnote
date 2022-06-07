@@ -325,9 +325,9 @@ CONTAINER ID   IMAGE     COMMAND       CREATED         STATUS                   
 ~~~
 * 删除容器
 ~~~shell
-    docker -rm          # 删除指定容器，不能删除运行中的容器
-    docker -rm -f       # 强制删除
-    docker -rm $(docker ps -aq)             # 删除全部容器
+    docker rm          # 删除指定容器，不能删除运行中的容器
+    docker rm -f       # 强制删除
+    docker rm $(docker ps -aq)             # 删除全部容器
     docker ps -a -q | xargs docker rm       # 删除全部容器
 ~~~
 * 启动和停止容器
@@ -711,11 +711,43 @@ docker pull tomcat
 
 ###  portainer
 
+1. 安装
+
+~~~shell
+
+docker pull portainer/portainer
+
+~~~
+
+2. 运行
+
 ~~~shell
 
 docker run -d -p 8088:9000 --restart=always -v /var/run/docker.sock:/var/run/docker.sock --privileged=true portainer/portainer
 
 ~~~
+
+3. 连接
+
+http://192.168.1.119:8088/#/auth
+
+admin/12345678
+
+4. 重置密码
+
+* docker ps -a
+
+* docker run --rm -v portainer_data:/data portainer/helper-reset-password
+  
+如果不行，就往下看
+
+* docker inspect 98e830d3e97c
+![](img/2022-06-07-20-34-43.png)
+
+* docker run --rm -v /var/lib/docker/volumes/a548377a0cdcac27f3706ede0b73545392a198955c29af8888d64b74c4607ade/_data:/data portainer/helper-reset-password
+![](img/2022-06-07-20-36-28.png)
+
+* docker start 
 
 # Docker镜像详解
 
