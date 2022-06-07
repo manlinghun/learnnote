@@ -92,6 +92,30 @@
 ### 获取指定位置元素get(int index)
 
 * 判断元素与集合大小的关系，决定从前往后找还是从后往前找
+  
+~~~java
+
+    public E get(int index) {
+        checkElementIndex(index);
+        return node(index).item;
+    }
+
+    Node<E> node(int index) {
+        // 小于集合大小的一半，从前往后找
+        if (index < (size >> 1)) {
+            Node<E> x = first;
+            for (int i = 0; i < index; i++)
+                x = x.next;
+            return x;
+        } else {
+            // 小于集合大小的一半，从后往前找
+            Node<E> x = last;
+            for (int i = size - 1; i > index; i--)
+                x = x.prev;
+            return x;
+        }
+    }
+~~~
 
 ### 删除
 
@@ -102,9 +126,8 @@
 
 | 集合类型   | 底层实现 | 特征 |
 | ---------- | -------- | ---- |
-| ArrayList  | 数组     |      |
-| LinkedList | 双向链表 |      |
-|            |          |      |
+| ArrayList  | 数组     |   数据存放在连续的内存空间上的    |
+| LinkedList | 双向链表 |   数据不是存放在连续的内存空间上的   |
 
 
 
@@ -165,6 +188,7 @@
       * 按位与运算 & 0&0=0;  0&1=0;   1&0=0;    1&1=1;
       * 00000010111001011100010010101100
       * 00000000000000000000000000011111  (16-1=15)
+      * 00000000000000000000000000001100
       * 与运算保证了数组下标不超过数组最大范围，同时数据长度为2的次幂，会使得所有元素在数组中分布更加均匀
       */
       int index = (n - 1) & hash;
@@ -173,14 +197,51 @@
 
 		3. 判断数组对应位置的值（记为p）是否为null，如果为null，创建新的Node对象，并赋值给数组对应下标上的值，跳过下一步。如果不为null，进行下一步处理
 		
-		4. 如果p的hash值等于key的hash
+		4. 如果p节点保存的hash值等于key的hash且（key=p节点保存的key 或者 key.equals(p节点保存的key)）
+		5. 判断是否为树节点，树节点则插入树中，否则插入链表中，链表长度大于等于8时，将其转换成红黑树
+		6. 当数据个数大于一定阀值的时候，进行扩容，扩容后的长度是原来的2倍
+
+
 * get 
 
 ### 问题
 
-1. hashMap的数组长度为什么保持2的次幂
+1. 在计算数组下标时候，为什么要右移16位再做异或运算
+ 
+* 总结回答：是为了提高性能，在计算数组下标时，将高位的影响扩展到低位，从而较少哈希碰撞，提高性能
 
-* 总结回答：为了提高性能，hashMap底层是数组+链表+红黑树的实现方式，第一层是数组，存放逻辑是：会根据key的hashCode值算出对应的下标，将值存放到对应位置上去，数组长度保持2的次幂，是为了使得所有元素在数组中分布更加均匀，以减少红黑树（链表）中查找元素时数据比较的次数，从而达到提高新能的目的
+~~~java
+
+    /**
+     * 计算key.hashCode()并将较高的散列位扩展(XORs)到较低的散列位。
+     * 因为该表使用二次方掩码，所以在当前掩码之上仅位不同的哈希集总是会发生碰撞。(已知的例子包括在小表格中保存连续整数的Float键集。)
+     *  2	1073741824	1000000000000000000000000000000
+     *  3	1077936128	1000000010000000000000000000000
+     *  4	1082130432	1000000100000000000000000000000
+     *  5	1084227584	1000000101000000000000000000000
+     *  6	1086324736	1000000110000000000000000000000
+     *  7	1088421888	1000000111000000000000000000000
+     *  8	1090519040	1000001000000000000000000000000
+     *  9	1091567616	1000001000100000000000000000000
+     *  10	1092616192	1000001001000000000000000000000
+     * 因此，我们应用了一种转换，将更高位的影响向下扩散。
+     * 比特传播的速度、效用和质量之间需要权衡。
+     * 因为许多常见的哈希集已经合理分布了(所以不能从扩展中获益)，
+     * 而且因为我们使用树来处理箱子中的大型碰撞集，
+     * 我们只是用最便宜的方式异或一些移位的位来减少系统损失，以及合并最高位的影响，
+     * 否则由于表边界的原因，索引计算中永远不会使用最高位。
+     */    
+    static final int hash(Object key) {
+        int h;
+        return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);
+    }
+~~~
+
+
+
+2. hashMap的数组长度为什么保持2的次幂
+
+* 总结回答：为了提高性能，hashMap底层是数组+链表+红黑树的实现方式，第一层是数组，存放逻辑是：会根据key的hashCode值算出对应的下标，将值存放到对应位置上去，数组长度保持2的次幂，**是为了使得所有元素在数组中分布更加均匀**，以减少红黑树（链表）中查找元素时数据比较的次数，从而达到提高新能的目的
 
 * hashMap的数组长度一定保持2的次幂，比如16的二进制表示为 10000，那么length-1就是15，二进制为01111，同理扩容后的数组长度为32，二进制表示为100000，length-1为31，二进制表示为011111。
   这样会保证低位全为1，而扩容后只有一位差异，也就是多出了最左位的1，这样在通过 h&(length-1)的时候，只要h对应的最左边的那一个差异位为0，就能保证得到的新的数组索引和老数组索引一致(大大减少了之前已经散列良好的老数组的数据位置重新调换)，还有，数组长度保持2的次幂，length-1的低位都为1，会使得获得的数组索引index更加均匀。
@@ -206,6 +267,17 @@
   
   在小数据量的情况下16比15和20更能减少key之间的碰撞，而加快查询的效率。
 
+3. HashMap的扩容机制
+
+4. hashMap是线程安全的吗？不安全体现在哪里？
+
+答：不是线程安全的，不安全主要体现在put的时候，可能会出现带环链表，再下次get时就会出现死循环
+
+5. 要实现安全的Map有几种方式？各有什么优缺点
+
+* hashTable
+* Collections.synchronizedMap()
+* ConcurrentHashMap
 
 
 ## LinkedHashMap
@@ -250,8 +322,129 @@
 
 * LinkedHashMap与LRU（Least Recently Used，最近最少使用）,可以通过设置accessOrder = true，get和put时候就会调用afterNodeAccess()方法，改变元素在链表的位置，将其移动到最后，
 
+## ConcurrentHashMap
+
+![](img/2022-05-27-11-20-50.png)
+
+在HashMap的基础上，重点理解锁机制，
+
+在put时，将锁操作的数组元素加锁
+
+get不加锁
+
+扩容时候
+
+### 重要方法
+
+* put
+  
+~~~java
+
+public V put(K key, V value) {
+    return putVal(key, value, false);
+}
+ 
+/** Implementation for put and putIfAbsent */
+// onlyIfAbsent
+//  true: 的意思是在put一个KV时，如果K已经存在什么也不做则返回null
+//  false: 的意思是在put一个KV时，如果K已经存在，覆盖原值
+// 如果不存在则put操作后返回V值
+final V putVal(K key, V value, boolean onlyIfAbsent) {
+    // ConcurrentHashMap中是不能有空K或空V的
+    if (key == null || value == null) throw new NullPointerException();
+    // hash算法得到hash值
+    int hash = spread(key.hashCode());
+    // 记录链表中的元素个数
+    int binCount = 0;
+    for (Node<K,V>[] tab = table;;) {
+        Node<K,V> f; int n, i, fh;
+        //如果table是空的，就去初始化，下一个循环就不是空的了
+        if (tab == null || (n = tab.length) == 0)
+            tab = initTable();
+        //如果没有取到值，即取i位的元素是空的，为什么i取值是(n-1)&hash??
+        //这是hash的精华所在，在这里可以先思考一下
+        //此时直接到KV包装成Node节点放在i位置即可
+        else if ((f = tabAt(tab, i = (n - 1) & hash)) == null) {
+            if (casTabAt(tab, i, null,
+                         new Node<K,V>(hash, key, value, null)))
+                break;                   // no lock when adding to empty bin
+        }
+        //MOVED，定义为-1。标记原table正在执行扩容任务，可以去帮忙(支持多线程扩容)
+        else if ((fh = f.hash) == MOVED)
+            tab = helpTransfer(tab, f);
+        else {
+            //这种情况是，在i的位置找到了一个元素，说明此元素的K与之间的某个K的hash结果是一样的
+            //
+            V oldVal = null;
+            synchronized (f) {//同步锁住第一个元素
+                if (tabAt(tab, i) == f) {//为了安全起见，再一次判断
+                    if (fh >= 0) {//节点的hash值大于0，说明是一个链表结构
+                        binCount = 1;//记录链表的元素个数
+                        for (Node<K,V> e = f;; ++binCount) {
+                            K ek;
+                            //判断给定的key是否与取出的key相同，如果是则替换元素
+                            if (e.hash == hash &&
+                                ((ek = e.key) == key ||
+                                 (ek != null && key.equals(ek)))) {
+                                oldVal = e.val;
+                                if (!onlyIfAbsent)
+                                    e.val = value;
+                                break;//直接跳出，这是一种思想。在编程时可以减少一些if else判断
+                            }
+                            //否则就是不相等，那就把此元素放在链表的最后一个元素
+                            Node<K,V> pred = e;
+                            if ((e = e.next) == null) {
+                                pred.next = new Node<K,V>(hash, key,
+                                                          value, null);
+                                break;
+                            }
+                        }
+                    }
+                    //如果不是链表，而是红黑树
+                    else if (f instanceof TreeBin) {
+                        Node<K,V> p;
+                        binCount = 2;
+                        //把元素放入树中的对应位置 
+                        if ((p = ((TreeBin<K,V>)f).putTreeVal(hash, key,
+                                                       value)) != null) {
+                            oldVal = p.val;
+                            if (!onlyIfAbsent)
+                                p.val = value;
+                        }
+                    }
+                }
+            }
+            if (binCount != 0) {
+                //链表的元素大于等于8时，就把链表转换为红黑树
+                if (binCount >= TREEIFY_THRESHOLD)
+                    treeifyBin(tab, i);
+                if (oldVal != null)
+                    return oldVal;
+                break;
+            }
+        }
+    }
+    //新添加一个元素，size加1，可能会触发扩容
+    addCount(1L, binCount);
+    return null;
+}
+
+~~~
+
+
+
+
+
+
+### 问题
+
+1. 是如何实现线程安全和高并发的
 
 ## TreeMap
+
+在Java 2平台v1.2中，这个类进行了改造，以实现Map接口，使其成为Java集合框架的成员。与新的集合实现不同，Hashtable是同步的。如果不需要线程安全的实现，建议使用HashMap来代替Hashtable。如果需要线程安全的高并发实现，那么建议使用java.util.concurrent.ConcurrentHashMap来代替Hashtable
+
+## HashTable
 
 
 

@@ -103,6 +103,7 @@ Docker 轻巧快速。它为基于虚拟机管理程序的虚拟机提供了可�
 ### 安装准备
 1. CentOS 7
 2. 系统内核
+
 ~~~shell
 # 系统内核是3.10以上的
 [root@CENTOS-DOCKER ~]# uname -r
@@ -125,10 +126,15 @@ CENTOS_MANTISBT_PROJECT_VERSION="7"
 REDHAT_SUPPORT_PRODUCT="centos"
 REDHAT_SUPPORT_PRODUCT_VERSION="7"
 ~~~
+
 ### 安装
+
     参考帮助官方文档：https://docs.docker.com/engine/install/centos/
+
 ~~~shell
+
 # 1、卸载旧版本
+
 sudo yum remove docker \
                   docker-client \
                   docker-client-latest \
@@ -175,6 +181,7 @@ yum remove docker-ce docker-ce-cli containerd.io
 2. 删除资源
 rm -rf /var/lib/docker # docker的默认资源路径
 rm -rf /var/lib/containerd
+
 ~~~
 
 ### 阿里云镜像加速
@@ -190,6 +197,7 @@ EOF
 sudo systemctl daemon-reload
 
 sudo systemctl restart docker
+
 ~~~
 
 ### docker run的运行流程
@@ -376,7 +384,7 @@ docker top 容器ID
 ~~~
 
 * 查看容器的元数据信息
-~~~shell
+~~~Shell
 
 [root@CENTOS-DOCKER docker]# docker inspect --help
 
