@@ -1,6 +1,7 @@
 # tomcat
 ## tomcat原理
 <img src="img/tomcat_1.png" style="height:300px;weith:300px;">
+
 ### server服务器
 1. 指整个tomcat服务器，包含多个组件，负责管理和启动各个service，同时还要监听8005端口发来的shutdown命令，用于关闭整个服务器
 ### service服务

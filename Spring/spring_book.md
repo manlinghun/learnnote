@@ -96,7 +96,7 @@
 </table>
 
 ### Spring IoC
-1. 包含了最为基本的IoC容器和BeanFactory的接口的实现，不仅第一了IoC容器的基本接口（BeanFactory），也提供了一系列这个接口的实现，如XmlBeanFactory，为了让应用更方便的使用IOC容器，还需要在IOC容器的外围提供其他支持，包括Resource访问资源的抽象和定位等，所有这些都是Spring IoC模块的基本内容。
+1. 包含了最为基本的IoC容器和BeanFactory的接口的实现，不仅定义了IoC容器的基本接口（BeanFactory），也提供了一系列这个接口的实现，如XmlBeanFactory，为了让应用更方便的使用IOC容器，还需要在IOC容器的外围提供其他支持，包括Resource访问资源的抽象和定位等，所有这些都是Spring IoC模块的基本内容。
 2. Spring 还这几了IoC容器的高级形态ApplicationContext应用上下文供用户使用。
 ### Spring AOP 
 1. Spring核心模块，围绕AOP的增强功能，Spring集成了AspectJ作为AOP的一个特定实现，同时还在JVM动态代理/CGLIB的基础上实现了一个AOP框架，作为Spring集成其他模块的工具。
@@ -119,15 +119,29 @@ spring为应用带来的一个好处就是能够应用解耦，一方面可以�
 
 # 容器和对象的创建流程
 
-# XmlBeanFactory
+## FileSystemXmlApplicationContext
 
-# IoC容器的启动
-BeanDefinition的Resource定位、载入和注册三个过程
-## Resource定位
+![](img/2022-06-11-21-00-14.png)
+
+
+
+## IoC容器的初始化过程
+
+1. BeanDefinition的Resource定位、
+2. BeanDefinition的载入 
+3. 注册三个过程
+
+### Resource定位
+
 1. 指的是BeanDefinition的资源定位
-## BeanDefinition的载入
+
+### BeanDefinition的载入
+
 1. 这个载入过程就是把用户定义好的的Bean表示成IoC容器内部的数据结构，而这个容器内部的数据结构就时BeanDefinition
-## 注册
+
+### 注册
 1. 通过调用BeanDefinitionRegistry接口的实现来完成的，这个注册过程把载入过程中解析得到的BeanDefinition向IoC容器中进行注册
+
+
 
 

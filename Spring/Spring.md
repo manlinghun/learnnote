@@ -140,7 +140,21 @@
 * <context:component-scan> 包 <context:annotation-config>,通常在使用前者后不再使用后者，AutowiredAnnotationBeanPostProcessor和CommonAnnotationBeanPostProcessor也被包含进来
 
 
+# 循环依赖问题
 
+![](img/2022-06-13-22-08-51.png)
+
+
+# AOP
+* **横切关注点**：跨越应用程序多个模块的方法或功能，即是，与我们业务逻辑无关的，但是我们需要关注的部分，就是横切关注点，如日志，安全，缓存，事务等等
+* 切面（ASPECT）：横切关注点呗模块化的特殊对象，它是一个类
+* 通知（Advice）：切面必须要完成的工作，它是类中的一个方法
+* 目标（Target）：被通知的对象
+* 代理（Proxy）：向目标对象应用通知后创建的对象
+* 切入点（PointCut）：切面通知指向的“地点”的定义
+* 连接点（JointCut）：与切入点匹配的执行点
+
+![](img/2022-06-15-21-43-34.png)
 
 
 
