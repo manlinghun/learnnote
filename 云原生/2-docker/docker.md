@@ -162,7 +162,7 @@ yum makecache fast
 sudo yum install docker-ce docker-ce-cli containerd.io
 
 # 5. 启动Docker
-sudo systemctl start docker
+docker 
 
 # 6. 使用docker version查看版本，判断是否安装成功
 docker version
@@ -212,8 +212,9 @@ DockerServer接收到Docker Client的指令，就会执行这个命令
 
 ![底层原理](img/2022-04-04-14-37-25.png)
 
-
 ## Docker常用命令
+
+![image-20221113191338191](img/image-20221113191338191.png)
 
 ### 帮助命令
 
@@ -227,6 +228,10 @@ DockerServer接收到Docker Client的指令，就会执行这个命令
 ~~~
 
 ### 镜像命令
+
+docker image --help
+
+![image-20221113192414324](img\image-20221113192414324.png)
 
 * docker images 查看本地机器上的镜像信息
 ~~~shell
@@ -606,12 +611,14 @@ Options:
 ~~~
 
 * 进入当前正在运行的容器
-    我们通常容器都是使用后台方式运行的，需要进入容器修改一些配置
+  
+    * 我们通常容器都是使用后台方式运行的，需要进入容器修改一些配置
+
 ~~~shell
 
 # 方式1：docker exec 参数 容器id
 
-[root@CENTOS-DOCKER /]# docker exec --help
+[root@CENTOS-DOCKER /] # docker exec --help
 
 Usage:  docker exec [OPTIONS] CONTAINER COMMAND [ARG...]
 
@@ -739,6 +746,7 @@ admin/12345678
 
 * docker run --rm -v portainer_data:/data portainer/helper-reset-password
   
+
 如果不行，就往下看
 
 * docker inspect 98e830d3e97c
