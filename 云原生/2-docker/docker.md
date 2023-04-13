@@ -162,7 +162,7 @@ yum makecache fast
 sudo yum install docker-ce docker-ce-cli containerd.io
 
 # 5. 启动Docker
-docker 
+sudo systemctl start docker
 
 # 6. 使用docker version查看版本，判断是否安装成功
 docker version
