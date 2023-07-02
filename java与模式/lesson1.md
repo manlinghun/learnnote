@@ -1,3 +1,7 @@
+[TOC]
+
+
+
 # 软件可维护性与可复用性
 
 ## 存在的问题
@@ -31,26 +35,290 @@
 # 创建形模式
 
 ## 简单工厂（Simple Factory）模式
-* 又称静态工厂方法模式，简单工厂模式就是一个工厂类根据传入的参数决定创建出哪一种产品类的实例，涉及到三个角色：
+### 介绍
+  又称静态工厂方法模式，简单工厂模式就是一个工厂类根据传入的参数决定创建出哪一种产品类的实例。
+### 结构
+  涉及到三个角色：
   * 工厂角色：担任这个角色是简单工厂模式的核心，含有与应用紧密相关的业务逻辑，工厂类在客户端的调用下创建产品对象。往往由一个具体java类实现
+  ~~~java
+    public class ArtTracerFactory {
+        public static Shape createShape(String shapeName){
+            Shape shape;
+            switch (shapeName){
+                case "circle":
+                    shape = new Circle();
+                    break;
+                case "quadrate":
+                    shape = new Quadrate();
+                    break;
+                case "triangle":
+                    shape = new Triangle();
+                    break;
+                default:
+                    throw new RuntimeException("unknow shape name '"+shapeName+"'");
+            }
+            return shape;
+        }
+    }
+  ~~~
+
   * 抽象产品角色：是由工厂方法创建的对象的父类，或它们共同拥有的接口，抽象产品角色可以用一个java抽象类或者接口来实现
+  ~~~java
+    public interface Shape {
+        void draw();
+        void erase();
+    }
+  ~~~
+
   * 具体产品角色：工厂方法模式创建的对象都是属于这个角色，其必须实现或继承抽象产品角色，具体产品角色由一个具体java类实现
+  ~~~java
+    public class Circle implements Shape {
+        @Override
+        public void draw() {
+            System.out.println("Draw Circle");
+        }
+        @Override
+        public void erase() {
+            System.out.println("Erase Circle");
+        }
+    }
+    public class Quadrate implements Shape {
+        @Override
+        public void draw() {
+            System.out.println("Draw Quadrate");
+        }
+        @Override
+        public void erase() {
+            System.out.println("Erase Quadrate");
+        }
+    }
+    public class Triangle implements Shape {
+        @Override
+        public void draw() {
+            System.out.println("Draw Triangle");
+        }
+        @Override
+        public void erase() {
+            System.out.println("Erase Triangle");
+        }
+    }
+  ~~~
+### 应用
+1. DateFormat
+2. SAX2库中的XMLReaderFactory
+
 
 
 ## 工厂方法(Factory Method)模式
+### 介绍
 * 工厂方法模式是类的创建模式，又叫做虚拟构造子（Virtural Constructor）模式或多态性工厂（Polymorphic Factory）模糊
 * 工厂方法模式的用意是定义一个创建产品对象的工厂接口，将实际创建工作推迟到子类中
-*  使用工厂方法模式涉及到以下几个角色：
-   *  抽象工厂角色：抽象工厂模式的核心，与应用程序无关的，任何创建对象的工厂都必须实现这个接口，在实际系统中，这个角色通常是抽象类来实现
-   *  具体工厂角色：实现了抽象工厂的接口，具体工厂角色含有与应用密切相关的逻辑，且被客户端调用以产生具体的产品对象
-   *  抽象产品角色：工厂方法模式中创建产品的超类型，也就是产品对象共同的父类或者共有的接口，在系统中该角色一般由java抽象类实现
-   *  具体产品角色：实现了抽象产品角色申明的接口，工厂方法模式创建的每一个对象都是具体产品角色的实例
-* 简单工厂与工厂方法模式比较
+### 结构
+  使用工厂方法模式涉及到以下几个角色：
+1. 抽象工厂角色
+    抽象工厂模式的核心，与应用程序无关的，任何创建对象的工厂都必须实现这个接口，在实际系统中，这个角色通常是抽象类来实现
+  ~~~java
+    public interface Creator {
+        Product create();
+    }
+  ~~~
+2. 具体工厂角色
+    实现了抽象工厂的接口，具体工厂角色含有与应用密切相关的逻辑，且被客户端调用以产生具体的产品对象
+  ~~~java
+    public class CreatorOne implements Creator{
+        @Override
+        public Product create() {
+            return new ProductOne();
+        }
+    }
+    public class CreatorTwo implements Creator{
+        @Override
+        public Product create() {
+            return new ProductTwo();
+        }
+    }
+  ~~~
+3. 抽象产品角色
+    工厂方法模式中创建产品的超类型，也就是产品对象共同的父类或者共有的接口，在系统中该角色一般由java抽象类实现
+  ~~~java
+    public interface Product {
+        //产品功能
+    }
+  ~~~
+4. 具体产品角色
+    实现了抽象产品角色申明的接口，工厂方法模式创建的每一个对象都是具体产品角色的实例
+  ~~~java
+    public class ProductOne implements Product{
+      //产品功能实现
+    }
+    public class ProductTwo implements Product{
+      //产品功能实现
+    }
+  ~~~
+### 简单工厂与工厂方法模式比较
   * 工厂方法的核心是一个抽象工厂类，简单工厂的核心是一个具体工厂类
+### 应用
+  1. 在Java聚集中的应用，所有Java的聚集都实现了java.util.Collection接口，这个接口规定所有的Java聚集都必须实现一个iterator方法，这个方法返回一个Iterator对象
+  2. URL与URLConnection的应用，URL对象提供一个openConnection()的工厂方法，这个方法返回一个URLConnection对象
 
 
-## 抽象工厂模式
+## 抽象工厂(Abstract Factory)模式
+### 介绍
+  抽象工厂模式是所有形态的工厂模式中最为抽象和最具一般性的一种形态。
+  抽象工厂模式可以向客户端提供一个接口，使得客户端在不必指定产品的具体类型的情况下创建多个产品族中的产品对象，这就是抽象工厂模式的用意。
+  抽象工厂，“抽象”来自“抽象产品角色”，而“抽象工厂”就是抽象产品角色的工厂
+  ![](img/2023-07-01-14-21-23.png)
+### 结构
+  结合上图，可以看出抽象工厂模式涉及到以下橘色
+1. 抽象工厂角色，
+    担任这个角色的是工厂方法模式的核心，它是与应用系统的商业逻辑无关的。
 
+  ~~~java
+  public interface Creator {
+  
+      ProductA createA();
+  
+      ProductB createB();
+  }
+  ~~~
 
+  
 
-## 单例模式
+2. 具体工厂角色
+    这个角色直接在客户端的调用下创建产品实例，这个角色含有选择适合产品的逻辑。
+
+  ~~~java
+  public class CreatorOne implements Creator{
+  
+  
+      @Override
+      public ProductA createA() {
+          return new ProductAOne();
+      }
+  
+      @Override
+      public ProductB createB() {
+          return new ProductBOne();
+      }
+  }
+  public class CreatorTwo implements Creator{
+      @Override
+      public ProductA createA() {
+          return new ProductATwo();
+      }
+  
+      @Override
+      public ProductB createB() {
+          return new ProductBTwo();
+      }
+  }
+  ~~~
+
+  
+
+3. 抽象产品角色
+    担任这个角色的类是工厂方法模式所创建的对象的父类，
+
+  ~~~java
+  
+  public interface ProductA {
+      // 产品功能
+  }
+  public interface ProductB {
+      // 产品功能
+  }
+  ~~~
+
+  
+
+4. 具体产品角色
+    抽象工厂模式所创建的任何产品对象都是某一个具体产品类的实例，这是客户端最终需要的东西
+
+  ~~~java
+  public class ProductAOne implements ProductA{
+      // 产品功能实现
+  }
+  public class ProductATwo implements ProductA{
+      // 产品功能实现
+  }
+  public class ProductBOne implements ProductB{
+      // 产品功能实现
+  }
+  public class ProductBTwo implements ProductB{
+      // 产品功能实现
+  }
+  ~~~
+
+### 在什么情况下使用抽象工厂模式
+
+文献【GOF95】指出，在以下情况下应当考虑使用抽象工厂模式：
+
+1. 一个系统不应当依赖于产品类实例如何被创建、组合和表达的细节，这对于所有形态的工厂模式都是重要的。
+2. 这个系统的产品有多于一个的产品族，而系统只消费其中某一族的产品。
+3. 同属于一个产品族的产品实在一起使用的、这一约束必须在系统的设计中体现出来。
+4. 系统提供一个产品库类的库、所有的产品以通常的接口出现，从而使客户端不依赖于实现。
+
+## 单例(Singleton)模式
+
+### 介绍
+
+​	单例模式的要点有三个，
+
+	* 一是某一个类只能有一个实例、
+	* 二是它必须自行创建这个实例、
+	* 三是它必须自行向整个系统提供这个实例
+
+### 结构
+
+#### 饿汉式单例类
+
+~~~java
+/**
+ * 饿汉式单例
+ */
+public class EagerSingleton {
+
+    private static EagerSingleton singleton = new EagerSingleton();
+
+    private EagerSingleton(){}
+
+    public static EagerSingleton getInstance() {
+        return singleton;
+    }
+
+}
+~~~
+
+#### 懒汉式单例
+
+~~~java
+/**
+ * 懒汉式单例
+ */
+public class LazySingleton {
+
+    private static LazySingleton singleton;
+
+    private LazySingleton(){}
+
+    synchronized public static LazySingleton getInstance() {
+        if(singleton == null){
+            singleton = new LazySingleton();
+        }
+        return singleton;
+    }
+
+}
+~~~
+
+### 应用
+
+1. java的Runtime对象，
+
+   ~~~java 
+   Runtime rt = Runtime.getRuntime();
+   ~~~
+
+   
+
+   
