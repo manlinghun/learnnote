@@ -50,8 +50,9 @@ public class BeanFactoryTest{
 
 1. DefaultListableBeanFactory
 
-    DefaultListableBeanFactory是整个bean加载的核心部分，是Spring注册及加载bean的默认实现，
-
-
+DefaultListableBeanFactory是整个bean加载的核心部分，是Spring注册及加载bean的默认实现，
 
 ![](img/2023-08-27-22-23-30.png)
+
+2. XmlBeanDefinitionReader
+
