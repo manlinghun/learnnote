@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-08-30T13:56:33.514Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36" version="21.6.9" etag="_RBaneq2t53ttzh3n88A" type="device">
+<mxfile host="app.diagrams.net" modified="2023-09-01T13:59:42.091Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36" etag="N0qw7daz9r7zl2Ljw003" version="21.7.1" type="device">
   <diagram id="CQtJyAKLoX5dJA_bVx7C" name="第 1 页">
-    <mxGraphModel dx="2479" dy="1363" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
+    <mxGraphModel dx="2295" dy="1028" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -57,29 +57,47 @@
             <Array as="points" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="WjjhyvBfbOVh3gDg5auu-1" value="Use" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;fontSize=12;curved=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="node1" target="node5">
+        <mxCell id="WjjhyvBfbOVh3gDg5auu-1" value="Use" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;fontSize=12;curved=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="node1" target="node5" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="-240" y="320" as="sourcePoint" />
             <mxPoint x="-80" y="320" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="WjjhyvBfbOVh3gDg5auu-2" value="Use" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;fontSize=12;curved=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="node4" target="node3">
+        <mxCell id="WjjhyvBfbOVh3gDg5auu-2" value="Use" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;fontSize=12;curved=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="node4" target="node3" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="-69" y="223.5" as="sourcePoint" />
             <mxPoint x="-321" y="226.5" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="WjjhyvBfbOVh3gDg5auu-3" value="Use" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;fontSize=12;curved=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="node4" target="node6">
+        <mxCell id="WjjhyvBfbOVh3gDg5auu-3" value="Use" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;fontSize=12;curved=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="node4" target="node6" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="416" y="360" as="sourcePoint" />
             <mxPoint x="147" y="362" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="WjjhyvBfbOVh3gDg5auu-4" value="Use" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;fontSize=12;curved=1;exitX=0.986;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitPerimeter=0;" edge="1" parent="1" source="node7" target="node8">
+        <mxCell id="WjjhyvBfbOVh3gDg5auu-4" value="Use" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;fontSize=12;curved=1;exitX=0.986;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitPerimeter=0;" parent="1" source="node7" target="node8" edge="1">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="870" y="370" as="sourcePoint" />
             <mxPoint x="1093" y="373" as="targetPoint" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="2sLz_lLfEVIW_7IrI--i-4" value="定义了一些从指定路径（String）或资源（Resource）中读取BeanDefinition的接口，以及其他一些希望BeanDefinition读取器实现的接口" style="text;strokeColor=none;fillColor=none;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="-250" y="-248" width="344" height="107" as="geometry" />
+        </mxCell>
+        <mxCell id="2sLz_lLfEVIW_7IrI--i-6" value="抽象基类，提供了一些常用属性，如要使用到的bean工厂和用于加载对象类的类装入器。" style="text;strokeColor=none;fillColor=none;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="289" y="30" width="344" height="107" as="geometry" />
+        </mxCell>
+        <mxCell id="2sLz_lLfEVIW_7IrI--i-7" value="加载资源的策略接口" style="text;strokeColor=none;fillColor=none;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="-894" y="37.5" width="344" height="107" as="geometry" />
+        </mxCell>
+        <mxCell id="2sLz_lLfEVIW_7IrI--i-8" value="用于加载XML文档的策略接口" style="text;strokeColor=none;fillColor=none;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="-894" y="168.5" width="344" height="107" as="geometry" />
+        </mxCell>
+        <mxCell id="2sLz_lLfEVIW_7IrI--i-9" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;XmlBeanDefinitionReader&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="-414.5" y="420" width="309" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="2sLz_lLfEVIW_7IrI--i-10" value="用于XML Bean定义的Bean定义阅读器。将实际的XML文档读取委托给BeanDefinitionDocumentReader接口的实现。" style="text;strokeColor=none;fillColor=none;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="-73.5" y="248" width="344" height="107" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

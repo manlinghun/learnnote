@@ -132,7 +132,7 @@ cond(yes)->e
 cond(no)->op
 ```
 
-# 字体、字号、色
+# 字体、字号、颜色
 指定字体类型： <font face="黑体">我是黑体字</font>
 指定字体大小： <font size=12>我是12号字</font>
 指定字体颜色：<font color=#0099ff>我是蓝色字</font> #0099ff 为颜色的16进制代码
