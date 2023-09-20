@@ -22,3 +22,5 @@
 
 # 其他
 [pdai](https://www.pdai.tech/)
+
+[jfsky](https://www.jfsky.com/)
