@@ -1,17 +1,19 @@
-# 概述
+# java集合
+
+## 1. 概述
 
 * java中集合
 * ![image-20211121202000783](asset/java集合/image-20211121202000783.png)
 
-# List
+## 2. List
 
-## ArrayList
+### 2.1. ArrayList
 
 * ArrayList 类是一个可以动态修改的数组，与普通数组的区别就是它是没有固定大小的限制，我们可以添加或删除元素。ArrayList 继承了 AbstractList ，并实现了 List 接口
 
 ![image-20210905110504598](asset/java集合/image-20210905110504598.png)
 
-### 初始化
+#### 2.1.1. 初始化
 
 *  ArrayList底层维护的是一个数组，创建时候可指定数据长度，如果没有指定，将初始化成一个空数组
 
@@ -32,7 +34,7 @@
 
   
 
-### 添加元素
+#### 2.1.2. 添加元素
 
 * add()
   
@@ -85,11 +87,11 @@
       }
     ~~~
 
-## LinkedList
+### 2.2. LinkedList
 
 * LinkedList底层是一个双向链表，所以不存在扩容等问题，元素的添加效率高，但是检索效率低
 
-### 获取指定位置元素get(int index)
+#### 2.2.1. 获取指定位置元素get(int index)
 
 * 判断元素与集合大小的关系，决定从前往后找还是从后往前找
   
@@ -117,12 +119,12 @@
     }
 ~~~
 
-### 删除
+#### 2.2.2. 删除
 
 * 找到指定位置元素，并删除
 
 
-## 比较
+### 2.3. 比较
 
 | 集合类型   | 底层实现 | 特征 |
 | ---------- | -------- | ---- |
@@ -131,37 +133,37 @@
 
 
 
-# Set
+## 3. Set
 
-## HashSet
+### 3.1. HashSet
 
 * HashSet的底层实现是一个HashMap，添加元素时，将要添加的元素作为key,且定义一个默认的对象作为value，并调用HashMap的put方法，利用HashMap的特性，以实现去重。
 
-## LinkedHashSet
+### 3.2. LinkedHashSet
 
 * LinkedHashSet是HashSet的一个子类，其实现是LinkedHashMap
 
-## TreeSet
+### 3.3. TreeSet
 
 
 
 
 
-# Queue
+## 4. Queue
 
 
 
-# Map
+## 5. Map
 
-## HashMap
+### 5.1. HashMap
 
-### 重要属性
+#### 5.1.1. 重要属性
 
 * loadFactor： 加载因子
 
 * DEFAULT_LOAD_FACTOR：默认加载因子 0.75
 
-### 重要方法
+#### 5.1.2. 重要方法
 * 初始化
 * put(K key, V value) 
 	* 基本流程
@@ -204,7 +206,7 @@
 
 * get 
 
-### 问题
+#### 5.1.3. 问题
 
 1. 在计算数组下标时候，为什么要右移16位再做异或运算
  
@@ -280,7 +282,7 @@
 * ConcurrentHashMap
 
 
-## LinkedHashMap
+### 5.2. LinkedHashMap
 
 * LinkedHashMap是HashMap的一个子类，相对于HashMap，其维护了一个基于Entry的双向列表，保存了存入集合中数据的顺序，
 
@@ -322,7 +324,7 @@
 
 * LinkedHashMap与LRU（Least Recently Used，最近最少使用）,可以通过设置accessOrder = true，get和put时候就会调用afterNodeAccess()方法，改变元素在链表的位置，将其移动到最后，
 
-## ConcurrentHashMap
+### 5.3. ConcurrentHashMap
 
 ![](img/2022-05-27-11-20-50.png)
 
@@ -334,7 +336,7 @@ get不加锁
 
 扩容时候
 
-### 重要方法
+#### 5.3.1. 重要方法
 
 * put
   
@@ -436,15 +438,15 @@ final V putVal(K key, V value, boolean onlyIfAbsent) {
 
 
 
-### 问题
+#### 5.3.2. 问题
 
 1. 是如何实现线程安全和高并发的
 
-## TreeMap
+### 5.4. TreeMap
 
 在Java 2平台v1.2中，这个类进行了改造，以实现Map接口，使其成为Java集合框架的成员。与新的集合实现不同，Hashtable是同步的。如果不需要线程安全的实现，建议使用HashMap来代替Hashtable。如果需要线程安全的高并发实现，那么建议使用java.util.concurrent.ConcurrentHashMap来代替Hashtable
 
-## HashTable
+### 5.5. HashTable
 
 
 
