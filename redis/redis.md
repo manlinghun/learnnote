@@ -25,6 +25,8 @@ PONG
 
 ## 2. redis持久化方式
 
+  redis持久化主要是RDB和AOF
+
 ### 2.1. RDB(Redis Database)
 
 #### 2.1.1. 概念

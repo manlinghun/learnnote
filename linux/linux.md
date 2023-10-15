@@ -14,5 +14,6 @@
 * 下载文件：sz
 * 解压：tar -zxvf 
 * 打包：tar -zcvf
+* 建软链接: ln -s 源文件 目标文件 ：ln -s redis-6.2.3 redis
 
 
