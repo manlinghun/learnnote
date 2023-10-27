@@ -1,8 +1,16 @@
-#  Spring源码深度解析
+# Spring源码深度解析
 
-## 容器的基本实现
+## 1. Spring整体架构
 
-### 容器的基本用法
+### 1.1. 整体架构
+
+Spring框架是一个分层架构，包含一系列的功能要素，大约分为20多个模块
+[![](img/2023-10-27-20-01-11.png)](drawio_repo/spring整体架构.drawio)
+
+
+## 2. 容器的基本实现
+
+### 2.1. 容器的基本用法
 
 1. 定义bean
 ~~~java
@@ -44,9 +52,9 @@ public class BeanFactoryTest{
 ~~~
 
 
-### Spring的结构组成
+### 2.2. Spring的结构组成
 
-#### 核心类分析
+#### 2.2.1. 核心类分析
 
 1. DefaultListableBeanFactory
 
