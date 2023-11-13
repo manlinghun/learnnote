@@ -38,14 +38,14 @@ Data Access/Integration包含JDBC、ORM、OXM、JMS和Transaction模块
 * Web-Struts模块，提供了对Struts的支持，注意该模块已经在spring 3.0中被废弃
 * Web-Portlet模块，提供了用于Portlet环境和Web-Servlet模块的MVC的实现
 
-#### AOP
+#### 1.1.4. AOP
 
 AOP模块提供了一个面向切面编程的实现，Spring AOP模块为基于Spring的应用程序中的对象提供了事务管理服务，
 
 * Aspects模块提供了对AspectJ的集成支持
 * Instrumentation模块提供了class instrumentation支持和classloader实现，使得可以再特定的应用服务器上使用
 
-#### Test
+#### 1.1.5. Test
 
 Test模块支持使用JUnit和TestNG对Spring组件进行测试
 
@@ -324,7 +324,7 @@ XmlBeanDefinitionReader 中，通过documentLoader来加载Document，这里的d
 ~~~
 
 
-#### EntityResolver用法
+#### 2.5.1. EntityResolver用法
 
 EntityResolver作用是项目本身就可以提供一个如何寻找DTD声明的方法，及有程序来实现DTD申明的过程
 
@@ -475,7 +475,7 @@ EntityResolver作用是项目本身就可以提供一个如何寻找DTD声明的
 
 ~~~
 
-#### 解析BeanDefinition
+#### 3.1.1. 解析BeanDefinition
 
 这一步其实委托给了BeanDefinitionParserDelegate类的parseBeanDefinitionElement方法进行
 
@@ -650,33 +650,252 @@ EntityResolver作用是项目本身就可以提供一个如何寻找DTD声明的
 
 2. 解析各种属性
 
- 主要包含一下属性
- 1. scope
- 2. abstract
- 3. lazy-init
- 4. autowire
- 5. depends-on
- 6. autowire-candidate
- 7. primary
- 8. init-method
- 9. destroy-method
- 10. factory-method
- 11. factory-bean
+主要包含以下属性：
+* scope
+* abstract
+* lazy-init
+* autowire
+* depends-on
+* autowire-candidate
+* primary
+* init-method
+* destroy-method
+* factory-method
+* factory-bean
 
 3. 解析子元素mate
 
-parseMetaElements
+parseMetaElements()
 
-4. 
+4. 解析lookup-method
+   
+parseLookupOverrideSubElements()
+
+5. 解析replaced-method 
+
+6. 解析子元素constructor-arg
+7. 解析子元素property
+8. 解析子元素qualifier
+   
+#### 3.1.2. AbstractBeanDefinition属性
+
+#### 3.1.3. 解析默认标签中的自定义标签元素
+
+#### 3.1.4. 注册解析的BeanDefinition
+
+BeanDefinitionReaderUtils.registerBeanDefinition(bdHolder, getReaderContext().getRegistry());
+
+~~~java
+
+public static void registerBeanDefinition(
+			BeanDefinitionHolder definitionHolder, BeanDefinitionRegistry registry)
+			throws BeanDefinitionStoreException {
+
+		// Register bean definition under primary name.
+		// 使用beanName作为唯一标识注册
+		String beanName = definitionHolder.getBeanName();
+		registry.registerBeanDefinition(beanName, definitionHolder.getBeanDefinition());
+
+		// Register aliases for bean name, if any.
+		// 有别名的话，注册所有别名
+		String[] aliases = definitionHolder.getAliases();
+		if (aliases != null) {
+			for (String alias : aliases) {
+				registry.registerAlias(beanName, alias);
+			}
+		}
+	}
 
 
 
+~~~
+
+1. 通过BeanName注册BeanDefinition
+
+注册这一步交给了BeanDefinitionRegistry来实现，BeanDefinitionRegistry是一个接口，一般由对应的BeanFactory来实现，如DefaultListableBeanFactory
+
+~~~java
+@Override
+	public void registerBeanDefinition(String beanName, BeanDefinition beanDefinition)
+			throws BeanDefinitionStoreException {
+
+		Assert.hasText(beanName, "Bean name must not be empty");
+		Assert.notNull(beanDefinition, "BeanDefinition must not be null");
+
+		if (beanDefinition instanceof AbstractBeanDefinition abd) {
+			try {
+				abd.validate();
+			}
+			catch (BeanDefinitionValidationException ex) {
+				throw new BeanDefinitionStoreException(beanDefinition.getResourceDescription(), beanName,
+						"Validation of bean definition failed", ex);
+			}
+		}
+
+		BeanDefinition existingDefinition = this.beanDefinitionMap.get(beanName);
+		if (existingDefinition != null) {
+			if (!isAllowBeanDefinitionOverriding()) {
+				throw new BeanDefinitionOverrideException(beanName, beanDefinition, existingDefinition);
+			}
+			else if (existingDefinition.getRole() < beanDefinition.getRole()) {
+				// e.g. was ROLE_APPLICATION, now overriding with ROLE_SUPPORT or ROLE_INFRASTRUCTURE
+				if (logger.isInfoEnabled()) {
+					logger.info("Overriding user-defined bean definition for bean '" + beanName +
+							"' with a framework-generated bean definition: replacing [" +
+							existingDefinition + "] with [" + beanDefinition + "]");
+				}
+			}
+			else if (!beanDefinition.equals(existingDefinition)) {
+				if (logger.isDebugEnabled()) {
+					logger.debug("Overriding bean definition for bean '" + beanName +
+							"' with a different definition: replacing [" + existingDefinition +
+							"] with [" + beanDefinition + "]");
+				}
+			}
+			else {
+				if (logger.isTraceEnabled()) {
+					logger.trace("Overriding bean definition for bean '" + beanName +
+							"' with an equivalent definition: replacing [" + existingDefinition +
+							"] with [" + beanDefinition + "]");
+				}
+			}
+			this.beanDefinitionMap.put(beanName, beanDefinition);
+		}
+		else {
+			if (isAlias(beanName)) {
+				if (!isAllowBeanDefinitionOverriding()) {
+					String aliasedName = canonicalName(beanName);
+					if (containsBeanDefinition(aliasedName)) {  // alias for existing bean definition
+						throw new BeanDefinitionOverrideException(
+								beanName, beanDefinition, getBeanDefinition(aliasedName));
+					}
+					else {  // alias pointing to non-existing bean definition
+						throw new BeanDefinitionStoreException(beanDefinition.getResourceDescription(), beanName,
+								"Cannot register bean definition for bean '" + beanName +
+								"' since there is already an alias for bean '" + aliasedName + "' bound.");
+					}
+				}
+				else {
+					removeAlias(beanName);
+				}
+			}
+			if (hasBeanCreationStarted()) {
+				// Cannot modify startup-time collection elements anymore (for stable iteration)
+				synchronized (this.beanDefinitionMap) {
+					this.beanDefinitionMap.put(beanName, beanDefinition);
+					List<String> updatedDefinitions = new ArrayList<>(this.beanDefinitionNames.size() + 1);
+					updatedDefinitions.addAll(this.beanDefinitionNames);
+					updatedDefinitions.add(beanName);
+					this.beanDefinitionNames = updatedDefinitions;
+					removeManualSingletonName(beanName);
+				}
+			}
+			else {
+				// Still in startup registration phase
+				this.beanDefinitionMap.put(beanName, beanDefinition);
+				this.beanDefinitionNames.add(beanName);
+				removeManualSingletonName(beanName);
+			}
+			this.frozenBeanDefinitionNames = null;
+		}
+
+		if (existingDefinition != null || containsSingleton(beanName)) {
+			resetBeanDefinition(beanName);
+		}
+		else if (isConfigurationFrozen()) {
+			clearByTypeCache();
+		}
+	}
+~~~
+
+1. 通过别名注册BeanDefinition
+
+该工作交由BeanDefinitionRegistry的registerAlias方法实现，该方法一般在SimpleAliasRegistry中被实现
+~~~Java
+
+	public void registerAlias(String name, String alias) {
+		Assert.hasText(name, "'name' must not be empty");
+		Assert.hasText(alias, "'alias' must not be empty");
+		synchronized (this.aliasMap) {
+			if (alias.equals(name)) {
+				this.aliasMap.remove(alias);
+				if (logger.isDebugEnabled()) {
+					logger.debug("Alias definition '" + alias + "' ignored since it points to same name");
+				}
+			}
+			else {
+				String registeredName = this.aliasMap.get(alias);
+				if (registeredName != null) {
+					if (registeredName.equals(name)) {
+						// An existing alias - no need to re-register
+						return;
+					}
+					if (!allowAliasOverriding()) {
+						throw new IllegalStateException("Cannot define alias '" + alias + "' for name '" +
+								name + "': It is already registered for name '" + registeredName + "'.");
+					}
+					if (logger.isDebugEnabled()) {
+						logger.debug("Overriding alias '" + alias + "' definition for registered name '" +
+								registeredName + "' with new target name '" + name + "'");
+					}
+				}
+				checkForAliasCircle(name, alias);
+				this.aliasMap.put(alias, name);
+				if (logger.isTraceEnabled()) {
+					logger.trace("Alias definition '" + alias + "' registered for name '" + name + "'");
+				}
+			}
+		}
+	}
+
+~~~
+
+
+#### 3.1.5. 通知监听器解析和注册完成
+
+getReaderContext().fireComponentRegistered(new BeanComponentDefinition(bdHolder));
+
+这只主要是为了功能的扩展，开发者如果需要对注册BeanDefinition时间进行监听，可以通过注册监听器的方式将处理逻辑写入监听器中，Spring默认逻辑中暂无对此事件的处理
 
 ### 3.2. alias标签的解析
 
+
+DefaultBeanDefinitionDocumentReader类中的 processAliasRegistration
+
+~~~java
+	protected void processAliasRegistration(Element ele) {
+		String name = ele.getAttribute(NAME_ATTRIBUTE);
+		String alias = ele.getAttribute(ALIAS_ATTRIBUTE);
+		boolean valid = true;
+		if (!StringUtils.hasText(name)) {
+			getReaderContext().error("Name must not be empty", ele);
+			valid = false;
+		}
+		if (!StringUtils.hasText(alias)) {
+			getReaderContext().error("Alias must not be empty", ele);
+			valid = false;
+		}
+		if (valid) {
+			try {
+				// 同bean注册中的 registerAlias
+				getReaderContext().getRegistry().registerAlias(name, alias);
+			}
+			catch (Exception ex) {
+				getReaderContext().error("Failed to register alias '" + alias +
+						"' for bean with name '" + name + "'", ele, ex);
+			}
+			getReaderContext().fireAliasRegistered(name, alias, extractSource(ele));
+		}
+	}
+~~~
+
 ### 3.3. import标签的解析
 
+DefaultBeanDefinitionDocumentReader类中的importBeanDefinitionResource
+
 ### 3.4. 嵌入式beans标签的解析
+
+DefaultBeanDefinitionDocumentReader类中的doRegisterBeanDefinitions
 
 ## 4. 自定义标签解析
 
@@ -686,7 +905,24 @@ parseMetaElements
 
 ## 5. bean的加载
 
-### 5.1. 加载步骤
+在代码中体现为
+~~~java
+
+factory.getBean("injectionService", InjectionService.class);
+
+~~~
+
+底层一般调用的是AbstractBeanFactory的getBean相关方法，如:
+
+~~~java
+
+	public Object getBean(String name) throws BeansException {
+		return doGetBean(name, null, null, false);
+	}
+
+~~~
+对重调用的是doGetBean方法
+
 
 1. 转换对应beanName
 2. 尝试从缓存中加载单例
@@ -698,23 +934,28 @@ parseMetaElements
 8. 针对不同的scope进行bean的创建
 9. 类型转换
 
-### 5.2. FactoryBean的使用
+### 5.1. FactoryBean的使用
 
-### 5.3. 缓存中获取单例bean
+### 5.2. 缓存中获取单例bean
 
-### 5.4. 从Bean的实例中获取对象
+### 5.3. 从Bean的实例中获取对象
 
-### 5.5. 获取单例
+### 5.4. 获取单例
 
-### 5.6. 准备创建bean
+### 5.5. 准备创建bean
 
-### 5.7. 循环依赖问题
+### 5.6. 循环依赖问题
 
-### 5.8. 创建bean
+### 5.7. 创建bean
 
 ## 6. 容器的功能扩展
 
+前面的分株都是基于BeanFactory以及其实现XmlBeanFactory来展开的，在Spring中，还提提供另外一个接口ApplicationContext,用来扩展BeanFactory的现有的功能
 
-## AOP 
+该部分也是在实际开发中比较重要的一部分内容
 
-## 
+
+
+## 7. AOP 
+
+## 8.  
