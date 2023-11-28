@@ -954,6 +954,136 @@ factory.getBean("injectionService", InjectionService.class);
 
 该部分也是在实际开发中比较重要的一部分内容
 
+### 6.1. 功能扩展
+
+要弄清楚ApplicationContext在BeanFactory的基础上扩展了哪些功能，要先看一下以下一段代码，我们以ClassPathXmlApplicationContext为例，从其构造函数开始理解
+
+~~~java
+	public ClassPathXmlApplicationContext(String... configLocations) throws BeansException {
+		this(configLocations, true, null);
+	}
+
+	public ClassPathXmlApplicationContext(
+		String[] configLocations, boolean refresh, @Nullable ApplicationContext parent)
+		throws BeansException {
+
+		super(parent);
+		setConfigLocations(configLocations);
+		if (refresh) {
+			refresh();
+		}
+	}
+
+~~~
+
+重点看其refresh()方法，是在AbstractApplicationContext实现的
+
+~~~java
+
+	@Override
+	public void refresh() throws BeansException, IllegalStateException {
+		synchronized (this.startupShutdownMonitor) {
+			StartupStep contextRefresh = this.applicationStartup.start("spring.context.refresh");
+
+			// Prepare this context for refreshing.
+			// 为刷新准备此上下文。
+			prepareRefresh();
+
+			// Tell the subclass to refresh the internal bean factory.
+			// 告诉子类刷新内部bean工厂。
+			// 创建容器，加载配置文件中的属性值到当前工厂中，存放属性信息的就是BeanDefinition
+			ConfigurableListableBeanFactory beanFactory = obtainFreshBeanFactory();
+
+			// Prepare the bean factory for use in this context.
+			// 准备在此上下文中使用的bean工厂。
+			// BeanFactory的准备工作，对各种属性进行填充
+			prepareBeanFactory(beanFactory);
+
+			try {
+				// Allows post-processing of the bean factory in context subclasses.
+				// 允许在上下文子类中对bean工厂进行后处理
+				postProcessBeanFactory(beanFactory);
+
+				StartupStep beanPostProcess = this.applicationStartup.start("spring.context.beans.post-process");
+				// Invoke factory processors registered as beans in the context.
+				// 调用在上下文中注册为bean的工厂处理器
+				invokeBeanFactoryPostProcessors(beanFactory);
+
+				// Register bean processors that intercept bean creation.
+				// 注册拦截bean创建的bean处理器，这里只是注册，调用在getBean方法
+				registerBeanPostProcessors(beanFactory);
+				beanPostProcess.end();
+
+				// Initialize message source for this context.
+				// 初始化此上下文的消息源
+				initMessageSource();
+
+				// Initialize event multicaster for this context.
+				// 为此上下文初始化事件多播
+				// 初始化事件监听多路广播器
+				initApplicationEventMulticaster();
+
+				// Initialize other special beans in specific context subclasses.
+				// 在特定的上下文子类中初始化其他特殊bean
+				// 留给子类来初始化其他的bean
+				onRefresh();
+
+				// Check for listener beans and register them.
+				// 检查侦听器bean并注册它们
+				registerListeners();
+
+				// Instantiate all remaining (non-lazy-init) singletons.
+				// 实例化所有剩余的(非lazy-init)单例
+				finishBeanFactoryInitialization(beanFactory);
+
+				// Last step: publish corresponding event.
+				// 最后一步:发布相应的事件
+				finishRefresh();
+			}
+
+			catch (BeansException ex) {
+				if (logger.isWarnEnabled()) {
+					logger.warn("Exception encountered during context initialization - " +
+							"cancelling refresh attempt: " + ex);
+				}
+
+				// Destroy already created singletons to avoid dangling resources.
+				destroyBeans();
+
+				// Reset 'active' flag.
+				cancelRefresh(ex);
+
+				// Propagate exception to caller.
+				throw ex;
+			}
+
+			finally {
+				// Reset common introspection caches in Spring's core, since we
+				// might not ever need metadata for singleton beans anymore...
+				// 重置Spring核心中的通用内省缓存，因为我们可能再也不需要单例bean的元数据了……
+				resetCommonCaches();
+				contextRefresh.end();
+			}
+		}
+	}
+
+~~~
+
+从上述代码中我们一一解析其为我们增加的功能
+1. prepareRefresh() 初始化前的准备工作，例如对系统属性或者环境变量进行准备及验证
+2. obtainFreshBeanFactory() 获取BeanFactory，初始化、并进行XML文件的读取
+3. prepareBeanFactory(beanFactory); 准备在此上下文中使用的bean工厂。 BeanFactory的准备工作，对各种属性进行填充,配置工厂的标准上下文特征，比如上下文的ClassLoader和后置处理器。
+4. postProcessBeanFactory(beanFactory);在标准初始化之后修改应用程序上下文的内部bean工厂。所有的bean定义都已加载，但还没有实例化任何bean。这允许在特定的ApplicationContext实现中注册特殊的BeanPostProcessors等。
+5. invokeBeanFactoryPostProcessors(beanFactory);调用在上下文中注册为bean的工厂处理器,实例化并调用所有已注册的BeanFactoryPostProcessor bean，如果给定，则遵循显式顺序。
+6. registerBeanPostProcessors(beanFactory);注册拦截bean创建的bean处理器，这里只是注册，调用在getBean方法
+7. initMessageSource();初始化此上下文的消息源
+8. initApplicationEventMulticaster();初始化事件监听多路广播器
+9. onRefresh(); 在特定的上下文子类中初始化其他特殊bean
+10. registerListeners(); 检查侦听器bean并注册它们
+11. finishBeanFactoryInitialization(beanFactory); 实例化所有剩余的(非lazy-init)单例
+12. finishRefresh();最后一步:发布相应的事件
+
+
 
 
 ## 7. AOP 
