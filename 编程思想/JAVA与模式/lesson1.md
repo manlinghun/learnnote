@@ -385,11 +385,61 @@ public class LazySingleton {
 
 #### 3.5.2. 结构
 
-    建造模式包含如下角色：
-    * 抽象建造者(Builder)角色,给出一个抽象接口，以规范产品对象的各个部分的创建工作。
-    * 具体建造者(Concrete Builder)角色，实现抽象建造者所定义的接口，实现产品的各个部件的创建工作。
-    * 导演者(Director)角色，调用具体建造者来创建产品对象的各个部分，irector不直接操作具体建造者，而是通过抽象建造者来操作。
-    * 产品(Product)角色，是被构建的复杂对象。
+建造模式包含如下角色：
+* 抽象建造者(Builder)角色,给出一个抽象接口，以规范产品对象的各个部分的创建工作。
+~~~java
+public abstract class Builder {
+
+    public abstract void buildPartA();
+
+    public abstract void buildPartB();
+
+    public abstract Product getResult();
+}
+~~~
+* 具体建造者(Concrete Builder)角色，实现抽象建造者所定义的接口，实现产品的各个部件的创建工作。
+~~~java
+public class ConcreteBuilder extends Builder{
+
+    public Product product = new Product();
+    @Override
+    public void buildPartA() {
+        product.partA = "partA";
+    }
+
+    @Override
+    public void buildPartB() {
+        product.partB = "partB";
+    }
+
+    @Override
+    public Product getResult() {
+        return product;
+    }
+}
+~~~
+* 导演者(Director)角色，调用具体建造者来创建产品对象的各个部分，irector不直接操作具体建造者，而是通过抽象建造者来操作。
+~~~java
+public class Director {
+
+    private Builder builder;
+
+    public void construct() {
+        builder.buildPartA();
+        builder.buildPartB();
+    }
+}
+
+~~~
+* 产品(Product)角色，是被构建的复杂对象。
+~~~java
+public class Product {
+
+    String partA;
+
+    String partB;
+}
+~~~
 
 #### 3.5.3. 应用
 
@@ -409,8 +459,11 @@ public class LazySingleton {
 
 ## 4. 结构模式 （Structural Patterns）
 
-
 ### 4.1. 适配器模式
+
+#### 4.1.1. 介绍
+
+适配器模式（Adapter Pattern）是作为两个不兼容的接口之间进行转换。
 
 ### 4.2. 缺省模式
 
@@ -419,6 +472,118 @@ public class LazySingleton {
 ### 4.4. 装饰模式
 
 ### 4.5. 代理模式
+
+#### 5.1. 介绍
+    
+    代理模式（Proxy Pattern）是作为一个对象，这个对象封装另一个对象的功能，从而扩展对象的功能。代理模式给某一个对象提供一个代理对象，并有代理对象控制对源对象的引用
+
+    Java中的代理按照代理对象生成式时机不同，分为静态代理和动态代理。静态代理在类加载的时候就确定下来了，而动态代理是在运行时动态生成的。动态代理有两种常用的实现方式：JDK动态代理、CGLIB动态代理
+
+#### 5.2. 结构
+
+代理模式涉及的角色如下：
+
+* 抽象主题角色（Subject）：声明了真实主题的和代理主题的公共接口，
+~~~java
+public interface Subject {
+
+    void doSomething();
+}
+~~~
+* 代理角色（Proxy）：持有真实主题的引用，所以代理可以访问真实主题，在真实主题不可用的时候提供替身访问能力，
+~~~java
+public class ProxySubject implements Subject{
+
+    private RealSubject realSubject=new RealSubject();
+
+    @Override
+    public void doSomething() {
+        System.out.println("ProxySubject doSomething");
+        realSubject.doSomething();
+    }
+}
+~~~
+* 真实主题角色（RealSubject）：定义真实主题的接口，
+~~~java
+
+public class RealSubject implements Subject{
+    @Override
+    public void doSomething() {
+        System.out.println("real do something");
+    }
+}
+~~~
+
+#### 静态代理
+
+动态代理就是上述结构中描述的代理方式
+
+#### 动态代理
+
+1. JDK动态代理
+
+~~~java
+
+public class ProxyFactory {
+
+    public static Object getProxy(Object target)
+    {
+        return Proxy.newProxyInstance(target.getClass().getClassLoader(), target.getClass().getInterfaces(), new InvocationHandler() {
+            @Override
+            public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+                System.out.println("proxy do something");
+                method.invoke(target, args);
+                return null;
+            }
+        });
+    }
+
+}
+
+~~~
+
+2. CGLIB动态代理
+
+由于是第三方jar提供，所以需要引入第三方jar，maven依赖如下：
+
+~~~xml
+
+<dependency>
+    <groupId>cglib</groupId>
+    <artifactId>cglib</artifactId>
+    <version>3.3.0</version>
+</dependency>
+
+~~~
+
+~~~java
+
+import net.sf.cglib.proxy.Enhancer;
+import net.sf.cglib.proxy.MethodInterceptor;
+import net.sf.cglib.proxy.MethodProxy;
+
+import java.lang.reflect.Method;
+
+public class CglibProxyFactory {
+
+    public Object getProxy(Class clazz)
+    {
+        Enhancer enhancer = new Enhancer();
+        enhancer.setSuperclass(clazz);
+        enhancer.setCallback(new MethodInterceptor() {
+            @Override
+            public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
+                System.out.println("cglib proxy do something");
+                return method.invoke(o, objects);
+            }
+        });
+        return enhancer.create();
+    }
+
+}
+
+~~~
+
 
 ### 4.6. 享元模式
 
