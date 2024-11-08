@@ -2,66 +2,6 @@
 
 [toc]
 
-<!-- TOC -->
-
-- 1. 软件可维护性与可复用性 
-    - 1.1. 存在的问题
-    - 1.2. 设计的目标
-- 2. 设计原则
-    - 2.1. “开-闭”原则
-    - 2.2. 里氏代换原则
-    - 2.3. 依赖倒转原则
-    - 2.4. 接口隔离原则
-    - 2.5. 组合/聚合复用原则
-    - 2.6. 迪米特法则(LoD law of Demeter)
-- 3. 创建形模式（Creational Patterns）
-    - 3.1. 简单工厂（Simple Factory）模式
-        - 3.1.1. 介绍
-        - 3.1.2. 结构
-        - 3.1.3. 应用
-    - 3.2. 工厂方法(Factory Method)模式
-        - 3.2.1. 介绍
-        - 3.2.2. 结构
-        - 3.2.3. 简单工厂与工厂方法模式比较
-        - 3.2.4. 应用
-    - 3.3. 抽象工厂(Abstract Factory)模式
-        - 3.3.1. 介绍
-        - 3.3.2. 结构
-        - 3.3.3. 在什么情况下使用抽象工厂模式
-    - 3.4. 单例(Singleton)模式
-        - 3.4.1. 介绍
-        - 3.4.2. 结构
-            - 3.4.2.1. 饿汉式单例类
-            - 3.4.2.2. 懒汉式单例
-        - 3.4.3. 应用
-        - 3.4.4. 双重检查成例的探讨
-    - 3.5. 建造(Builder)模式
-        - 3.5.1. 介绍
-        - 3.5.2. 结构
-        - 3.5.3. 应用
-    - 3.6. 原始(Prototype)模型
-        - 3.6.1. 介绍
-        - 3.6.2. 结构
-        - 3.6.3. 应用
-- 4. 结构模式 （Structural Patterns）
-    - 4.1. 适配器模式
-        - 4.1.1. 介绍
-    - 4.2. 缺省模式
-    - 4.3. 合成模式
-    - 4.4. 装饰模式
-    - 4.5. 代理模式
-        - 4.5.1. 介绍
-        - 4.5.2. 结构
-        - 4.5.3. 静态代理
-        - 4.5.4. 动态代理
-    - 4.6. 享元模式
-    - 4.7. 门面模式
-    - 4.8. 桥接模式
-- 5. 行为模式
-    - 5.1. 不变模式
-    - 5.2. ~~策略模式~~
-
-<!-- /TOC -->
 
 ## 1. 软件可维护性与可复用性 
 
@@ -515,7 +455,9 @@ public class Product {
 #### 3.6.2. 结构
 
 
+
 #### 3.6.3. 应用
+
 
 
 ## 4. 结构模式 （Structural Patterns）
@@ -524,13 +466,194 @@ public class Product {
 
 #### 4.1.1. 介绍
 
-适配器模式（Adapter Pattern）是作为两个不兼容的接口之间进行转换。
+适配器模式（Adapter Pattern）是作为两个不兼容的接口之间进行转换。适配器有类适配器和对象适配器两种不同的形式
+
+#### 4.1.2. 类适配器
+
+类适配器模式把被适配的类的API转换成目标类的API
+
+##### 4.1.2.1. 结构
+
+类适配器涉及以下几个角色
+
+1. 目标角色
+
+~~~java
+public interface Target {
+
+    void sampleOperation1();
+
+    void sampleOperation2();
+
+}
+~~~
+
+2. 源角色
+
+~~~java
+public class Source {
+
+    public void sampleOperation1(){
+        System.out.println("this is original sampleOperation1");
+    }
+
+}
+~~~
+
+3. 适配器角色
+
+~~~java
+public class Adapter extends Source implements Target{
+
+    @Override
+    public void sampleOperation2() {
+        System.out.println("Adapter sampleOperation2");
+    }
+}
+~~~
+
+#### 4.1.3. 对象适配器
+
+与类适配器不同的是，对象适配器是通过组合的方式，把源角色作为适配器的成员变量，从而实现源角色和目标角色之间的转换。
+
+##### 4.1.3.1. 结构
+
+对象适配器涉及以下几个角色
+
+1. 目标角色
+
+~~~java
+public interface Target {
+
+    void sampleOperation1();
+
+    void sampleOperation2();
+
+}
+~~~
+
+2. 源角色
+
+~~~java
+public class Source {
+
+    public void sampleOperation1(){
+        System.out.println("this is original sampleOperation1");
+    }
+
+}
+~~~
+
+3. 适配器角色
+
+~~~java
+
+public class Adapter implements Target {
+
+    public Source source;
+
+    public Adapter(Source source) {
+        this.source = source;
+    }
+    
+    @Override
+    public void sampleOperation1() {
+        source.sampleOperation1();
+    }
+
+    @Override
+    public void sampleOperation2() {
+        System.out.println("Adapter sampleOperation2");
+    }
+}
+
+~~~
+
+#### 4.1.4. 应用场景
+
+1. 以前开发的系统存在满足新系统的需求，但是接口不符合要求，此时，可以使用适配器模式。
+2. 使用第三方提供的API，但是API接口不匹配，此时，可以使用适配器模式。
+
 
 ### 4.2. 缺省模式
 
 ### 4.3. 合成模式
 
 ### 4.4. 装饰模式
+
+#### 4.4.1. 介绍
+装饰模式（Derection Pattern）又称为包装模式（wrapper pattern），它通过继承的方式，将一个对象嵌入到另一个对象中，从而扩展对象的功能。
+
+#### 4.4.2. 结构
+
+装饰模式涉及以下几个角色
+1. 抽象构件（ Component ）定义一个抽象接口以规范准备接收附加责任的对象
+~~~java
+public interface Component {
+    void operation();
+}
+~~~
+2. 具体构件（ Concrete Component ）定义一个准备接收附加责任的类
+~~~java
+public class ConcreteComponent implements Component{
+    @Override
+    public void operation() {
+        System.out.println("ConcreteComponent operation");
+    }
+}
+~~~
+3. 抽象装饰类（ Decorator ）持有一个构件对象的实例，并定义一个与抽象接口一致的接口
+~~~java
+public class Decorator implements Component{
+
+    private Component component;
+
+    public Decorator(Component component)
+    {
+        this.component = component;
+    }
+
+    public Decorator(){
+
+    }
+
+    @Override
+    public void operation() {
+        component.operation();
+    }
+}
+~~~
+1. 具体装饰类（ Concrete Decorator ）负责给构件对象添加附加的职责
+~~~java
+public class ConcreteDecorator extends Decorator{
+
+    @Override
+    public void operation() {
+        super.operation();
+    }
+}
+
+~~~
+
+#### 4.4.3. 应用
+
+什么时间使用装饰者模式
+1. 需要扩展一个类的功能
+2. 对一个类进行功能扩展
+3. 需要增加由一些基本功能的排列组合而产生的非常大量的功能，从而使得继承关系变的不现实
+
+实际应用场景：
+1. IO流中的包装类 BufferedInputStream、BufferedReader等
+
+#### 4.4.4. 代理模式和适配器模式区别
+
+* 相同点
+   1. 都要实现与目标类相同的业务接口
+   2. 在两个类中都要生命目标对象
+   3. 都可以在不修改目标类的前提下增强目标方法
+* 不同点
+  1. 目的不同：装饰者是为了增强目标对象，静态代理是为了保护和隐藏目标对象
+  2. 获取目标对象的方式不同：代理模式通过new关键字获取目标对象，而适配器模式通过构造函数或者setter方法获取目标对象 
 
 ### 4.5. 代理模式
 
@@ -651,6 +774,23 @@ public class CglibProxyFactory {
 ### 4.7. 门面模式
 
 ### 4.8. 桥接模式
+
+#### 4.8.1. 介绍
+
+桥接模式（Bridge Pattern）是把抽象（抽象类）与实现（接口）分离，使它们可以独立变化。
+
+#### 4.8.2. 结构
+
+1. 抽象化角色（Abstraction）给出抽象接口，并保留对实现化对象的引用。
+
+2. 修正抽象化角色的子类，实现抽象化角色的接口，以便扩展更多功能。
+
+3. 实现化角色（Implementor）定义实现化角色的接口，供扩展使用。
+
+4. 扩展实现化角色的子类，实现实现化角色接口，以便扩展更多功能。
+
+#### 4.8.3. 应用
+
 
 ## 5. 行为模式
 
