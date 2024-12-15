@@ -786,6 +786,19 @@ public class CglibProxyFactory {
 
 ### 4.6. 享元（Flyweight）模式
 
+#### 4.6.1. 介绍
+
+享元模式（Flyweight Pattern）是使用共享对象来有效地支持大量细粒度的对象。
+
+#### 4.6.2. 结构
+
+享元模式涉及的角色如下：
+1. 抽象享元角色（Flyweight）：声明一个接口，用于定义内部状态和外部状态，并且定义一个接口，用于返回内部状态的值。
+2. 具体享元角色（ConcreteFlyweight）：实现抽象享元角色，定义具体享元角色的内部状态，并且可以共享内部状态
+3. 享元工厂角色（FlyweightFactory）：用于创建和保存享元角色，当用户请求一个享元时，享元工厂角色会首先检查享元是否已经存在，如果存在则返回该享元，如果不存在则创建一个享元并返回。
+
+#### 4.6.3. 应用
+
 ### 4.7. 门面（Facade）模式
 
 #### 4.7.1. 介绍
@@ -870,19 +883,222 @@ public class ConcreteImplementorA extends Implementor{
 
 
 
-## 5. 行为模式
+## 5. 行为模式 (Behavioral Patterns)
 
 ### 5.1. 不变模式
 
-### 5.2. 策略模式
+#### 5.1.1. 介绍
 
-### 5.3. 模板方法模式
+不变模式（Immutable Pattern）是创建型模式，通过将一个对象封装在它的不可变类中，来保证该对象在 throughout its lifetime 不会改变。
 
-### 5.4. 访问者模式
+#### 5.1.2. 结构
 
-### 5.5. 迭代器模式
 
-### 5.6. 观察者模式
+#### 5.1.3. 应用
+
+
+ 
+### 5.2. 策略(Strategy)模式
+
+#### 5.2.1. 介绍
+
+策略模式（Strategy Pattern）是定义一系列的算法，把它们一个个封装起来，并且使他们可以相互替换。
+
+#### 5.2.2. 结构
+
+策略模式包含以下角色：
+
+1. 抽象策略（Strategy）：定义了一个公共接口，各种不同的算法以不同的方式实现这个接口，环境（Context）使用这个接口调用不同的算法，一般使用接口或抽象类定义
+~~~java
+public interface Strategy {
+
+    void strategyInterface();
+
+}
+~~~
+2. 具体策略（Concrete Strategy）：实现了抽象策略定义的接口，提供具体的算法实现
+~~~java
+public class ConcreteStrategy implements Strategy{
+    @Override
+    public void strategyInterface() {
+
+    }
+}
+~~~
+3. 环境（Context）：定义使用的算法，使用策略对象，客户端不关心算法的细节，只关心接口。
+~~~java
+public class Context {
+
+    private Strategy strategy;
+
+    public Context(Strategy strategy)
+    {
+        this.strategy = strategy;
+    }
+
+    public void contextInterface(){
+        strategy.strategyInterface();
+    }
+
+}
+~~~
+
+#### 5.2.3. 应用
+
+##### 5.2.3.1. 什么时候使用策略模式
+
+1. 如果一个系统里面有许多类，它们之间的区别在于他们的行为，那么使用策略模式可以动态地让一个对象在许多行为中选择一种行为
+2. 一个系统需要动态地在几个算法中选择一种
+3. 一个系统的算法使用的数据不可以让客户端知道，策略模式可以避免让客户端涉及到不必要接触到的复杂的和只与算法有关的数据
+4. 如果一个对象有很多行为，如果不使用恰当的模式，这些行为就只好使用多层的条件选择语句
+
+##### 5.2.3.2. 优缺点
+
+### 5.3. 模板方法(Template Method)模式
+
+#### 5.3.1. 介绍
+
+模板方法模式（Template Method Pattern）定义一个操作中的算法的骨架，而将一些步骤延迟到子类中。模板方法使得子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤。
+
+#### 5.3.2. 结构
+
+模板方法模式包含以下角色：
+
+1. 抽象模板角色（Abstract Template）：定义一个模板方法，该模板方法执行一个或多个抽象操作，这些操作在模板方法中以抽象方式声明；定义一个回调方法，用于让 Concrete Template 扩展模板方法
+~~~java
+public abstract class AbstractTemplate {
+
+    /**
+     * 模板方法
+     */
+    public final void templateMethod(){
+        abstractMethod1();
+        abstractMethod2();
+        doOperation();
+    }
+
+    public abstract void abstractMethod1();
+
+    public abstract void abstractMethod2();
+
+    public final void doOperation() {
+
+	}
+
+}
+~~~
+2. 具体模板角色（Concrete Template）：实现抽象模板角色中的抽象操作，并可以增加自己的操作
+~~~java
+public class ConcreteTemplate extends AbstractTemplate{
+
+    @Override
+    public void abstractMethod1() {
+
+    }
+
+    @Override
+    public void abstractMethod2() {
+
+    }
+}
+
+~~~
+
+### 5.4. 观察者（Observer）模式
+
+#### 5.4.1. 介绍
+
+观察者模式（Observer Pattern）定义对象间的一种一对多的依赖关系，以便当一个对象的状态发生改变时，所有依赖于它的对象都得到通知并被自动更新。
+
+#### 5.4.2. 结构
+
+观察者模式包含以下角色：
+
+1. 抽象观察者（Observer）：定义一个更新接口，当接到通知时更新自己
+~~~java
+public interface Observer {
+
+    /**
+     * 更新
+     */
+    void update();
+}
+~~~
+2. 具体观察者（Concrete Observer）：实现抽象观察者定义的更新接口，以便在得到通知时更新自身的状态
+~~~java
+public class ConcreteObserver implements Observer{
+    @Override
+    public void update() {
+        System.out.println("ConcreteObserver update");
+    }
+}
+~~~
+3. 抽象主题（Subject）：定义一个接口，可以增加或删除观察者对象，当状态发生改变时，通知所有观察者
+~~~java
+public interface Subject {
+
+    void registerObserver(Observer observer);
+
+    void removeObserver(Observer observer);
+
+    void notifyObservers();
+}
+~~~
+4. 具体主题（Concrete Subject）：实现抽象主题定义的接口，当状态发生改变时，通知所有观察者
+~~~java
+public class ConcreteSubject implements Subject{
+
+    private Vector<Observer> observerVector = new Vector();
+
+    @Override
+    public void registerObserver(Observer observer) {
+        observerVector.add(observer);
+    }
+
+    @Override
+    public void removeObserver(Observer observer) {
+        observerVector.remove(observer);
+    }
+
+    @Override
+    public void notifyObservers() {
+        Enumeration<Observer> enumeration = getObservers();
+        while (enumeration.hasMoreElements()){
+            enumeration.nextElement().update();
+        }
+    }
+
+    private Enumeration<Observer> getObservers() {
+        return ((Vector<Observer>)observerVector.clone()).elements();
+    }
+}
+~~~
+
+### 5.5. 迭代器（Iterator）模式
+
+#### 5.5.1. 介绍
+
+迭代器模式（Iterator Pattern）也称游标（Cursor）模式，提供一种方法顺序访问一个聚合对象中的各个元素，而又不暴露该对象的内部表示。
+
+#### 5.5.2. 结构
+
+迭代器模式包含以下角色：
+1. 抽象迭代器（Iterator）：定义一个接口，声明方法，用于访问和遍历元素
+~~~java
+~~~
+2. 具体迭代器（Concrete Iterator）：实现抽象迭代器定义的接口，在迭代器中维持一个对创建它的工厂对象的引用，并提供一个返回工厂对象的方法
+~~~java
+~~~
+3. 聚集（Aggregate）：定义一个接口，声明一个创建迭代器的抽象工厂方法
+~~~java
+~~~
+4. 具体聚集（Concrete Aggregate）：实现抽象聚集定义的接口，创建一个具体迭代器对象，以具体聚集为参数
+~~~java
+~~~
+5. 客户端（CLient）：创建一个具体聚集对象，并使用一个具体迭代器对象来遍历该聚集对象
+~~~java
+~~~
+### 5.6. 访问者模式
 
 ### 5.7. 中介者模式
 
