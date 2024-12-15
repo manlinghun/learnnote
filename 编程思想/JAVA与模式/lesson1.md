@@ -885,7 +885,7 @@ public class ConcreteImplementorA extends Implementor{
 
 ## 5. 行为模式 (Behavioral Patterns)
 
-### 5.1. 不变模式
+### 5.1. 不变（Immutable）模式
 
 #### 5.1.1. 介绍
 
@@ -1243,6 +1243,7 @@ public class ConcreteHandler extends Handler{
     }
 }
 ~~~
+
 #### 5.6.3. 应用
 ~~~java
 public class Client {
@@ -1255,15 +1256,669 @@ public class Client {
 }
 ~~~
 
-### 5.7. 访问者模式
+### 5.7. 命令（Command）模式
 
 #### 5.7.1. 介绍
 
+命令模式（Command Pattern），也称行动（Action）模式或者交易（Transation）模式，是一种对象行为设计模式。在命令模式中，一个请求以命令的形式包裹在对象中，并传给调用对象。调用对象寻找可以处理该命令的合适的对象，并把该命令传给相应的对象，该对象执行命令。
+
 #### 5.7.2. 结构
+
+命令模式包含以下角色：
+1. 抽象命令（Command）：定义一个接口，实现该接口可以执行一个请求
+~~~java
+public interface Command {
+    public void execute();
+}
+~~~
+2. 具体命令（Concrete Command）：实现抽象命令定义的接口，在具体命令中实现请求
+~~~java
+public class ConcreteCommand implements Command{
+
+    private Receiver receiver;
+
+    public ConcreteCommand(Receiver receiver) {
+        this.receiver = receiver;
+    }
+
+    @Override
+    public void execute() {
+        receiver.action();
+    }
+}
+~~~
+3. 请求者（Invoker）：负责调用命令对象执行请求，它know 哪些命令对象可用，unknow 命令对象如何使用
+~~~java
+public class Invoker {
+
+    private Command command;
+
+    public Invoker(Command command) {
+        this.command = command;
+    }
+
+    public void invoke() {
+        command.execute();
+    }
+}
+~~~
+4. 接收者（Receiver）：执行请求所调用的方法的类
+~~~java
+public class Receiver {
+    public Receiver(){
+        System.out.println("receiver init");
+    }
+    public void action(){
+        System.out.println("receiver action");
+    }
+}
+~~~
+5. 客户端（Client）: 创建一个具体命令对象并指定它的接收者
+~~~java
+public class Client {
+    public static void main(String[] args) {
+        Receiver receiver = new Receiver();
+        Command command = new ConcreteCommand(receiver);
+        Invoker invoker = new Invoker(command);
+        invoker.invoke();
+    }
+}
+~~~
 
 #### 5.7.3. 应用
 
-### 5.8. 中介者模式
+### 5.8. 备忘录（Memento）模式
 
-### 5.9. 备忘录模式
+#### 5.8.1. 介绍
+
+备忘录模式（Memento Pattern），也称快照（Snapshot）模式或者Token模式，是一种对象行为设计模式。在备忘录模式中，发起人（Originator）对象通过创建备忘录对象（Memento）来保存其内部状态，而将备忘录对象保存在某一存储器（Caretaker）对象中。当发起人需要时，可以从备忘录对象（Memento）中恢复其内部状态。
+
+#### 5.8.2. 结构
+
+备忘录模式包含以下角色：
+1. 备忘录（Memento）：记录发起人内部状态的对象
+2. 发起人（Originator）：创建备忘录对象，保存和恢复内部状态
+3. 存储器（Caretaker）：保存备忘录对象，提供获取备忘录对象的方法
+
+#### 5.8.3. 应用
+
+##### 5.8.3.1. 白箱实现
+1. 备忘录（Memento）
+~~~java
+
+public class Memento {
+    private String state;
+
+    public Memento(String state)
+    {
+        this.state = state;
+    }
+
+    public String getState()
+    {
+        return state;
+    }
+
+    public void setState(String state)
+    {
+        this.state = state;
+    }
+}
+~~~
+2. 发起人（Originator）
+~~~java
+public class Originator {
+    private String state;
+
+    public Memento createMemento()
+    {
+        return new Memento(state);
+    }
+
+    public void setMemento(Memento memento)
+    {
+        state = memento.getState();
+    }
+
+    public void setState(String state)
+    {
+        this.state = state;
+    }
+    public String getState()
+    {
+        return state;
+    }
+
+}
+~~~
+3. 存储器（Caretaker）
+~~~java
+public class Caretaker {
+    private Memento memento;
+
+    public Memento getMemento()
+    {
+        return memento;
+    }
+
+    public void setMemento(Memento memento)
+    {
+        this.memento = memento;
+    }
+}
+~~~
+4. 客户端（Client）
+~~~java
+public class Client {
+
+    public static void main(String[] args)
+    {
+        Originator originator = new Originator();
+        Caretaker caretaker = new Caretaker();
+        // 改变负责人的状态
+        originator.setState("On");
+        // 创建备忘录
+        caretaker.setMemento(originator.createMemento());
+        // 喜好发起人的状态
+        originator.setState("Off");
+        // 恢复发起人的状态
+        originator.setMemento(caretaker.getMemento());
+    }
+}
+
+~~~
+
+##### 5.8.3.2. 黑箱实现
+1. 备忘录（Memento）
+~~~java
+~~~
+1. 发起人（Originator）
+~~~java
+~~~
+1. 存储器（Caretaker）
+~~~java
+~~~
+
+### 5.9. 状态（State）模式
+
+#### 5.9.1. 介绍
+
+状态模式（State Pattern），也称状态对象（State Object）模式，是一种行为设计模式。在状态模式中，我们用一个对象（状态对象）来封装一系列状态相关的行为，当状态对象发生改变时，它会自动将状态对象所对应的行为进行调用。
+
+#### 5.9.2. 结构
+
+状态模式包含以下角色：
+
+1. 抽象状态（State）：定义一个接口，用以封装与抽象同事类的对话
+~~~java
+public interface State {
+
+    void simpleOperation();
+}
+~~~
+2. 具体状态（Concrete State）：实现抽象状态定义的接口，并且在其中封装具体的行为
+~~~java
+public class ConcreteState implements State{
+    @Override
+    public void simpleOperation() {
+        System.out.println("ConcreteState simpleOperation");
+    }
+}
+~~~
+3. 环境（Context）：定义客户端所感兴趣的接口，并且保存具体状态的对象，提供设置和返回具体状态的方法
+~~~java
+public class Context {
+
+    private State state;
+
+    public Context(State state)
+    {
+        this.state = state;
+    }
+
+    public void setState(State state){
+        this.state = state;
+    }
+
+    public void simpleOperation(){
+        state.simpleOperation();
+    }
+
+}
+~~~
+
+#### 5.9.3. 应用
+
+### 5.10. 访问者（Visitor）模式
+
+#### 5.10.1. 介绍
+
+访问者模式（Visitor Pattern），是一种行为设计模式。在访问者模式中，我们通过一个抽象的访问者对象（Visitor）来封装一系列的对象（Element）所具有的行为，从而实现对象之间的松耦合。
+
+#### 5.10.2. 结构
+
+访问者模式包含以下角色：
+1. 抽象访问者（Visitor）：定义一个接口，用以封装与抽象同事类的对话
+~~~java
+public interface Visitor {
+
+    void visit(NodeA nodeA);
+
+    void visit(NodeB nodeB);
+}
+~~~
+2. 具体访问者（Concrete Visitor）：实现抽象访问者定义的接口，并且在其中封装具体的行为
+~~~java
+public class VisitorA implements Visitor{
+
+    @Override
+    public void visit(NodeA nodeA) {
+
+    }
+
+    @Override
+    public void visit(NodeB nodeB) {
+
+    }
+}
+public class VisitorB implements Visitor{
+
+    @Override
+    public void visit(NodeA nodeA) {
+
+    }
+
+    @Override
+    public void visit(NodeB nodeB) {
+
+    }
+}
+~~~
+3. 抽象节点（Node）：定义一个接口，接收一个访问者对象作为参数
+~~~java
+public interface Node {
+
+    void accept(Visitor visitor);
+
+}
+~~~
+4. 具体节点（Concrete Node）：实现抽象节点定义的接口，并且在其中封装具体的行为
+~~~java
+public class NodeA implements Node{
+    @Override
+    public void accept(Visitor visitor) {
+        operation();
+    }
+
+    public void operation()
+    {
+        System.out.println( "NodeA operation");
+    }
+}
+public class NodeB implements Node{
+    @Override
+    public void accept(Visitor visitor) {
+           operation();
+    }
+
+    public void operation()
+    {
+        System.out.println("NodeB operation");
+    }
+}
+~~~
+5. 结构对象（ObjectStructure）:可以遍历结构中的所有元素，如果需要可提供一个高层次的接口让访问者可以访问每一个元素
+~~~java
+public class ObjectStructure {
+
+    private Node node;
+
+    private Vector<Node> nodes;
+
+    public ObjectStructure(){
+        nodes = new Vector<>();
+    }
+
+    public void action(Visitor visitor){
+        for (Node v : nodes){
+            v.accept(visitor);
+        }
+    }
+
+    public void add(Node node){
+        nodes.add(node);
+    }
+}
+~~~
+
+#### 5.10.3. 应用
+~~~
+public class Client {
+
+    public static void main(String[] args) {
+        ObjectStructure objectStructure = new ObjectStructure();
+        objectStructure.add(new NodeA());
+        objectStructure.add(new NodeB());
+        objectStructure.action(new VisitorA());
+    }
+}
+~~~
+
+### 5.11. 解释器（Interpreter）模式
+
+#### 5.11.1. 介绍
+
+解释器模式（Interpreter Pattern），也称文法分析模式，是一种行为设计模式。在解释器模式中，我们通过一个抽象的表达式对象（Expression）来封装一系列的对象（TerminalExpression）所具有的行为，从而实现对象之间的松耦合。
+
+#### 5.11.2. 结构
+
+解释器模式包含以下角色：
+1. 抽象表达式（Abstract Expression）：定义解释器的接口，封装解释器的基本方法
+~~~java
+public abstract class Expression {
+
+    /**
+     * 以环境类为准，解释给定的任何一个表达式
+     * @param context
+     * @return
+     */
+    public abstract boolean interpret(Context context);
+
+
+    /**
+     * 判断两个对象是否相同
+     * @param object
+     * @return
+     */
+    public abstract boolean equals(Object object);
+
+    /**
+     * 返回表达式的哈希码
+     * @return
+     */
+    public abstract int hashCode();
+
+    /**
+     * 返回表达式的字符串形式
+     * @return
+     */
+    public abstract String toString();
+
+}
+~~~
+2. 终结符表达式（Terminal Expression）：实现抽象表达式定义的接口，封装终结符表达式所具有的行为
+~~~java
+public class Variable extends Expression{
+
+    private String name;
+
+    public Variable(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public boolean interpret(Context context) {
+        return context.lookup(this);
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        return (object != null &&
+                (this.getClass() == object.getClass()) &&
+                (name.equals(((Variable) object).name)));
+    }
+
+    @Override
+    public String toString() {
+        return name;
+    }
+}
+public class Constant extends Expression{
+
+    private boolean value;
+
+    public Constant(boolean value) {
+        this.value = value;
+    }
+
+    @Override
+    public boolean interpret(Context context) {
+        return value;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        return Objects.nonNull(object) && (object instanceof Constant) && (this.value == ((Constant) object).value);
+    }
+
+    @Override
+    public String toString() {
+        return new Boolean(value).toString();
+    }
+}
+~~~
+3. 非终结符表达式（Nonterminal Expression）：实现抽象表达式定义的接口，封装非终结符表达式所具有的行为
+~~~java
+public class And extends Expression{
+
+    private Expression left;
+    private Expression right;
+
+    public And(Expression left, Expression right)
+    {
+        this.left = left;
+        this.right = right;
+    }
+
+    @Override
+    public boolean interpret(Context context) {
+        return left.interpret(context) && right.interpret(context);
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if(Objects.nonNull(object) && (this.getClass() == object.getClass())){
+            return left.equals(((And) object).left) && right.equals(((And) object).right);
+        }
+        return false;
+    }
+
+    @Override
+    public String toString() {
+        return "("+left.toString()+" and "+right.toString()+")";
+    }
+
+    public Expression getLeft() {
+        return left;
+    }
+
+    public Expression getRight() {
+        return right;
+    }
+}
+public class Or extends And{
+
+    public Or(Expression left, Expression right) {
+        super(left, right);
+    }
+
+    @Override
+    public boolean interpret(Context context) {
+         return getLeft().interpret(context) || getRight().interpret(context);
+    }
+
+    @Override
+    public String toString() {
+    	return "(" + getLeft() + " or " + getRight() + ")";
+    }
+
+}
+public class Not extends Expression{
+
+    private Expression expression;
+
+    public Not(Expression expression) {
+        this.expression = expression;
+    }
+
+    @Override
+    public boolean interpret(Context context) {
+        return !expression.interpret(context);
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if(Objects.nonNull(object) && (this.getClass() == object.getClass())){
+            return expression.equals(((Not) object).expression) ;
+        }
+        return false;
+    }
+
+    @Override
+    public String toString() {
+        return "Not("+expression.toString()+")";
+    }
+}
+~~~
+4. 客户端（Client）：创建环境对象，并调用其方法
+~~~java
+public class Client {
+    public static void main(String[] args)
+    {
+        Context context = new Context();
+        Variable x = new Variable("x");
+        Variable y = new Variable("y");
+        Constant c = new Constant(true);
+        context.assign(x, false);
+        context.assign(y, true);
+
+        Expression expression = new Or(new And(x, y), c);
+
+        System.out.println("x=" + x.interpret(context));
+        System.out.println("y=" + y.interpret(context));
+        System.out.println("c=" + c.interpret(context));
+        System.out.println(expression.toString() + "=" +expression.interpret(context));
+
+        Not not = new Not(expression);
+        System.out.println(not.toString() + "=" + not.interpret(context));
+    }
+
+
+}
+~~~
+5. 环境对象（Context）：提供解释器之外的一些全局变量
+~~~java
+public class Context {
+
+    private HashMap map = new HashMap();
+
+    public void assign(Variable variable, boolean value){
+        map.put(variable, new Boolean(value));
+    }
+
+    public boolean lookup(Variable variable){
+        Object o = map.get(variable);
+        if(Objects.nonNull(o)){
+            return ((Boolean) o).booleanValue();
+        }else{
+            throw new RuntimeException();
+        }
+
+    }
+}
+~~~
+
+#### 5.11.3. 应用
+
+### 5.12. 调停者（Mediator）模式
+
+#### 5.12.1. 介绍
+
+调停者模式（Mediator Pattern），也称中介者模式，是一种行为设计模式。在调停者模式中，我们通过一个抽象的中介者对象（Mediator）来封装一系列的同事对象（Colleague）所具有的行为，从而实现对象之间的松耦合。
+
+#### 5.12.2. 结构
+
+调停者模式包含以下角色：
+
+1. 抽象调停者（Mediator）：定义一个接口，用以封装与抽象同事类的对话
+~~~java
+public abstract class Mediator {
+
+    public abstract void colleagueChanged(Colleague colleague);
+
+}
+~~~
+2. 具体调停者（Concrete Mediator）：实现抽象调停者定义的接口，并且在其中封装具体的行为
+~~~java
+public class ConcreteMediator extends Mediator{
+
+    private ColleagueA colleagueA;
+    private ColleagueB colleagueB;
+
+    public void crateColleagues()
+    {
+        colleagueA = new ColleagueA(this);
+        colleagueB = new ColleagueB(this);
+    }
+
+
+    @Override
+    public void colleagueChanged(Colleague colleague) {
+        colleagueA.action();
+        colleagueB.action();
+    }
+}
+~~~
+3. 抽象同事（Colleague）：定义一个接口，用以封装与调停者类的对话
+~~~java
+public abstract class Colleague {
+
+    protected Mediator mediator;
+
+    public Colleague(Mediator mediator)
+    {
+        this.mediator = mediator;
+    }
+
+    public Mediator getMediator() {
+        return mediator;
+    }
+
+    public abstract void action();
+
+    public void change(){
+        mediator.colleagueChanged(this);
+    }
+}
+~~~
+4. 具体同事（Concrete Colleague）：实现抽象同事定义的接口，并且在其中封装具体的行为
+~~~java
+public class ColleagueA extends Colleague{
+
+    public ColleagueA(Mediator mediator) {
+        super(mediator);
+    }
+
+    @Override
+    public void action() {
+        System.out.println("ColleagueA action");
+    }
+}
+public class ColleagueB extends Colleague{
+    public ColleagueB(Mediator mediator) {
+        super(mediator);
+    }
+
+    @Override
+    public void action() {
+        System.out.println("ColleagueB action");
+    }
+}
+~~~
+
+#### 5.12.3. 应用
+
+
+
+
 
