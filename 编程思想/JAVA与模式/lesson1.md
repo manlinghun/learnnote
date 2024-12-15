@@ -1085,22 +1085,185 @@ public class ConcreteSubject implements Subject{
 迭代器模式包含以下角色：
 1. 抽象迭代器（Iterator）：定义一个接口，声明方法，用于访问和遍历元素
 ~~~java
+public interface Iterator {
+    /**
+     * 迭代方法，移动到第一个元素
+     */
+    void first();
+    /**
+     * 迭代方法，移动到下一个元素
+     */
+    void next();
+    /**
+     * 迭代方法，是否已经迭代完毕
+     */
+    boolean isDone();
+    /**
+     * 迭代方法，返还当前元素
+     */
+    Object currentItem();
+}
 ~~~
 2. 具体迭代器（Concrete Iterator）：实现抽象迭代器定义的接口，在迭代器中维持一个对创建它的工厂对象的引用，并提供一个返回工厂对象的方法
 ~~~java
+public class ConcreteIterator implements Iterator{
+
+    private ConcreteAggregate  aggregate;
+
+    private int index = 0;
+    private int size = 0;
+
+    public ConcreteIterator(ConcreteAggregate aggregate) {
+        this.aggregate = aggregate;
+        size = aggregate.size();
+        index = 0;
+    }
+
+    @Override
+    public void first() {
+        index = 0;
+    }
+
+    @Override
+    public void next() {
+        if(index<size){
+            index++;
+        }
+    }
+
+    @Override
+    public boolean isDone() {
+        return index>=size;
+    }
+
+    @Override
+    public Object currentItem() {
+        return aggregate.getElement(index);
+    }
+}
 ~~~
 3. 聚集（Aggregate）：定义一个接口，声明一个创建迭代器的抽象工厂方法
 ~~~java
+public interface Aggregate {
+
+    public Iterator createIterator();
+
+}
 ~~~
 4. 具体聚集（Concrete Aggregate）：实现抽象聚集定义的接口，创建一个具体迭代器对象，以具体聚集为参数
 ~~~java
+public class ConcreteAggregate implements Aggregate{
+
+    private Object[] objects = {1,2,3,4,5,6,7,8,9,10};
+
+
+    @Override
+    public Iterator createIterator() {
+        return new ConcreteIterator(this);
+    }
+
+    public Object getElement(int index) {
+        if (index < objects.length) {
+            return objects[index];
+        } else {
+            return null;
+        }
+    }
+
+    public int size() {
+        return objects.length;
+    }
+}
 ~~~
 5. 客户端（CLient）：创建一个具体聚集对象，并使用一个具体迭代器对象来遍历该聚集对象
 ~~~java
+public class Client {
+
+    private Iterator iterator;
+    private Aggregate aggregate=new ConcreteAggregate();
+
+    public void operation(){
+        iterator = aggregate.createIterator();
+        while (!iterator.isDone()){
+            System.out.println(iterator.currentItem());
+            iterator.next();
+        }
+    }
+
+    public static void main(String[] args) {
+        Client client=new Client();
+        client.operation();
+    }
+}
 ~~~
-### 5.6. 访问者模式
 
-### 5.7. 中介者模式
+#### 5.5.3. 应用
 
-### 5.8. 备忘录模式
+##### 5.5.3.1. 优缺点
+1. 优点
+   1. 简化了聚集的设计，迭代器具有一个遍历接口，这样聚集的接口就不需要具备遍历接口
+   2. 每一个聚集对象都可以有一个或多个迭代子对象，且状态是相互独立的，所以一个聚集对象可以有多个迭代子对象在进行中
+   3. 遍历方法被封装在迭代子中，聚集无需关心
+2. 缺点
+   1. 迭代子给客户端一种聚集是顺序化的错觉
+   2. 迭代子给出的聚类元素没有类型特征，所以客户端必须知道元素类型才能使用
+
+### 5.6. 责任链（Chain of Responsibility）模式
+
+#### 5.6.1. 介绍
+责任链模式（Chain of Responsibility Pattern），也称职责链模式，是一种对象的行为设计模式。在链中前一个对象处理完请求后，将请求传给下一个对象，直到链中的最后一个对象处理完请求。
+
+#### 5.6.2. 结构
+责任链模式包含以下角色：
+1. 抽象处理者（Handler）：定义一个接口，实现该接口可以处理请求，同时可以保存一个对下一个处理者的引用
+~~~java
+public abstract class Handler {
+    private Handler successor;
+    public abstract void handleRequest();
+    public void setSuccessor(Handler successor){
+        this.successor = successor;
+    }
+
+    public Handler getSuccessor() {
+        return successor;
+    }
+}
+~~~
+2. 具体处理者（Concrete Handler）：实现抽象处理者的接口，在具体处理者中定义处理请求的方法，在处理请求时通常会委托其他对象处理，或者自己处理
+~~~java
+public class ConcreteHandler extends Handler{
+    @Override
+    public void handleRequest() {
+        if (Objects.nonNull(getSuccessor())){
+            System.out.println("ConcreteHandler handleRequest");
+            getSuccessor().handleRequest();
+        }else {
+            System.out.println("no handle");
+        }
+    }
+}
+~~~
+#### 5.6.3. 应用
+~~~java
+public class Client {
+    public static void main(String[] args) {
+        Handler h1 = new ConcreteHandler();
+        Handler h2 = new ConcreteHandler();
+        h1.setSuccessor(h2);
+        h1.handleRequest();
+    }
+}
+~~~
+
+### 5.7. 访问者模式
+
+#### 5.7.1. 介绍
+
+#### 5.7.2. 结构
+
+#### 5.7.3. 应用
+
+### 5.8. 中介者模式
+
+### 5.9. 备忘录模式
 
